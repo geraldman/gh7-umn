@@ -13,7 +13,6 @@ import logging
 from telegram import (
     InlineKeyboardButton,
     InlineKeyboardMarkup,
-    ReplyKeyboardMarkup,
     ReplyKeyboardRemove,
     Update,
 )
@@ -35,19 +34,35 @@ from core.models import CROPS, REGION_TO_PROVINCE
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
 )
+# httpx logs every request URL — which contains the bot token. Silence it.
+logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 # Conversation states
 CROP, REGION, DAYS, QTY, CONFIRM = range(5)
 
-_CROP_KEYBOARD = ReplyKeyboardMarkup(
-    [[formatter.crop_label(c) for c in sorted(CROPS)]],
-    one_time_keyboard=True, resize_keyboard=True,
-)
-_REGION_KEYBOARD = ReplyKeyboardMarkup(
-    [[formatter.region_label(r) for r in sorted(REGION_TO_PROVINCE)]],
-    one_time_keyboard=True, resize_keyboard=True,
-)
+# Inline keyboards (buttons attached to the message, same style as the role
+# selection) — typed text still works as a fallback in every state.
+
+def _crop_markup() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup([[
+        InlineKeyboardButton(formatter.crop_label(c), callback_data=f"crop:{c}")
+        for c in sorted(CROPS)
+    ]])
+
+
+def _region_markup() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup([[
+        InlineKeyboardButton(formatter.region_label(r), callback_data=f"region:{r}")
+        for r in sorted(REGION_TO_PROVINCE)
+    ]])
+
+
+def _confirm_markup() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup([[
+        InlineKeyboardButton("✅ Ya", callback_data="confirm:ya"),
+        InlineKeyboardButton("❌ Tidak", callback_data="confirm:tidak"),
+    ]])
 
 
 # --- Role selection ------------------------------------------------------------
@@ -80,8 +95,8 @@ async def set_role_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
         await query.edit_message_text(
             "👨‍🌾 *Peran: Petani*\n\nTanaman apa yang akan Anda panen?",
             parse_mode="Markdown",
+            reply_markup=_crop_markup(),
         )
-        await query.message.reply_text("Pilih komoditas:", reply_markup=_CROP_KEYBOARD)
         return CROP
     if role == "Buyer":
         await query.edit_message_text(
@@ -99,20 +114,44 @@ async def set_role_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
 
 # --- Farmer conversation ---------------------------------------------------------
 
+async def farmer_crop_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    crop = query.data.split(":", 1)[1]
+    context.user_data["crop"] = crop
+    await query.edit_message_text(
+        f"🌱 {formatter.crop_label(crop)}. Di kecamatan/kabupaten mana lahan Anda?",
+        reply_markup=_region_markup(),
+    )
+    return REGION
+
+
 async def farmer_crop(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     crop = normalize_crop(update.message.text)
     if crop is None:  # ladder tier 4: re-prompt with buttons, never crash
         await update.message.reply_text(
             "Maaf, komoditas itu belum didukung. Silakan pilih dari tombol:",
-            reply_markup=_CROP_KEYBOARD,
+            reply_markup=_crop_markup(),
         )
         return CROP
     context.user_data["crop"] = crop
     await update.message.reply_text(
         f"🌱 {formatter.crop_label(crop)}. Di kecamatan/kabupaten mana lahan Anda?",
-        reply_markup=_REGION_KEYBOARD,
+        reply_markup=_region_markup(),
     )
     return REGION
+
+
+async def farmer_region_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    region = query.data.split(":", 1)[1]
+    context.user_data["region"] = region
+    await query.edit_message_text(
+        f"📍 {formatter.region_label(region)}.\n"
+        "Berapa hari lagi sampai panen? (angka saja, misal: 2)"
+    )
+    return DAYS
 
 
 async def farmer_region(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -120,13 +159,12 @@ async def farmer_region(update: Update, context: ContextTypes.DEFAULT_TYPE) -> i
     if region is None:
         await update.message.reply_text(
             "Wilayah itu belum terdaftar. Silakan pilih dari tombol:",
-            reply_markup=_REGION_KEYBOARD,
+            reply_markup=_region_markup(),
         )
         return REGION
     context.user_data["region"] = region
     await update.message.reply_text(
-        "Berapa hari lagi sampai panen? (angka saja, misal: 2)",
-        reply_markup=ReplyKeyboardRemove(),
+        "Berapa hari lagi sampai panen? (angka saja, misal: 2)"
     )
     return DAYS
 
@@ -166,27 +204,15 @@ async def farmer_qty(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         f"- Panen dalam: {d['days']} hari\n"
         f"- Perkiraan: {d['qty'] or '-'} kg\n\n"
         f"Sudah benar?",
-        reply_markup=ReplyKeyboardMarkup([["Ya", "Tidak"]], one_time_keyboard=True,
-                                         resize_keyboard=True),
+        reply_markup=_confirm_markup(),
         parse_mode="Markdown",
     )
     return CONFIRM
 
 
-async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
-    answer = update.message.text.strip().lower()
-    if answer == "tidak":
-        await update.message.reply_text(
-            "Baik, mari ulangi. Pilih komoditas:", reply_markup=_CROP_KEYBOARD
-        )
-        return CROP
-    if answer != "ya":
-        await update.message.reply_text("Mohon jawab dengan tombol *Ya* atau *Tidak*.",
-                                        parse_mode="Markdown")
-        return CONFIRM
-
+async def _submit_report(context, user, reply) -> int:
+    """Shared by the ✅ Ya button and typed 'ya' — the actual submission."""
     d = context.user_data
-    user = update.effective_user
     conn = store.get_connection()
     farmer_id = store.get_or_create_farmer(
         conn, user.id, user.username or user.first_name, d["region"]
@@ -197,9 +223,9 @@ async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         farmer_id, d["crop"], d["region"], d["days"], d["qty"], conn=conn
     )
 
-    await update.message.reply_text(
+    await reply(
         formatter.format_recommendation_message(d["crop"], d["region"], d["days"], result),
-        reply_markup=ReplyKeyboardRemove(), parse_mode="Markdown",
+        parse_mode="Markdown",
     )
 
     # Notify buyers only when the engine actually opened a match ("sell").
@@ -224,17 +250,42 @@ async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
                     )
                 except Exception as e:
                     logger.error("Failed to notify buyer %s: %s", buyer["user_id"], e)
-            await update.message.reply_text(
-                "📨 Penawaran Anda telah dikirim ke Pembeli Utama."
-            )
+            await reply("📨 Penawaran Anda telah dikirim ke Pembeli Utama.")
         else:
-            await update.message.reply_text(
+            await reply(
                 "ℹ️ _Belum ada Pembeli Utama terdaftar — penawaran Anda tersimpan "
                 "dan tampil di laporan /status._", parse_mode="Markdown",
             )
 
     context.user_data.clear()
     return ConversationHandler.END
+
+
+async def farmer_confirm_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    choice = query.data.split(":", 1)[1]
+    if choice == "tidak":
+        await query.edit_message_text(
+            "Baik, mari ulangi. Pilih komoditas:", reply_markup=_crop_markup()
+        )
+        return CROP
+    await query.edit_message_text(query.message.text + "\n\n✅ Dikonfirmasi.")
+    return await _submit_report(context, query.from_user, query.message.reply_text)
+
+
+async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    answer = update.message.text.strip().lower()
+    if answer == "tidak":
+        await update.message.reply_text(
+            "Baik, mari ulangi. Pilih komoditas:", reply_markup=_crop_markup()
+        )
+        return CROP
+    if answer != "ya":
+        await update.message.reply_text("Mohon jawab dengan tombol *Ya* atau *Tidak*.",
+                                        parse_mode="Markdown")
+        return CONFIRM
+    return await _submit_report(context, update.effective_user, update.message.reply_text)
 
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -329,11 +380,14 @@ def main() -> None:
             CommandHandler("start", start),
         ],
         states={
-            CROP: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_crop)],
-            REGION: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_region)],
+            CROP: [CallbackQueryHandler(farmer_crop_button, pattern="^crop:"),
+                   MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_crop)],
+            REGION: [CallbackQueryHandler(farmer_region_button, pattern="^region:"),
+                     MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_region)],
             DAYS: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_days)],
             QTY: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_qty)],
-            CONFIRM: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_confirm)],
+            CONFIRM: [CallbackQueryHandler(farmer_confirm_button, pattern="^confirm:"),
+                      MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_confirm)],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
     )
