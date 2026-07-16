@@ -7,14 +7,15 @@ days apart are simply not in each other's cluster.
 """
 from __future__ import annotations
 
-import sqlite3
 from datetime import date, timedelta
+
+import psycopg
 
 WINDOW_DAYS = 2
 
 
 def count_cluster(
-    conn: sqlite3.Connection, crop: str, region: str, harvest_date: date
+    conn: psycopg.Connection, crop: str, region: str, harvest_date: date
 ) -> int:
     """Count reports for crop+district within ±WINDOW_DAYS of harvest_date.
 
@@ -24,8 +25,8 @@ def count_cluster(
     lo = (harvest_date - timedelta(days=WINDOW_DAYS)).isoformat()
     hi = (harvest_date + timedelta(days=WINDOW_DAYS)).isoformat()
     row = conn.execute(
-        "SELECT COUNT(*) FROM harvest_report"
-        " WHERE crop = ? AND region = ? AND harvest_date BETWEEN ? AND ?",
+        "SELECT COUNT(*) AS n FROM harvest_report"
+        " WHERE crop = %s AND region = %s AND harvest_date BETWEEN %s AND %s",
         (crop, region, lo, hi),
     ).fetchone()
-    return row[0]
+    return row["n"]

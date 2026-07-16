@@ -7,8 +7,9 @@ contract dict {recommendation, reason, ...}.
 """
 from __future__ import annotations
 
-import sqlite3
 from datetime import date, timedelta
+
+import psycopg
 
 from core import db
 from core.clustering import WINDOW_DAYS
@@ -24,7 +25,7 @@ def process_harvest_report(
     days_to_harvest: int,
     quantity_kg: float | None = None,
     *,
-    conn: sqlite3.Connection | None = None,
+    conn: psycopg.Connection | None = None,
     chain=None,
     today: date | None = None,
 ) -> dict:
@@ -54,23 +55,22 @@ def process_harvest_report(
     hi = (today + timedelta(days=days_to_harvest + WINDOW_DAYS)).isoformat()
     existing = conn.execute(
         "SELECT id FROM harvest_report"
-        " WHERE farmer_id = ? AND crop = ? AND region = ?"
-        " AND harvest_date BETWEEN ? AND ?",
+        " WHERE farmer_id = %s AND crop = %s AND region = %s"
+        " AND harvest_date BETWEEN %s AND %s",
         (farmer_id, crop, region, lo, hi),
     ).fetchone()
     if existing:
         report_id = existing["id"]
         conn.execute(
-            "UPDATE harvest_report SET harvest_date = ?, quantity_kg = ? WHERE id = ?",
+            "UPDATE harvest_report SET harvest_date = %s, quantity_kg = %s WHERE id = %s",
             (harvest_date, quantity_kg, report_id),
         )
     else:
-        cur = conn.execute(
+        report_id = conn.execute(
             "INSERT INTO harvest_report (farmer_id, crop, region, harvest_date,"
-            " quantity_kg) VALUES (?, ?, ?, ?, ?)",
+            " quantity_kg) VALUES (%s, %s, %s, %s, %s) RETURNING id",
             (farmer_id, crop, region, harvest_date, quantity_kg),
-        )
-        report_id = cur.lastrowid
+        ).fetchone()["id"]
     conn.commit()
 
     # 3–4. Signals + rule table (read-only; cluster count now includes this report).

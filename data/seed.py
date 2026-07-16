@@ -33,12 +33,12 @@ def _series(prices: list[int], today: date) -> list[dict]:
 
 
 def seed(
-    db_path: str | Path | None = None,
+    dsn: str | None = None,
     cache_path: str | Path | None = None,
     today: date | None = None,
 ):
     today = today or date.today()
-    conn = db.get_connection(db_path)
+    conn = db.get_connection(dsn)
     db.wipe_db(conn)
 
     # --- Farmers -------------------------------------------------------------
@@ -53,7 +53,7 @@ def seed(
     ]
     for tg, name, region in farmers:
         conn.execute(
-            "INSERT INTO farmer (telegram_id, name, region) VALUES (?, ?, ?)",
+            "INSERT INTO farmer (telegram_id, name, region) VALUES (%s, %s, %s)",
             (tg, name, region),
         )
 
@@ -72,7 +72,7 @@ def seed(
     for r in reports:
         conn.execute(
             "INSERT INTO harvest_report (farmer_id, crop, region, harvest_date,"
-            " quantity_kg) VALUES (?, ?, ?, ?, ?)",
+            " quantity_kg) VALUES (%s, %s, %s, %s, %s)",
             r,
         )
     conn.commit()

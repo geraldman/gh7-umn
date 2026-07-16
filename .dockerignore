@@ -1,0 +1,20 @@
+# Secrets — the token/DB urls reach the container via compose env_file,
+# never baked into image layers.
+.env
+
+# Dev/local cruft
+venv/
+.venv/
+.git/
+__pycache__/
+*.pyc
+.pytest_cache/
+notes.txt
+*.db
+
+# Not needed at runtime (tests run on the host; pytest isn't in the image)
+tests/
+docs/
+.dockerignore
+Dockerfile
+docker-compose.yml

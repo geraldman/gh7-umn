@@ -4,7 +4,8 @@
     python run.py --seed      re-seed the 3 demo scenarios first, then start
     python run.py --check     pre-demo ritual: seed + verify + tests, no bot
 
-Requires the bot token in the environment (never in a file):
+Requires the bot token, either in a `.env` file at the repo root (copy
+`.env.example`) or as an environment variable:
 
     $env:TELEGRAM_BOT_TOKEN = "123456:ABC-..."     (PowerShell)
 """
@@ -15,6 +16,11 @@ import io
 import os
 import subprocess
 import sys
+from pathlib import Path
+
+from dotenv import load_dotenv
+
+load_dotenv(Path(__file__).resolve().parent / ".env", override=False)
 
 # Windows console: print emoji/± without UnicodeEncodeError (Telegram is
 # unaffected either way; this is only for local log output).
@@ -46,10 +52,13 @@ def main() -> int:
     args = parser.parse_args()
 
     if args.check:
-        ok = do_seed()
-        print("\nRunning test suite...")
+        # Tests first (they wipe the LOCAL docker Postgres), then seed —
+        # so the database referenced by DATABASE_URL ends up demo-ready.
+        print("Running test suite...")
         tests = subprocess.run([sys.executable, "-m", "pytest", "tests/", "-q"])
-        ok &= tests.returncode == 0
+        ok = tests.returncode == 0
+        print()
+        ok &= do_seed()
         print("\nPRE-DEMO CHECK PASSED — ready to run the bot."
               if ok else "\nPRE-DEMO CHECK FAILED — fix before demoing.")
         return 0 if ok else 1
@@ -61,13 +70,15 @@ def main() -> int:
         print()
 
     if not (os.environ.get("TELEGRAM_BOT_TOKEN") or os.environ.get("BOT_TOKEN")):
-        print('ERROR: no bot token found. Set it first (PowerShell):\n'
+        print("ERROR: no bot token found. Either copy .env.example to .env and\n"
+              "fill in TELEGRAM_BOT_TOKEN, or set it in this terminal (PowerShell):\n"
               '  $env:TELEGRAM_BOT_TOKEN = "paste-token-here"\n'
               "then run this again.")
         return 1
 
     from core import db
 
+    print(f"Database: {os.environ.get('DB_TARGET', 'local')} ({db.describe_dsn()})")
     conn = db.get_connection()
     db.init_db(conn)  # no-op if tables exist; does NOT wipe data
     conn.close()

@@ -1,0 +1,47 @@
+# Panen Pas — full stack.
+#
+#   docker compose up -d db      just the local Postgres (port 5433)
+#   docker compose up -d bot     the bot (+ db) — config comes from .env
+#   docker compose logs -f bot   watch the bot
+#   docker compose run --rm bot python -m data.seed    seed + verify scenarios
+#
+# The bot connects wherever DB_TARGET in .env points (supabase or local).
+# NOTE: only ONE process may poll a given Telegram token — don't run the
+# docker bot and `python run.py` on the host at the same time.
+services:
+  db:
+    image: postgres:16-alpine
+    container_name: panen-postgres
+    environment:
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: panen
+    ports:
+      - "5433:5432"
+    volumes:
+      - panen-pgdata:/var/lib/postgresql/data
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U postgres -d panen"]
+      interval: 5s
+      timeout: 3s
+      retries: 10
+
+  bot:
+    build: .
+    container_name: panen-bot
+    env_file:
+      # raw = no $-interpolation: passwords/tokens pass through byte-for-byte,
+      # matching how python-dotenv reads the same file on the host.
+      - path: .env
+        format: raw
+    environment:
+      # Inside the container "localhost" is the container itself — when
+      # DB_TARGET=local, reach the db service by name instead. (compose
+      # `environment` overrides the same key from env_file.)
+      DATABASE_URL_LOCAL: postgresql://postgres:postgres@db:5432/panen
+    depends_on:
+      db:
+        condition: service_healthy
+    restart: unless-stopped
+
+volumes:
+  panen-pgdata:

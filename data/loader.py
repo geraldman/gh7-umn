@@ -12,8 +12,9 @@ terminal cache fallback — see §4 chain rules.
 from __future__ import annotations
 
 import json
-import sqlite3
 from pathlib import Path
+
+import psycopg
 
 from core.models import PriceSnapshot
 
@@ -63,7 +64,7 @@ def merge_rows(
     return cache
 
 
-def sync_snapshots_table(conn: sqlite3.Connection, cache: dict) -> int:
+def sync_snapshots_table(conn: psycopg.Connection, cache: dict) -> int:
     """Mirror the cache into the price_snapshot table (queryable form)."""
     n = 0
     for key, rows in cache.items():
@@ -71,7 +72,7 @@ def sync_snapshots_table(conn: sqlite3.Connection, cache: dict) -> int:
         for r in rows:
             conn.execute(
                 "INSERT INTO price_snapshot (crop, region, date, price_idr_per_kg)"
-                " VALUES (?, ?, ?, ?)"
+                " VALUES (%s, %s, %s, %s)"
                 " ON CONFLICT(crop, region, date) DO UPDATE SET"
                 " price_idr_per_kg = excluded.price_idr_per_kg",
                 (crop, province, r["date"], r["price_idr_per_kg"]),

@@ -1,5 +1,6 @@
 from __future__ import annotations
 
+import os
 from datetime import date, timedelta
 
 import pytest
@@ -9,14 +10,21 @@ from core.models import PriceSnapshot
 
 TODAY = date(2026, 7, 16)  # frozen — tests never depend on the wall clock
 
+# Tests TRUNCATE every table — they run against the local docker Postgres
+# (docker compose up db), NEVER against DATABASE_URL / Supabase.
+TEST_DSN = os.environ.get("TEST_DATABASE_URL", db.DEFAULT_DSN)
+if "supabase" in TEST_DSN:
+    raise RuntimeError("Refusing to run tests against a Supabase database — "
+                       "they wipe every table. Use the local docker Postgres.")
+
 
 @pytest.fixture
 def conn():
-    c = db.get_connection(":memory:")
-    db.init_db(c)
+    c = db.get_connection(TEST_DSN)
+    db.wipe_db(c)  # fresh tables, id sequences reset to 1
     for i in range(1, 6):  # farmers 1–5; tests use 1 as the caller, 2+ as neighbors
         c.execute(
-            "INSERT INTO farmer (telegram_id, name, region) VALUES (?, ?, 'garut')",
+            "INSERT INTO farmer (telegram_id, name, region) VALUES (%s, %s, 'garut')",
             (f"tg-{i}", f"Test {i}"),
         )
     c.commit()
@@ -57,7 +65,7 @@ FLAT = [45000, 45200, 44800, 45000, 45100, 44900, 45000]
 def insert_report(conn, farmer_id, crop, region, harvest_date: date, qty=100):
     conn.execute(
         "INSERT INTO harvest_report (farmer_id, crop, region, harvest_date,"
-        " quantity_kg) VALUES (?, ?, ?, ?, ?)",
+        " quantity_kg) VALUES (%s, %s, %s, %s, %s)",
         (farmer_id, crop, region, harvest_date.isoformat(), qty),
     )
     conn.commit()

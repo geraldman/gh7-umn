@@ -15,14 +15,14 @@ def _call(conn, chain, farmer_id=1, crop="cabai_merah", region="garut", days=2, 
 
 
 def _match_count(conn, status=None):
-    q = "SELECT COUNT(*) FROM match_request"
+    q = "SELECT COUNT(*) AS n FROM match_request"
     if status:
-        return conn.execute(q + " WHERE status = ?", (status,)).fetchone()[0]
-    return conn.execute(q).fetchone()[0]
+        return conn.execute(q + " WHERE status = %s", (status,)).fetchone()["n"]
+    return conn.execute(q).fetchone()["n"]
 
 
 def _report_count(conn):
-    return conn.execute("SELECT COUNT(*) FROM harvest_report").fetchone()[0]
+    return conn.execute("SELECT COUNT(*) AS n FROM harvest_report").fetchone()["n"]
 
 
 # --- The three seeded demo scenarios ------------------------------------------
@@ -75,7 +75,7 @@ def test_duplicate_report_upserts_not_inserts(conn):
     _call(conn, chain, days=2, qty=100)
     _call(conn, chain, days=3, qty=150)  # same farmer+crop+region, in window
     assert _report_count(conn) == 1
-    qty = conn.execute("SELECT quantity_kg FROM harvest_report").fetchone()[0]
+    qty = conn.execute("SELECT quantity_kg FROM harvest_report").fetchone()["quantity_kg"]
     assert qty == 150  # updated, not duplicated
 
 
@@ -109,5 +109,5 @@ def test_new_report_completes_the_cluster(conn):
 def test_today_is_injectable_and_deterministic(conn):
     r1 = _call(conn, FakeChain(make_series(FLAT)))
     assert r1["harvest_report_id"] is not None
-    hd = conn.execute("SELECT harvest_date FROM harvest_report").fetchone()[0]
+    hd = conn.execute("SELECT harvest_date FROM harvest_report").fetchone()["harvest_date"]
     assert hd == (TODAY + timedelta(days=2)).isoformat()

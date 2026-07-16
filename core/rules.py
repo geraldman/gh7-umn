@@ -11,8 +11,9 @@ that, not these.
 """
 from __future__ import annotations
 
-import sqlite3
 from datetime import date, timedelta
+
+import psycopg
 
 from core import db
 from core.clustering import count_cluster
@@ -75,7 +76,7 @@ def get_recommendation(
     region: str,
     days_to_harvest: int,
     *,
-    conn: sqlite3.Connection | None = None,
+    conn: psycopg.Connection | None = None,
     chain=None,
     today: date | None = None,
 ) -> dict:
