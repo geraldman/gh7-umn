@@ -4,3 +4,5 @@ __pycache__/
 venv/
 panen.db
 .pytest_cache/
+notes.txt
+.env
