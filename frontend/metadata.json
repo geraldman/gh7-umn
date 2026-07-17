@@ -1,0 +1,6 @@
+{
+  "name": "Panen Pas",
+  "description": "Solusi Pertanian Cerdas untuk membantu petani menentukan waktu panen yang optimal dan menghubungkan mereka langsung ke pembeli terbaik.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

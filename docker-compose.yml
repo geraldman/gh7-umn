@@ -1,8 +1,9 @@
 # Panen Pas — full stack.
 #
-#   docker compose up -d db      just the local Postgres (port 5433)
-#   docker compose up -d bot     the bot (+ db) — config comes from .env
-#   docker compose logs -f bot   watch the bot
+#   docker compose up -d db        just the local Postgres (port 5433)
+#   docker compose up -d bot       the bot (+ db) — config comes from .env
+#   docker compose up -d frontend  the promo page → http://localhost:3000
+#   docker compose logs -f bot     watch the bot
 #   docker compose run --rm bot python -m data.seed    seed + verify scenarios
 #
 # The bot connects wherever DB_TARGET in .env points (supabase or local).
@@ -41,6 +42,13 @@ services:
     depends_on:
       db:
         condition: service_healthy
+    restart: unless-stopped
+
+  frontend:
+    build: ./frontend
+    container_name: panen-frontend
+    ports:
+      - "3000:80"
     restart: unless-stopped
 
 volumes:
