@@ -1,0 +1,3 @@
+Region,Average Price (Rp),Std Dev (Rp),Min Price (Rp),Max Price (Rp),Coeff of Var (%),Valid Days,Stability Status
+Jawa Tengah,57517.79,21572.94,25400,102050,37.51,402,High Volatility (Unstable)
+Semua Provinsi,67977.11,14485.59,40150,104100,21.31,402,High Volatility (Unstable)
