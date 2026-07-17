@@ -23,7 +23,7 @@ export default function HubungkanPage() {
           Hubungkan ke Panen Pas
         </h1>
         <p className="font-body-lg text-sm md:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
-          Mulai terima rekomendasi panen bertenaga asisten cerdas AI langsung melalui aplikasi Telegram Anda.
+          Mulai terima rekomendasi panen berbasis data harga Bank Indonesia langsung melalui aplikasi Telegram Anda.
         </p>
       </header>
 

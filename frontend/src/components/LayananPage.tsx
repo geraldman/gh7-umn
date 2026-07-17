@@ -114,7 +114,7 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
             Bagaimana Panen Pas Membantu Anda
           </h2>
           <p className="font-body-md text-on-surface-variant leading-relaxed">
-            Petani hanya perlu mengirimkan pesan teks singkat berisi nama komoditas dan perkiraan tanggal panen mereka. Sistem asisten cerdas Panen Pas AI akan segera memberi tahu rekomendasi harga terbaik dan daftar pembeli grosir.
+            Petani hanya perlu mengirim pesan singkat berisi komoditas, wilayah, dan perkiraan tanggal panen. Panen Pas menganalisis tren harga Bank Indonesia dan mendeteksi panen serentak di wilayah tersebut, lalu memberi rekomendasi kapan sebaiknya menjual.
           </p>
           
           <div className="space-y-4">
@@ -135,9 +135,9 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
                 🧠
               </div>
               <div>
-                <h4 className="font-bold text-primary mb-1 text-sm md:text-base">Wawasan Berbasis AI</h4>
+                <h4 className="font-bold text-primary mb-1 text-sm md:text-base">Wawasan Berbasis Data</h4>
                 <p className="text-xs md:text-sm text-on-surface-variant leading-relaxed">
-                  Mesin kami terus memprediksi fluktuasi harga pasar, menganalisis data historis pasar, ketersediaan stok, dan cuaca lokal untuk menemukan jendela penjualan paling menguntungkan.
+                  Mesin kami menganalisis tren harga historis Bank Indonesia dan mendeteksi panen serentak di wilayah Anda untuk menemukan waktu jual paling menguntungkan.
                 </p>
               </div>
             </div>
@@ -202,7 +202,7 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
             </div>
             <h4 className="font-bold text-base">2. Dapatkan Rekomendasi</h4>
             <p className="text-xs text-on-primary-container leading-relaxed px-4">
-              AI menganalisis harga pasar waktu nyata dan memberi tahu kapan tanggal rilis terbaik.
+              Menganalisis tren harga terkini dan pola panen lokal untuk merekomendasikan waktu jual terbaik.
             </p>
           </div>
 
@@ -212,7 +212,7 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
             </div>
             <h4 className="font-bold text-base">3. Hubungkan Pembeli</h4>
             <p className="text-xs text-on-primary-container leading-relaxed px-4">
-              Terhubung langsung dengan pembeli B2B grosir premium yang siap menjemput panen dari ladang.
+              Penawaran jual diteruskan ke Pembeli Jangkar yang siap menyerap panen Anda.
             </p>
           </div>
         </div>

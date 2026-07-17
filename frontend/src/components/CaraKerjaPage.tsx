@@ -17,7 +17,7 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
               Bagaimana Panen Pas Bekerja
             </h1>
             <p className="font-body-lg text-sm md:text-base text-on-surface-variant leading-relaxed max-w-xl">
-              Temukan bagaimana teknologi kecerdasan buatan Panen Pas membantu petani Indonesia membuat keputusan penjualan hasil tani yang lebih cerdas dan menguntungkan hanya dalam empat langkah sederhana.
+              Temukan bagaimana mesin rekomendasi berbasis data Panen Pas membantu petani Indonesia membuat keputusan penjualan hasil tani yang lebih cerdas dan menguntungkan hanya dalam empat langkah sederhana.
             </p>
             <div className="flex flex-wrap gap-4 pt-2">
               <button
@@ -46,7 +46,7 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
       <section className="py-12 bg-white rounded-3xl border border-outline-variant/20 shadow-sm px-6 md:px-12">
         <div className="text-center max-w-2xl mx-auto mb-12 space-y-2">
           <h2 className="font-headline-md text-2xl md:text-3xl font-extrabold text-primary">Alur Kerja Sederhana</h2>
-          <p className="font-body-md text-sm text-on-surface-variant">Dari ladang hijau hingga ke tangan pembeli B2B terbaik.</p>
+          <p className="font-body-md text-sm text-on-surface-variant">Dari ladang hijau hingga ke tangan Pembeli Jangkar.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -76,10 +76,10 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
             </div>
             <div>
               <span className="text-xs font-extrabold text-primary uppercase">Langkah 2</span>
-              <h3 className="font-bold text-base text-primary mt-0.5">Analisis Pasar AI</h3>
+              <h3 className="font-bold text-base text-primary mt-0.5">Analisis Harga & Klaster Panen</h3>
             </div>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              Sistem kami langsung memproses data tren harga, cuaca satelit, dan ketersediaan stok nasional.
+              Sistem kami memproses tren harga Bank Indonesia dan mendeteksi panen serentak di wilayah Anda.
             </p>
             <div className="w-full h-28 rounded-xl bg-white overflow-hidden border border-outline-variant/30 p-2 flex items-center justify-center">
               <div className="w-full space-y-1 px-2">
@@ -112,7 +112,7 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
             <div className="w-full h-28 rounded-xl bg-white overflow-hidden border border-outline-variant/30 p-3 flex flex-col justify-center space-y-1">
               <div className="text-[10px] font-extrabold text-primary">Rekomendasi Panen Pas:</div>
               <div className="text-[9px] text-emerald-800 bg-emerald-50 p-1.5 rounded-lg border border-emerald-100 font-bold leading-tight">
-                👉 "TUNDA penjualan 2 hari. Prediksi harga naik 15% di tingkat grosir."
+                👉 "JUAL SEKARANG — 5 petani di wilayah Anda panen bersamaan, harga lokal berisiko turun."
               </div>
             </div>
           </div>
@@ -127,7 +127,7 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
               <h3 className="font-bold text-base text-primary mt-0.5">Pencocokan Pembeli</h3>
             </div>
             <p className="text-xs text-on-surface-variant leading-relaxed">
-              Kami menghubungkan Anda langsung dengan rantai supermarket atau distributor grosir premium.
+              Penawaran jual Anda diteruskan langsung ke Pembeli Jangkar yang siap menyerap panen.
             </p>
             <div className="w-full h-28 rounded-xl bg-white overflow-hidden border border-outline-variant/30 p-2 flex items-center justify-center">
               <div className="space-y-1 text-center">
@@ -193,7 +193,7 @@ export default function CaraKerjaPage({ onNavigateToConnect }: CaraKerjaPageProp
         <div className="relative z-10 max-w-xl mx-auto space-y-6">
           <h2 className="text-3xl font-extrabold font-headline-md">Siap Mencoba Panen Pas?</h2>
           <p className="text-sm text-on-primary-container leading-relaxed">
-            Mulai terima rekomendasi panen bertenaga AI hari ini juga. 100% gratis, ringan, aman, dan mudah digunakan langsung lewat Telegram.
+            Mulai terima rekomendasi panen berbasis data Bank Indonesia hari ini juga. 100% gratis, ringan, aman, dan mudah digunakan langsung lewat Telegram.
           </p>
           <div className="pt-2">
             <button

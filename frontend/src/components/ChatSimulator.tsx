@@ -1,11 +1,17 @@
 import { useState, useEffect, useRef, FormEvent } from 'react';
 import { Send, ArrowLeft, MoreVertical, Paperclip, Mic, Sparkles } from 'lucide-react';
 import { ChatMessage } from '../types';
-import { CHAT_PRESETS, CROP_PRESETS } from '../data';
+import { CHAT_PRESETS } from '../data';
 import Logo from './Logo';
 
+const SCENARIOS = [
+  { id: 'jual', label: 'Jual', icon: '🟢' },
+  { id: 'tunggu', label: 'Tunggu', icon: '🔵' },
+  { id: 'jadwal', label: 'Jadwal', icon: '🟡' },
+] as const;
+
 export default function ChatSimulator() {
-  const [activePreset, setActivePreset] = useState<'cabai' | 'tomat' | 'bawang'>('cabai');
+  const [activePreset, setActivePreset] = useState<'jual' | 'tunggu' | 'jadwal'>('jual');
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
@@ -82,29 +88,18 @@ export default function ChatSimulator() {
       setIsTyping(false);
 
       let botReplyText = '';
-      let botChart: { day: string; price: number }[] | undefined;
-
-      if (typedText.includes('cabai') || typedText.includes('cili') || typedText.includes('pedas')) {
-        botReplyText = 'Analisis Cabai Merah: Harga terpantau naik 12% di Pasar Kramat Jati menjadi Rp44.000/kg. Rekomendasi: Jual dalam 2 hari ke depan sebelum pasokan daerah lain membanjiri pasar.';
-        botChart = [
-          { day: '14 Jul', price: 38000 },
-          { day: '15 Jul', price: 39000 },
-          { day: '16 Jul', price: 41000 },
-          { day: '17 Jul', price: 44000 },
-        ];
-      } else if (typedText.includes('tomat') || typedText.includes('tomato')) {
-        botReplyText = 'Analisis Tomat Beef: Harga berkisar Rp16.000/kg. Cuaca buruk diprediksi menaikkan harga menjadi Rp18.000/kg minggu depan. Disarankan tunda penjualan 3 hari lagi untuk untung maksimal.';
-        botChart = [
-          { day: '14 Jul', price: 14000 },
-          { day: '15 Jul', price: 14500 },
-          { day: '16 Jul', price: 16000 },
-        ];
-      } else if (typedText.includes('bawang') || typedText.includes('shallot')) {
-        botReplyText = 'Analisis Bawang Merah: Harga berada di level stabil Rp28.000/kg. Belum ada fluktuasi besar yang terdeteksi. Silakan hubungkan dengan distributor kami untuk penjemputan gratis.';
+      if (
+        typedText.includes('cabai') || typedText.includes('rawit') ||
+        typedText.includes('panen') || typedText.includes('harga')
+      ) {
+        botReplyText =
+          'Harga Cabai Rawit Merah di Jawa Barat saat ini Rp56.150/kg (data Bank Indonesia). Agria menggabungkan tren harga ini dengan jumlah petani yang panen berdekatan di wilayah Anda untuk merekomendasikan waktu jual terbaik.';
       } else if (typedText.includes('bantuan') || typedText.includes('help') || typedText.includes('cara')) {
-        botReplyText = 'Untuk memulai, cukup ketik nama komoditas Anda (contoh: "cabai" atau "tomat") diikuti dengan tanggal perkiraan panen Anda.';
+        botReplyText =
+          'Ketik /start di bot kami, pilih peran Petani, lalu laporkan komoditas, wilayah, dan tanggal panen Anda.';
       } else {
-        botReplyText = `Terima kasih atas pesannya, Pak! Kami mendeteksi Anda bertanya tentang "${userMsg.text}". Tim Panen Pas AI merekomendasikan untuk memantau fluktuasi harga komoditas ini yang cenderung naik di pertengahan minggu. Ketik "cabai" atau "tomat" untuk contoh detail.`;
+        botReplyText =
+          'Terima kasih, Pak! Untuk contoh nyata, pilih salah satu skenario di atas (Jual / Tunggu / Jadwal), atau ketik "panen cabai rawit".';
       }
 
       const botReply: ChatMessage = {
@@ -112,8 +107,6 @@ export default function ChatSimulator() {
         sender: 'bot',
         text: botReplyText,
         timestamp: new Date().toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit' }),
-        chartData: botChart,
-        isRecommendation: !!botChart,
       };
 
       setMessages((prev) => [...prev, botReply]);
@@ -124,22 +117,21 @@ export default function ChatSimulator() {
     <div className="w-full max-w-lg mx-auto">
       {/* Preset Selector Chips */}
       <div className="flex items-center justify-center gap-2 mb-4 overflow-x-auto pb-2">
-        <span className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant/75 mr-2">Pilih Simulasi:</span>
-        {(['cabai', 'tomat', 'bawang'] as const).map((preset) => {
-          const matchedPreset = CROP_PRESETS.find((p) => p.id === preset);
-          const isActive = activePreset === preset;
+        <span className="text-xs font-semibold uppercase tracking-wider text-on-surface-variant/75 mr-2">Pilih Skenario:</span>
+        {SCENARIOS.map((sc) => {
+          const isActive = activePreset === sc.id;
           return (
             <button
-              key={preset}
-              onClick={() => setActivePreset(preset)}
+              key={sc.id}
+              onClick={() => setActivePreset(sc.id)}
               className={`px-3 py-1.5 rounded-full text-xs font-bold transition-all flex items-center gap-1.5 active:scale-95 cursor-pointer shadow-sm ${
                 isActive
                   ? 'bg-primary text-white scale-105'
                   : 'bg-white border border-outline-variant/40 text-on-surface hover:bg-surface-container-low'
               }`}
             >
-              <span>{matchedPreset?.icon}</span>
-              <span>{matchedPreset?.name.split(' ')[0]}</span>
+              <span>{sc.icon}</span>
+              <span>{sc.label}</span>
             </button>
           );
         })}
@@ -203,7 +195,7 @@ export default function ChatSimulator() {
                       <div className="mt-3 pt-2 border-t border-slate-100 w-full">
                         <div className="text-[10px] font-bold text-emerald-700 mb-1.5 flex items-center gap-1">
                           <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
-                          Prediksi Trend Harga (IDR/kg):
+                          Tren Harga 7 Hari — data BI (IDR/kg):
                         </div>
                         
                         {/* Custom Pure SVG Line Chart */}
@@ -300,7 +292,7 @@ export default function ChatSimulator() {
                           </svg>
                         </div>
                         <div className="text-[9px] text-slate-500 mt-1.5 text-center font-medium">
-                          Grafik tren harga diprediksi stabil menguat. Jual di titik puncak!
+                          Harga aktual cabai rawit merah dari data Bank Indonesia.
                         </div>
                       </div>
                     )}
@@ -357,7 +349,7 @@ export default function ChatSimulator() {
       </div>
 
       <div className="mt-2 text-center text-[11px] text-on-surface-variant font-medium">
-        💡 Cobalah mengetik sesuatu seperti <span className="font-bold text-primary">"panen cabai"</span> atau <span className="font-bold text-primary">"harga tomat"</span> di atas!
+        💡 Cobalah mengetik sesuatu seperti <span className="font-bold text-primary">"panen cabai rawit"</span> atau <span className="font-bold text-primary">"harga cabai"</span> di atas!
       </div>
     </div>
   );
