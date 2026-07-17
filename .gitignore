@@ -6,3 +6,5 @@ panen.db
 .pytest_cache/
 notes.txt
 .env
+
+writeup.md

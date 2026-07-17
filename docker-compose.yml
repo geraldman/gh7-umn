@@ -39,6 +39,12 @@ services:
       # DB_TARGET=local, reach the db service by name instead. (compose
       # `environment` overrides the same key from env_file.)
       DATABASE_URL_LOCAL: postgresql://postgres:postgres@db:5432/panen
+    # Public resolvers: Docker's embedded DNS forwards to the host, which can
+    # fail ("Name or service not known") when the host network flaps. Pinning
+    # 8.8.8.8/1.1.1.1 makes name resolution more resilient to host hiccups.
+    dns:
+      - 8.8.8.8
+      - 1.1.1.1
     depends_on:
       db:
         condition: service_healthy

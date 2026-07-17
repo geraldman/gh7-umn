@@ -9,7 +9,7 @@ export default function ChatSimulator() {
   const [messages, setMessages] = useState<ChatMessage[]>([]);
   const [inputText, setInputText] = useState('');
   const [isTyping, setIsTyping] = useState(false);
-  const chatContainerRef = useRef<HTMLDivElement | null>(null);
+  const chatEndRef = useRef<HTMLDivElement | null>(null);
 
   // Load preset conversation
   useEffect(() => {
@@ -56,11 +56,9 @@ export default function ChatSimulator() {
     };
   }, [activePreset]);
 
-  // Scroll the chat container to the bottom — scrollTop only moves this
-  // element, unlike scrollIntoView which also scrolls the page itself.
+  // Scroll to bottom
   useEffect(() => {
-    const el = chatContainerRef.current;
-    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
+    chatEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, isTyping]);
 
   const handleSendMessage = (e: FormEvent) => {
@@ -177,7 +175,7 @@ export default function ChatSimulator() {
           </div>
 
           {/* Chat Messages List Container */}
-          <div ref={chatContainerRef} className="flex-1 p-3 overflow-y-auto space-y-3 flex flex-col">
+          <div className="flex-1 p-3 overflow-y-auto space-y-3 flex flex-col">
             
             {/* System Info Banner */}
             <div className="self-center bg-slate-900/15 backdrop-blur-sm text-white text-[10px] py-1 px-3 rounded-full font-medium shadow-sm">
@@ -326,6 +324,8 @@ export default function ChatSimulator() {
                 </div>
               </div>
             )}
+            
+            <div ref={chatEndRef} />
           </div>
 
           {/* Telegram input bar */}

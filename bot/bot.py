@@ -734,7 +734,19 @@ def main() -> None:
         print("ERROR: set the TELEGRAM_BOT_TOKEN environment variable first.")
         return
 
-    app = Application.builder().token(config.TELEGRAM_TOKEN).build()
+    # Generous HTTP timeouts: PTB defaults to 5s, but our sync DB calls to the
+    # Tokyo Supabase pooler can briefly block the event loop, and Telegram
+    # itself is occasionally slow — 5s caused intermittent TimedOut on sends.
+    app = (
+        Application.builder()
+        .token(config.TELEGRAM_TOKEN)
+        .connect_timeout(30)
+        .read_timeout(30)
+        .write_timeout(30)
+        .pool_timeout(30)
+        .get_updates_read_timeout(45)
+        .build()
+    )
 
     conv = ConversationHandler(
         entry_points=[

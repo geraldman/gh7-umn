@@ -1,7 +1,7 @@
 # Panen Pas 🌶️🧅
 
-A Telegram bot that tells smallholder chili/shallot farmers **when to sell** their
-harvest. It combines two signals:
+A Telegram bot that tells smallholder chili farmers (**Cabai Rawit Merah**) **when
+to sell** their harvest. It combines two signals:
 
 - **Local oversupply** — how many neighbouring farmers report harvesting the same
   crop in the same district within a ±2-day window.
@@ -124,17 +124,20 @@ docker compose up -d --force-recreate bot
 
 Everyone sends `/start` and picks a role (inline buttons):
 
-- **👨‍🌾 Petani (farmer)** — answers four questions: crop → district → days to
-  harvest → estimated kg → confirm. Crop, district, and the confirmation are
-  tap-a-button; days and kg are typed numbers. Typing also works as a fallback
-  everywhere. Returns a recommendation with the price date and reasoning; on
-  **sell**, the offer is pushed to the buyer.
-- **🏪 Pembeli (anchor buyer)** — register *before* farmers report. Receives a
-  match card with **✅ Terima / ❌ Tolak** for each sell offer; either choice
-  notifies the farmer.
+- **👨‍🌾 Petani (farmer)** — answers: crop → district → days to harvest →
+  estimated kg → phone number → confirm. Crop, district, and the confirmation are
+  tap-a-button; days, kg, and phone are typed. Typing also works as a fallback
+  everywhere. Returns a recommendation (real price + reasoning); on **sell**, the
+  offer is pushed to the buyer. Re-reporting the same harvest the same day asks
+  whether to **add** or **replace** the quantity.
+- **🏪 Pembeli (anchor buyer)** — picks an operating region at sign-up, then lands
+  straight in the harvest browser. Gets a match card with **✅ Terima / ❌ Tolak**
+  for each sell offer (either choice notifies the farmer), and can use **/panen**
+  to browse harvests per district and place a bulk buy — the system fills the
+  order across farmers (earliest-harvest first) and notifies each seller.
 - **📋 Koordinator** — `/status` lists every match and its state.
 
-`/cancel` aborts a conversation at any point.
+`/help` shows all commands; `/cancel` aborts a conversation at any point.
 
 ---
 
@@ -146,14 +149,17 @@ python run.py --check       # all green? then:
 python run.py --seed        # fresh scenarios + bot up
 ```
 
-The three seeded scenarios (dates are relative to today — re-seeding keeps them
-fresh):
+The two seeded scenarios (dates are relative to today — re-seeding keeps them
+fresh; prices are **real Bank Indonesia data**, currently flat, so the sell
+signal comes from the local harvest cluster):
 
 | Report this as farmer | Expected result |
 |---|---|
-| Cabai Merah, **Garut**, 2 days | 🟢 **sell** + buyer match (4 seeded neighbours + falling price) |
-| Bawang Merah, **Brebes**, 2 days | 🔵 **wait** (no neighbours, rising price) |
-| Bawang Merah, **Cianjur**, 2 days | 🟡 **hold** (1 neighbour, flat price) |
+| Cabai Rawit Merah, **Garut**, 2 days | 🟢 **sell** + buyer match (4 seeded neighbours harvesting together — a local glut even though the market is flat) |
+| Cabai Rawit Merah, **Cianjur**, 2 days | 🟡 **hold** (no cluster, flat price) |
+
+The third case — 🔵 **wait** (rising price, no glut) — can't be seeded from real
+data (no series is rising this week), so it's covered by the unit tests instead.
 
 Also rehearse the failure paths: type a nonsense crop (`durian`) → the bot
 re-prompts with buttons instead of crashing; have the buyer tap **Tolak** → the
@@ -222,6 +228,6 @@ docker-compose.yml Postgres (db) + bot services
 core/              rule engine, Postgres, orchestrator   (channel-agnostic)
 data/              price sources, cache, demo seeds
 bot/               Telegram adapter (conversation, formatting, roles)
-tests/             49 tests — python -m pytest tests/ -q
+tests/             54 tests — python -m pytest tests/ -q
 docs/              ARCHITECTURE.md
 ```

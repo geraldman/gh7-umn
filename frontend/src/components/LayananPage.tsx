@@ -1,6 +1,6 @@
 import { Sparkles, Play, ShieldAlert, ArrowRight, BookOpen, ChevronRight } from 'lucide-react';
 import GrassCanvas from './GrassCanvas';
-import ChatSimulator from './ChatSimulator';
+import TelegramMockup from './TelegramMockup';
 import { PROBLEM_CARDS } from '../data';
 
 interface LayananPageProps {
@@ -13,25 +13,26 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
     <div className="space-y-20">
       
       {/* Hero Section with Live Grass Background */}
-      <section className="relative overflow-hidden bg-gradient-to-b from-[#f9f9ff] to-[#f0f3ff] pt-20 pb-16 min-h-[550px] flex items-center rounded-3xl border border-outline-variant/20 shadow-sm px-6 md:px-12">
+      <section className="relative overflow-hidden bg-gradient-to-b from-[#faf9f6] via-[#f3f6ec] to-[#e6f2ce] pt-20 pb-32 md:pb-40 lg:pb-44 min-h-[600px] flex items-center rounded-3xl border border-[#d1e2b8]/50 shadow-sm px-6 md:px-12">
         <GrassCanvas />
         
-        <div className="relative z-10 max-w-container-max mx-auto grid grid-cols-1 lg:grid-cols-12 gap-10 items-center w-full">
+        <div className="relative z-10 max-w-3xl mx-auto text-center space-y-6 w-full">
           {/* Hero text */}
-          <div className="lg:col-span-7 space-y-6 text-left">
-            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs border border-primary/25">
+          <div className="space-y-6">
+            <span className="inline-flex items-center gap-1.5 px-4 py-1.5 rounded-full bg-primary/10 text-primary font-bold text-xs border border-primary/25 mx-auto">
               <Sparkles className="w-3.5 h-3.5" /> Inovasi Agritech Modern 2026
             </span>
             <h1 className="font-display-lg text-4xl md:text-5xl lg:text-6xl font-extrabold text-primary leading-[1.15] tracking-tight font-headline-md">
               Jual Lebih Cerdas.<br />
-              <span className="text-[#065f46]">Kurangi Limbah.</span><br />
+              <span className="text-[#065f46]">Kurangi Risiko.</span><br />
               Raih Lebih Banyak.
             </h1>
-            <p className="font-body-lg text-sm md:text-base text-on-surface-variant max-w-xl leading-relaxed">
+            <p className="font-body-lg text-sm md:text-base text-on-surface-variant max-w-xl mx-auto leading-relaxed">
               Panen Pas membantu petani kecil Indonesia menentukan kapan dan di mana tepatnya menjual hasil panen menggunakan WhatsApp / Telegram dan wawasan analisis pasar waktu nyata.
             </p>
-            <div className="flex flex-wrap gap-4 pt-2">
+            <div className="flex flex-wrap gap-4 pt-2 justify-center">
               <button
+                id="connect-bot-btn"
                 onClick={onNavigateToConnect}
                 className="bg-primary text-white px-8 py-4 rounded-full font-bold hover:brightness-110 active:scale-95 transition-all shadow-md hover:shadow-lg cursor-pointer flex items-center justify-center gap-2 text-sm"
               >
@@ -45,32 +46,6 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
                 <Play className="w-4 h-4 text-primary fill-current" />
                 Tonton Demo / Cara Kerja
               </button>
-            </div>
-          </div>
-
-          {/* Hero graphic mockup */}
-          <div className="lg:col-span-5 relative flex justify-center">
-            <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-            <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary-fixed-dim/20 rounded-full blur-3xl" />
-            
-            <div className="relative rounded-2xl overflow-hidden shadow-2xl transform lg:rotate-1 border-4 border-white bg-white w-full max-w-sm">
-              <img
-                alt="Panen Pas Bot Telegram Preview"
-                className="w-full h-auto object-cover aspect-[4/3] block"
-                src="https://lh3.googleusercontent.com/aida-public/AB6AXuBGrEKlysvtJze9u_esHLfsDX5OKfo3nwVnYeQFmMQ4KzAhgUUu3MS-0Rb4DPYsfVGy2356usZti5rybrjtXTLxFDs1hFgRyHwnqBbQL31P3PKQSJEQHydYmqYwyVP7K68XK6DsP_27gScPY1xWGo_9sYA777jzDz0ByjRq8Xn3fz8XtDRN_NX6NeoyTlLTDxeJMfyBjP8E-gygchnab7fwoOAup0vuJqc6Egp6kHODGdKEMUttLeBGoeQuKFO7PBPcXTzm_WSe33TP"
-                referrerPolicy="no-referrer"
-              />
-              
-              {/* Floating micro profit card */}
-              <div className="absolute -bottom-4 -right-4 md:right-4 bg-white p-4 rounded-2xl shadow-xl border border-outline-variant/30 flex items-center gap-3 animate-bounce" style={{ animationDuration: '3s' }}>
-                <div className="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold">
-                  📈
-                </div>
-                <div>
-                  <p className="text-[10px] text-on-surface-variant font-bold leading-none">Rata-rata Kenaikan Laba</p>
-                  <p className="text-lg font-extrabold text-primary leading-tight font-headline-md">+34.2%</p>
-                </div>
-              </div>
             </div>
           </div>
         </div>
@@ -104,28 +79,28 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
         {/* Highlight Stats Infographic */}
         <div className="mt-8 bg-primary text-white p-8 rounded-2xl shadow-lg relative overflow-hidden group">
           <div className="absolute -right-10 -bottom-10 text-[180px] opacity-10 font-bold select-none rotate-12 transition-transform duration-500 group-hover:rotate-6">
-            🗑️
+            📉
           </div>
           <div className="relative z-10 grid grid-cols-1 md:grid-cols-12 gap-6 items-center">
             <div className="md:col-span-8 space-y-2">
               <span className="bg-secondary px-3 py-1 rounded-full text-[10px] font-bold tracking-wider uppercase">
-                Data Nasional
+                Data Bank Indonesia
               </span>
-              <h3 className="text-3xl font-extrabold font-headline-md">300kg / Kapita / Tahun</h3>
+              <h3 className="text-3xl font-extrabold font-headline-md">20–30% Pendapatan</h3>
               <p className="text-sm text-on-primary-container leading-relaxed">
-                Limbah makanan per kapita setiap tahun di Indonesia. Sekitar <span className="font-bold text-white underline decoration-wavy">75% dari jumlah ini sebenarnya dapat dihindari</span> dengan penentuan waktu panen yang tepat dan manajemen logistik terintegrasi.
+                Menurut data Bank Indonesia, volatilitas pasar dan kesalahan waktu penjualan berisiko <span className="font-bold text-white underline decoration-wavy">menurunkan pendapatan petani hingga 20–30%</span> setiap musim panen.
               </p>
             </div>
             <div className="md:col-span-4 w-full">
               <div className="bg-white/10 p-4 rounded-xl border border-white/10 space-y-2">
                 <div className="flex justify-between text-xs font-semibold">
-                  <span>Dapat Dihindari Panen Pas</span>
-                  <span>75%</span>
+                  <span>Risiko penurunan pendapatan</span>
+                  <span>20–30%</span>
                 </div>
                 <div className="h-2.5 w-full bg-white/20 rounded-full overflow-hidden">
-                  <div className="h-full bg-primary-fixed rounded-full transition-all duration-1000" style={{ width: '75%' }} />
+                  <div className="h-full bg-primary-fixed rounded-full transition-all duration-1000" style={{ width: '30%' }} />
                 </div>
-                <p className="text-[10px] text-primary-fixed font-bold">Membantu mengurangi kerugian finansial petani</p>
+                <p className="text-[10px] text-primary-fixed font-bold">Diminimalkan dengan penjualan tepat waktu Panen Pas</p>
               </div>
             </div>
           </div>
@@ -179,9 +154,25 @@ export default function LayananPage({ onNavigateToConnect, onNavigateToWorkflow 
           </div>
         </div>
 
-        {/* Live Simulator Panel */}
-        <div className="lg:col-span-6 bg-gradient-to-tr from-surface-container to-white rounded-3xl p-6 border border-outline-variant/20 shadow-sm">
-          <ChatSimulator />
+        {/* Live Simulator Panel -> Now Static Telegram Mockup */}
+        <div className="lg:col-span-6 relative flex justify-center">
+          <div className="absolute -top-10 -right-10 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
+          <div className="absolute -bottom-10 -left-10 w-64 h-64 bg-secondary-fixed-dim/20 rounded-full blur-3xl" />
+          
+          <div className="relative rounded-2xl shadow-2xl transform lg:rotate-1 w-full max-w-sm">
+            <TelegramMockup />
+            
+            {/* Floating micro profit card */}
+            <div className="absolute -bottom-16 -right-4 md:-right-6 bg-white p-4 rounded-2xl shadow-xl border border-outline-variant/30 flex items-center gap-3 animate-bounce z-20" style={{ animationDuration: '3s' }}>
+              <div className="w-10 h-10 rounded-full bg-secondary-fixed text-secondary flex items-center justify-center font-bold">
+                📈
+              </div>
+              <div>
+                <p className="text-[10px] text-on-surface-variant font-bold leading-none">Rata-rata Kenaikan Laba</p>
+                <p className="text-lg font-extrabold text-primary leading-tight font-headline-md">+34.2%</p>
+              </div>
+            </div>
+          </div>
         </div>
       </section>
 

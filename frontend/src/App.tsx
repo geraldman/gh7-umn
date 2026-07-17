@@ -251,7 +251,7 @@ export default function App() {
 
               {/* Action Button */}
               <a
-                href="https://t.me/PanenPasBot"
+                href="https://t.me/AgriaGH7_bot"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-full bg-primary hover:brightness-110 text-white font-bold py-4 rounded-xl text-sm transition-all text-center block shadow-md hover:shadow-lg active:scale-95"

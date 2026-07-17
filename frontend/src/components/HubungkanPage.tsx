@@ -1,12 +1,13 @@
 import { useState } from 'react';
 import { CheckCircle2, Copy, Download, ExternalLink, HelpCircle } from 'lucide-react';
 import { STEP_ITEMS } from '../data';
+import qrImage from '../../assets/agriagh7-qr.jpeg';
 
 export default function HubungkanPage() {
   const [copyFeedback, setCopyFeedback] = useState(false);
 
   const handleCopyUsername = () => {
-    navigator.clipboard.writeText('@PanenPasBot');
+    navigator.clipboard.writeText('@AgriaGH7_bot');
     setCopyFeedback(true);
     setTimeout(() => {
       setCopyFeedback(false);
@@ -49,24 +50,23 @@ export default function HubungkanPage() {
           {/* QR Code Frame */}
           <div className="relative bg-slate-50 p-4 rounded-2xl border border-outline-variant/30 shadow-inner">
             <img
-              alt="Telegram Bot QR Code"
+              alt="QR Code Bot Telegram Agria"
               className="w-44 h-44 md:w-48 md:h-48 rounded-xl shadow-sm object-contain"
-              src="https://lh3.googleusercontent.com/aida/AP1WRLtrOt_CqwXKo34t3Nef6brjIUN70obl8cwy-gAxKL2R5CQbSzLBTBdfqG4Oddw3FlQ7_Rot7MRNWeb2HsV1cI4phy1q1Vzj9dr5K6vHPm5V9Ld2A2bEN3fMV6Pd68rPjy2PjavRQe28DwECOL7MvL1Z6g4OAtImeVxUn_zCd3ftpx2Ev9M0rlFi8wP_5BrMN0ilhpoUD4YW262Jo7LhcQzkCgQMwd7W5Szv7f9wHHqpghYtKH3ObuJjb1jd"
-              referrerPolicy="no-referrer"
+              src={qrImage}
             />
           </div>
 
           {/* Bot Username Chip */}
           <div>
             <span className="font-mono text-xs font-bold bg-[#ffdbca] text-[#331200] px-3.5 py-1.5 rounded-full border border-[#763300]/10 shadow-sm select-all">
-              @PanenPasBot
+              @AgriaGH7_bot
             </span>
           </div>
 
           {/* Quick Actions Buttons */}
           <div className="flex flex-col sm:flex-row gap-3 w-full max-w-md justify-center">
             <a
-              href="https://t.me/PanenPasBot"
+              href="https://t.me/AgriaGH7_bot"
               target="_blank"
               rel="noopener noreferrer"
               className="flex-1 bg-primary text-white font-bold py-3.5 rounded-full text-center hover:brightness-110 active:scale-95 transition-all text-xs flex items-center justify-center gap-1.5 shadow-sm"
