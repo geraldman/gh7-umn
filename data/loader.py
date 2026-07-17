@@ -66,17 +66,21 @@ def merge_rows(
 
 def sync_snapshots_table(conn: psycopg.Connection, cache: dict) -> int:
     """Mirror the cache into the price_snapshot table (queryable form)."""
-    n = 0
+    params = []
     for key, rows in cache.items():
         crop, province = key.split("|", 1)
-        for r in rows:
-            conn.execute(
-                "INSERT INTO price_snapshot (crop, region, date, price_idr_per_kg)"
-                " VALUES (%s, %s, %s, %s)"
-                " ON CONFLICT(crop, region, date) DO UPDATE SET"
-                " price_idr_per_kg = excluded.price_idr_per_kg",
-                (crop, province, r["date"], r["price_idr_per_kg"]),
-            )
-            n += 1
+        params.extend(
+            (crop, province, r["date"], r["price_idr_per_kg"]) for r in rows
+        )
+    # executemany pipelines the statements — one round-trip per batch instead
+    # of per row, which matters against the remote Supabase pooler now that
+    # the cache holds full imported price histories.
+    conn.cursor().executemany(
+        "INSERT INTO price_snapshot (crop, region, date, price_idr_per_kg)"
+        " VALUES (%s, %s, %s, %s)"
+        " ON CONFLICT(crop, region, date) DO UPDATE SET"
+        " price_idr_per_kg = excluded.price_idr_per_kg",
+        params,
+    )
     conn.commit()
-    return n
+    return len(params)

@@ -6,26 +6,30 @@
     },
     {
       "date": "2026-07-10",
-      "price_idr_per_kg": 49000
+      "price_idr_per_kg": 50000
     },
     {
       "date": "2026-07-11",
-      "price_idr_per_kg": 48000
+      "price_idr_per_kg": 49000
     },
     {
       "date": "2026-07-12",
-      "price_idr_per_kg": 47000
+      "price_idr_per_kg": 48000
     },
     {
       "date": "2026-07-13",
-      "price_idr_per_kg": 44000
+      "price_idr_per_kg": 47000
     },
     {
       "date": "2026-07-14",
-      "price_idr_per_kg": 43000
+      "price_idr_per_kg": 44000
     },
     {
       "date": "2026-07-15",
+      "price_idr_per_kg": 43000
+    },
+    {
+      "date": "2026-07-16",
       "price_idr_per_kg": 42000
     }
   ],
@@ -36,26 +40,30 @@
     },
     {
       "date": "2026-07-10",
-      "price_idr_per_kg": 43000
+      "price_idr_per_kg": 42000
     },
     {
       "date": "2026-07-11",
-      "price_idr_per_kg": 44000
+      "price_idr_per_kg": 43000
     },
     {
       "date": "2026-07-12",
-      "price_idr_per_kg": 47000
+      "price_idr_per_kg": 44000
     },
     {
       "date": "2026-07-13",
-      "price_idr_per_kg": 48000
+      "price_idr_per_kg": 47000
     },
     {
       "date": "2026-07-14",
-      "price_idr_per_kg": 49000
+      "price_idr_per_kg": 48000
     },
     {
       "date": "2026-07-15",
+      "price_idr_per_kg": 49000
+    },
+    {
+      "date": "2026-07-16",
       "price_idr_per_kg": 50000
     }
   ],
@@ -66,27 +74,6471 @@
     },
     {
       "date": "2026-07-10",
-      "price_idr_per_kg": 45200
+      "price_idr_per_kg": 45000
     },
     {
       "date": "2026-07-11",
-      "price_idr_per_kg": 44800
+      "price_idr_per_kg": 45200
     },
     {
       "date": "2026-07-12",
-      "price_idr_per_kg": 45000
+      "price_idr_per_kg": 44800
     },
     {
       "date": "2026-07-13",
-      "price_idr_per_kg": 45100
+      "price_idr_per_kg": 45000
     },
     {
       "date": "2026-07-14",
-      "price_idr_per_kg": 44900
+      "price_idr_per_kg": 45100
     },
     {
       "date": "2026-07-15",
+      "price_idr_per_kg": 44900
+    },
+    {
+      "date": "2026-07-16",
       "price_idr_per_kg": 45000
+    }
+  ],
+  "beras_kualitas_medium_i|jawa_barat": [
+    {
+      "date": "2025-01-01",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-02",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-03",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-06",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-07",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-08",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-09",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-10",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-13",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-14",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-15",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-16",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-17",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-20",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-21",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-22",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-23",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-24",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-27",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-28",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-29",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-30",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-31",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-02-03",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-04",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-05",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-06",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-07",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-10",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-11",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-12",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-13",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-14",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-17",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-18",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-19",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-20",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-21",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-24",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-25",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-26",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-27",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-02-28",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-03",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-04",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-05",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-06",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-07",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-10",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-11",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-12",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-13",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-14",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-17",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-18",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-19",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-20",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-21",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-24",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-25",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-26",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-27",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-28",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-03-31",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-01",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-02",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-03",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-04",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-07",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-08",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-09",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-10",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-11",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-14",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-15",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-16",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-17",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-18",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-21",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-22",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-23",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-24",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-25",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-28",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-29",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-04-30",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-01",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-02",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-05",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-06",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-07",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-08",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-09",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-12",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-13",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-14",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-15",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-16",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-19",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-20",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-21",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-22",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-23",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-26",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-27",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-28",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-29",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-05-30",
+      "price_idr_per_kg": 14950
+    },
+    {
+      "date": "2025-06-02",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-06-03",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-04",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-05",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-06",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-09",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-10",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-11",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-12",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-13",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-16",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-17",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-18",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-19",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-20",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-06-23",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-06-24",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-06-25",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-06-26",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-06-27",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-06-30",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-01",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-02",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-03",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-04",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-07",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-08",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-09",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-10",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-11",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-14",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-15",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-16",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-17",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-18",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-21",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-22",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-23",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-24",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-25",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-28",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-29",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-30",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-07-31",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-01",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-04",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-06",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-07",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-08",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-08-11",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-12",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-13",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-14",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-15",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-18",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-19",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-20",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-21",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-22",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-25",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-26",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-27",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-28",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-08-29",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-01",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-02",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-03",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-04",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-05",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-08",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-09",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-10",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-11",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-12",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-15",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-16",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-17",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-18",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-19",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-22",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-23",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-09-24",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-09-25",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-09-26",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-09-29",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-09-30",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-01",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-02",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-03",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-06",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-07",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-08",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-09",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-10",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-13",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-14",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-15",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-16",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-17",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-20",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-21",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-22",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-23",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-24",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-27",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-28",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-29",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-30",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-10-31",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-03",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-04",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-06",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-07",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-10",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-11",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-12",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-13",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-14",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-17",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-18",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-19",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-20",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-21",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-24",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-25",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-26",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-27",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-11-28",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-01",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-02",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-03",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-04",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-08",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-09",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-10",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-11",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-12",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-15",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-16",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-17",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-18",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-19",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-22",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-23",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-24",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-25",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-26",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-29",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-30",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-12-31",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-01",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-02",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-06",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-07",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-08",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-09",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-12",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-13",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-14",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-15",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-16",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-19",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-20",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-21",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-22",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-23",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-26",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-27",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-28",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-29",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-01-30",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-02",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-03",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-04",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-06",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-09",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2026-02-10",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-11",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-12",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-13",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-16",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-17",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-18",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-19",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-20",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-23",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-24",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-25",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-26",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-02-27",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2026-03-02",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2026-03-03",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2026-03-04",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2026-03-05",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2026-03-06",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2026-03-09",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-10",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-11",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-12",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-13",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-16",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-17",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-18",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-19",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-20",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-23",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-24",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-25",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2026-03-26",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-03-27",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-03-30",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-03-31",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-01",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-02",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-03",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-06",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-07",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-08",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-09",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-10",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-13",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-14",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-15",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-16",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-17",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-20",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-21",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-22",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-23",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-24",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-27",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-28",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-29",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-04-30",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-01",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-04",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-05",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-06",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-07",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-08",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-11",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-12",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-13",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-14",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-15",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-05-18",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-19",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-20",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-21",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-22",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-25",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-26",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-27",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-28",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-05-29",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-01",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-02",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-03",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2026-06-04",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-05",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-08",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-09",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-10",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-11",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-12",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-15",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-16",
+      "price_idr_per_kg": 14850
+    },
+    {
+      "date": "2026-06-17",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-18",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-19",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-22",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-23",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-24",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-25",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-26",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-29",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-06-30",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-01",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-02",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-03",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-06",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-07",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-08",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-09",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-10",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2026-07-13",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-07-14",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-07-15",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-07-16",
+      "price_idr_per_kg": 15450
+    }
+  ],
+  "beras_kualitas_medium_i|jawa_tengah": [
+    {
+      "date": "2025-01-01",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-02",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-03",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-06",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-07",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-08",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-09",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-10",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-13",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-14",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-15",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-16",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-17",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-20",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-21",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-22",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-23",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-24",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-27",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-28",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-29",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-01-30",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-01-31",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-03",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-04",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-05",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-06",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-07",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-10",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-11",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-12",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-02-13",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-14",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-17",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-18",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-19",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-20",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-21",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-24",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-25",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-26",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-27",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-02-28",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-03-03",
+      "price_idr_per_kg": 15000
+    },
+    {
+      "date": "2025-03-04",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-03-05",
+      "price_idr_per_kg": 15050
+    },
+    {
+      "date": "2025-03-06",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-07",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-10",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-11",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-12",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-13",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-14",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-17",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-18",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-19",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-20",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-21",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-24",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-25",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-26",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-27",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-03-28",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-03-31",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-04-01",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-02",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-03",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-04",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-07",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-08",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-09",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-10",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-11",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-14",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-15",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-16",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-17",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-18",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-21",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-22",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-04-23",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-04-24",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-04-25",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-04-28",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-04-29",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-04-30",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-05-01",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-05-02",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-05",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-06",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-07",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-08",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-09",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-12",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-13",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-14",
+      "price_idr_per_kg": 15100
+    },
+    {
+      "date": "2025-05-15",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-05-16",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-05-19",
+      "price_idr_per_kg": 15150
+    },
+    {
+      "date": "2025-05-20",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-21",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-22",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-23",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-26",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-27",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-28",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-29",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-05-30",
+      "price_idr_per_kg": 15200
+    },
+    {
+      "date": "2025-06-02",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2025-06-03",
+      "price_idr_per_kg": 15250
+    },
+    {
+      "date": "2025-06-04",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-06-05",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-06-06",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-06-09",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-06-10",
+      "price_idr_per_kg": 15300
+    },
+    {
+      "date": "2025-06-11",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-12",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-13",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-16",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-17",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-18",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-06-19",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-20",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-23",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-24",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-25",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-26",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-27",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-06-30",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-01",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-07-02",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-07-03",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-04",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-07",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-08",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-09",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-10",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-11",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-14",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-15",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-16",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-17",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-18",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-21",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-22",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-23",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-24",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-25",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-28",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-29",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-30",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-07-31",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-01",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-04",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-05",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-06",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-07",
+      "price_idr_per_kg": 15400
+    },
+    {
+      "date": "2025-08-08",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-11",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-12",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-13",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-14",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-15",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-18",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-19",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-20",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-21",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-08-22",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-08-25",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-08-26",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-08-27",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-08-28",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-08-29",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-01",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-02",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-03",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-04",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-05",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-08",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-09",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-10",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-11",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-12",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-15",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-16",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-17",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-18",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-19",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-22",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-09-23",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-09-24",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-09-25",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-09-26",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-09-29",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-09-30",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-01",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-02",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-03",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-06",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-07",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-08",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-09",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-10",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-13",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-14",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-15",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-16",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-17",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-20",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-21",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-22",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-23",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-24",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-10-27",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-10-28",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-10-29",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-10-30",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-10-31",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-03",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-04",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-05",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-06",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-07",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-10",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-11",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-12",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-11-13",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-14",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-17",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-18",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-19",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-20",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-21",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-24",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-25",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-26",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-27",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-11-28",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-01",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-02",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-03",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-04",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-05",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-08",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-09",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-10",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2025-12-11",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-12",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-15",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-16",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-17",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-18",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-19",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2025-12-22",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-23",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-24",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-25",
+      "price_idr_per_kg": 15350
+    },
+    {
+      "date": "2025-12-26",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-29",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-30",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2025-12-31",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-01",
+      "price_idr_per_kg": 15550
+    },
+    {
+      "date": "2026-01-02",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-05",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-06",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-07",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-08",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-09",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-12",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-13",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-14",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-15",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-16",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-01-19",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-20",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-21",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-22",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-23",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-26",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-27",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-28",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-29",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-01-30",
+      "price_idr_per_kg": 15450
+    },
+    {
+      "date": "2026-02-02",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-02-03",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-02-04",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-02-05",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-02-06",
+      "price_idr_per_kg": 15500
+    },
+    {
+      "date": "2026-02-09",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-10",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-11",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-12",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-13",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-16",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-17",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-18",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-19",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-20",
+      "price_idr_per_kg": 15600
+    },
+    {
+      "date": "2026-02-23",
+      "price_idr_per_kg": 15650
+    },
+    {
+      "date": "2026-02-24",
+      "price_idr_per_kg": 15650
+    },
+    {
+      "date": "2026-02-25",
+      "price_idr_per_kg": 15650
+    },
+    {
+      "date": "2026-02-26",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-02-27",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-02",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-03",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-04",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-05",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-06",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-09",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-10",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-11",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-12",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-13",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-16",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-17",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-18",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-19",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-20",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-23",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-24",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-25",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-26",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-27",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-30",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-03-31",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-01",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-02",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-03",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-06",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-07",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-08",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-09",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-10",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-13",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-04-14",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-04-15",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-04-16",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-04-17",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-04-20",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-21",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-22",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-23",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-24",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-27",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-28",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-29",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-04-30",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-01",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-04",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-05",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-06",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-07",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-08",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-11",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-12",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-13",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-14",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-15",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-18",
+      "price_idr_per_kg": 15700
+    },
+    {
+      "date": "2026-05-19",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-05-20",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-05-21",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-05-22",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-05-25",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-05-26",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-05-27",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-05-28",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-05-29",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-01",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-02",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-03",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-04",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-05",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-08",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-09",
+      "price_idr_per_kg": 15750
+    },
+    {
+      "date": "2026-06-10",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-11",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-12",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-06-15",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-16",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-17",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-18",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-19",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-22",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-23",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-24",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-25",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-26",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-29",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-06-30",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-07-01",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-07-02",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-07-03",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-07-06",
+      "price_idr_per_kg": 15800
+    },
+    {
+      "date": "2026-07-07",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-08",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-09",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-10",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-13",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-14",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-15",
+      "price_idr_per_kg": 15850
+    },
+    {
+      "date": "2026-07-16",
+      "price_idr_per_kg": 15750
+    }
+  ],
+  "cabai_rawit_merah|jawa_tengah": [
+    {
+      "date": "2025-01-01",
+      "price_idr_per_kg": 67150
+    },
+    {
+      "date": "2025-01-02",
+      "price_idr_per_kg": 71550
+    },
+    {
+      "date": "2025-01-03",
+      "price_idr_per_kg": 73250
+    },
+    {
+      "date": "2025-01-06",
+      "price_idr_per_kg": 84800
+    },
+    {
+      "date": "2025-01-07",
+      "price_idr_per_kg": 93250
+    },
+    {
+      "date": "2025-01-08",
+      "price_idr_per_kg": 94750
+    },
+    {
+      "date": "2025-01-09",
+      "price_idr_per_kg": 93100
+    },
+    {
+      "date": "2025-01-10",
+      "price_idr_per_kg": 92950
+    },
+    {
+      "date": "2025-01-13",
+      "price_idr_per_kg": 89350
+    },
+    {
+      "date": "2025-01-14",
+      "price_idr_per_kg": 88250
+    },
+    {
+      "date": "2025-01-15",
+      "price_idr_per_kg": 86750
+    },
+    {
+      "date": "2025-01-16",
+      "price_idr_per_kg": 82350
+    },
+    {
+      "date": "2025-01-17",
+      "price_idr_per_kg": 75650
+    },
+    {
+      "date": "2025-01-20",
+      "price_idr_per_kg": 64650
+    },
+    {
+      "date": "2025-01-21",
+      "price_idr_per_kg": 63400
+    },
+    {
+      "date": "2025-01-22",
+      "price_idr_per_kg": 62750
+    },
+    {
+      "date": "2025-01-23",
+      "price_idr_per_kg": 62300
+    },
+    {
+      "date": "2025-01-24",
+      "price_idr_per_kg": 63450
+    },
+    {
+      "date": "2025-01-27",
+      "price_idr_per_kg": 62300
+    },
+    {
+      "date": "2025-01-28",
+      "price_idr_per_kg": 62300
+    },
+    {
+      "date": "2025-01-29",
+      "price_idr_per_kg": 62300
+    },
+    {
+      "date": "2025-01-30",
+      "price_idr_per_kg": 64000
+    },
+    {
+      "date": "2025-01-31",
+      "price_idr_per_kg": 63900
+    },
+    {
+      "date": "2025-02-03",
+      "price_idr_per_kg": 63100
+    },
+    {
+      "date": "2025-02-04",
+      "price_idr_per_kg": 62750
+    },
+    {
+      "date": "2025-02-05",
+      "price_idr_per_kg": 61700
+    },
+    {
+      "date": "2025-02-06",
+      "price_idr_per_kg": 61250
+    },
+    {
+      "date": "2025-02-07",
+      "price_idr_per_kg": 60300
+    },
+    {
+      "date": "2025-02-10",
+      "price_idr_per_kg": 57650
+    },
+    {
+      "date": "2025-02-11",
+      "price_idr_per_kg": 57200
+    },
+    {
+      "date": "2025-02-12",
+      "price_idr_per_kg": 56550
+    },
+    {
+      "date": "2025-02-13",
+      "price_idr_per_kg": 58000
+    },
+    {
+      "date": "2025-02-14",
+      "price_idr_per_kg": 58850
+    },
+    {
+      "date": "2025-02-17",
+      "price_idr_per_kg": 59550
+    },
+    {
+      "date": "2025-02-18",
+      "price_idr_per_kg": 61950
+    },
+    {
+      "date": "2025-02-19",
+      "price_idr_per_kg": 65400
+    },
+    {
+      "date": "2025-02-20",
+      "price_idr_per_kg": 70700
+    },
+    {
+      "date": "2025-02-21",
+      "price_idr_per_kg": 72000
+    },
+    {
+      "date": "2025-02-24",
+      "price_idr_per_kg": 80550
+    },
+    {
+      "date": "2025-02-25",
+      "price_idr_per_kg": 87150
+    },
+    {
+      "date": "2025-02-26",
+      "price_idr_per_kg": 88950
+    },
+    {
+      "date": "2025-02-27",
+      "price_idr_per_kg": 88350
+    },
+    {
+      "date": "2025-02-28",
+      "price_idr_per_kg": 82400
+    },
+    {
+      "date": "2025-03-03",
+      "price_idr_per_kg": 101850
+    },
+    {
+      "date": "2025-03-04",
+      "price_idr_per_kg": 101100
+    },
+    {
+      "date": "2025-03-05",
+      "price_idr_per_kg": 91300
+    },
+    {
+      "date": "2025-03-06",
+      "price_idr_per_kg": 82700
+    },
+    {
+      "date": "2025-03-07",
+      "price_idr_per_kg": 80600
+    },
+    {
+      "date": "2025-03-10",
+      "price_idr_per_kg": 77900
+    },
+    {
+      "date": "2025-03-11",
+      "price_idr_per_kg": 80950
+    },
+    {
+      "date": "2025-03-12",
+      "price_idr_per_kg": 82300
+    },
+    {
+      "date": "2025-03-13",
+      "price_idr_per_kg": 83100
+    },
+    {
+      "date": "2025-03-14",
+      "price_idr_per_kg": 84100
+    },
+    {
+      "date": "2025-03-17",
+      "price_idr_per_kg": 86650
+    },
+    {
+      "date": "2025-03-18",
+      "price_idr_per_kg": 90100
+    },
+    {
+      "date": "2025-03-19",
+      "price_idr_per_kg": 90700
+    },
+    {
+      "date": "2025-03-20",
+      "price_idr_per_kg": 90400
+    },
+    {
+      "date": "2025-03-21",
+      "price_idr_per_kg": 87050
+    },
+    {
+      "date": "2025-03-24",
+      "price_idr_per_kg": 87950
+    },
+    {
+      "date": "2025-03-25",
+      "price_idr_per_kg": 89950
+    },
+    {
+      "date": "2025-03-26",
+      "price_idr_per_kg": 92300
+    },
+    {
+      "date": "2025-03-27",
+      "price_idr_per_kg": 93500
+    },
+    {
+      "date": "2025-03-28",
+      "price_idr_per_kg": 92750
+    },
+    {
+      "date": "2025-03-31",
+      "price_idr_per_kg": 92050
+    },
+    {
+      "date": "2025-04-01",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-04-02",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-04-03",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-04-04",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-04-07",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-04-08",
+      "price_idr_per_kg": 87950
+    },
+    {
+      "date": "2025-04-09",
+      "price_idr_per_kg": 85900
+    },
+    {
+      "date": "2025-04-10",
+      "price_idr_per_kg": 89600
+    },
+    {
+      "date": "2025-04-11",
+      "price_idr_per_kg": 92650
+    },
+    {
+      "date": "2025-04-14",
+      "price_idr_per_kg": 80750
+    },
+    {
+      "date": "2025-04-15",
+      "price_idr_per_kg": 79600
+    },
+    {
+      "date": "2025-04-16",
+      "price_idr_per_kg": 80550
+    },
+    {
+      "date": "2025-04-17",
+      "price_idr_per_kg": 77200
+    },
+    {
+      "date": "2025-04-18",
+      "price_idr_per_kg": 77200
+    },
+    {
+      "date": "2025-04-21",
+      "price_idr_per_kg": 62900
+    },
+    {
+      "date": "2025-04-22",
+      "price_idr_per_kg": 59150
+    },
+    {
+      "date": "2025-04-23",
+      "price_idr_per_kg": 69800
+    },
+    {
+      "date": "2025-04-24",
+      "price_idr_per_kg": 53050
+    },
+    {
+      "date": "2025-04-25",
+      "price_idr_per_kg": 49700
+    },
+    {
+      "date": "2025-04-28",
+      "price_idr_per_kg": 43700
+    },
+    {
+      "date": "2025-04-29",
+      "price_idr_per_kg": 43950
+    },
+    {
+      "date": "2025-04-30",
+      "price_idr_per_kg": 42600
+    },
+    {
+      "date": "2025-05-01",
+      "price_idr_per_kg": 42600
+    },
+    {
+      "date": "2025-05-02",
+      "price_idr_per_kg": 38950
+    },
+    {
+      "date": "2025-05-05",
+      "price_idr_per_kg": 37650
+    },
+    {
+      "date": "2025-05-06",
+      "price_idr_per_kg": 37100
+    },
+    {
+      "date": "2025-05-07",
+      "price_idr_per_kg": 35900
+    },
+    {
+      "date": "2025-05-08",
+      "price_idr_per_kg": 35050
+    },
+    {
+      "date": "2025-05-09",
+      "price_idr_per_kg": 33750
+    },
+    {
+      "date": "2025-05-12",
+      "price_idr_per_kg": 33600
+    },
+    {
+      "date": "2025-05-13",
+      "price_idr_per_kg": 33650
+    },
+    {
+      "date": "2025-05-14",
+      "price_idr_per_kg": 31650
+    },
+    {
+      "date": "2025-05-15",
+      "price_idr_per_kg": 31200
+    },
+    {
+      "date": "2025-05-16",
+      "price_idr_per_kg": 30750
+    },
+    {
+      "date": "2025-05-19",
+      "price_idr_per_kg": 28650
+    },
+    {
+      "date": "2025-05-20",
+      "price_idr_per_kg": 28650
+    },
+    {
+      "date": "2025-05-21",
+      "price_idr_per_kg": 28100
+    },
+    {
+      "date": "2025-05-22",
+      "price_idr_per_kg": 27950
+    },
+    {
+      "date": "2025-05-23",
+      "price_idr_per_kg": 27450
+    },
+    {
+      "date": "2025-05-26",
+      "price_idr_per_kg": 27750
+    },
+    {
+      "date": "2025-05-27",
+      "price_idr_per_kg": 28500
+    },
+    {
+      "date": "2025-05-28",
+      "price_idr_per_kg": 29300
+    },
+    {
+      "date": "2025-05-29",
+      "price_idr_per_kg": 29300
+    },
+    {
+      "date": "2025-05-30",
+      "price_idr_per_kg": 29300
+    },
+    {
+      "date": "2025-06-02",
+      "price_idr_per_kg": 35300
+    },
+    {
+      "date": "2025-06-03",
+      "price_idr_per_kg": 41000
+    },
+    {
+      "date": "2025-06-04",
+      "price_idr_per_kg": 40250
+    },
+    {
+      "date": "2025-06-05",
+      "price_idr_per_kg": 38100
+    },
+    {
+      "date": "2025-06-06",
+      "price_idr_per_kg": 38100
+    },
+    {
+      "date": "2025-06-09",
+      "price_idr_per_kg": 37900
+    },
+    {
+      "date": "2025-06-10",
+      "price_idr_per_kg": 39300
+    },
+    {
+      "date": "2025-06-11",
+      "price_idr_per_kg": 39450
+    },
+    {
+      "date": "2025-06-12",
+      "price_idr_per_kg": 39000
+    },
+    {
+      "date": "2025-06-13",
+      "price_idr_per_kg": 39750
+    },
+    {
+      "date": "2025-06-16",
+      "price_idr_per_kg": 44800
+    },
+    {
+      "date": "2025-06-17",
+      "price_idr_per_kg": 46250
+    },
+    {
+      "date": "2025-06-18",
+      "price_idr_per_kg": 49200
+    },
+    {
+      "date": "2025-06-19",
+      "price_idr_per_kg": 53400
+    },
+    {
+      "date": "2025-06-20",
+      "price_idr_per_kg": 63500
+    },
+    {
+      "date": "2025-06-23",
+      "price_idr_per_kg": 54550
+    },
+    {
+      "date": "2025-06-24",
+      "price_idr_per_kg": 53350
+    },
+    {
+      "date": "2025-06-25",
+      "price_idr_per_kg": 54250
+    },
+    {
+      "date": "2025-06-26",
+      "price_idr_per_kg": 58850
+    },
+    {
+      "date": "2025-06-27",
+      "price_idr_per_kg": 58850
+    },
+    {
+      "date": "2025-06-30",
+      "price_idr_per_kg": 61250
+    },
+    {
+      "date": "2025-07-01",
+      "price_idr_per_kg": 62200
+    },
+    {
+      "date": "2025-07-02",
+      "price_idr_per_kg": 62550
+    },
+    {
+      "date": "2025-07-03",
+      "price_idr_per_kg": 62900
+    },
+    {
+      "date": "2025-07-04",
+      "price_idr_per_kg": 63500
+    },
+    {
+      "date": "2025-07-07",
+      "price_idr_per_kg": 63700
+    },
+    {
+      "date": "2025-07-08",
+      "price_idr_per_kg": 63650
+    },
+    {
+      "date": "2025-07-09",
+      "price_idr_per_kg": 62850
+    },
+    {
+      "date": "2025-07-10",
+      "price_idr_per_kg": 62400
+    },
+    {
+      "date": "2025-07-11",
+      "price_idr_per_kg": 61950
+    },
+    {
+      "date": "2025-07-14",
+      "price_idr_per_kg": 63100
+    },
+    {
+      "date": "2025-07-15",
+      "price_idr_per_kg": 62050
+    },
+    {
+      "date": "2025-07-16",
+      "price_idr_per_kg": 58900
+    },
+    {
+      "date": "2025-07-17",
+      "price_idr_per_kg": 54750
+    },
+    {
+      "date": "2025-07-18",
+      "price_idr_per_kg": 47650
+    },
+    {
+      "date": "2025-07-21",
+      "price_idr_per_kg": 43300
+    },
+    {
+      "date": "2025-07-22",
+      "price_idr_per_kg": 43550
+    },
+    {
+      "date": "2025-07-23",
+      "price_idr_per_kg": 42900
+    },
+    {
+      "date": "2025-07-24",
+      "price_idr_per_kg": 42050
+    },
+    {
+      "date": "2025-07-25",
+      "price_idr_per_kg": 41100
+    },
+    {
+      "date": "2025-07-28",
+      "price_idr_per_kg": 38500
+    },
+    {
+      "date": "2025-07-29",
+      "price_idr_per_kg": 37900
+    },
+    {
+      "date": "2025-07-30",
+      "price_idr_per_kg": 37800
+    },
+    {
+      "date": "2025-07-31",
+      "price_idr_per_kg": 37150
+    },
+    {
+      "date": "2025-08-01",
+      "price_idr_per_kg": 35550
+    },
+    {
+      "date": "2025-08-04",
+      "price_idr_per_kg": 35000
+    },
+    {
+      "date": "2025-08-05",
+      "price_idr_per_kg": 35250
+    },
+    {
+      "date": "2025-08-06",
+      "price_idr_per_kg": 35450
+    },
+    {
+      "date": "2025-08-07",
+      "price_idr_per_kg": 34650
+    },
+    {
+      "date": "2025-08-08",
+      "price_idr_per_kg": 33000
+    },
+    {
+      "date": "2025-08-11",
+      "price_idr_per_kg": 31350
+    },
+    {
+      "date": "2025-08-12",
+      "price_idr_per_kg": 30950
+    },
+    {
+      "date": "2025-08-13",
+      "price_idr_per_kg": 29850
+    },
+    {
+      "date": "2025-08-14",
+      "price_idr_per_kg": 29400
+    },
+    {
+      "date": "2025-08-15",
+      "price_idr_per_kg": 28350
+    },
+    {
+      "date": "2025-08-18",
+      "price_idr_per_kg": 28450
+    },
+    {
+      "date": "2025-08-19",
+      "price_idr_per_kg": 28750
+    },
+    {
+      "date": "2025-08-20",
+      "price_idr_per_kg": 28900
+    },
+    {
+      "date": "2025-08-21",
+      "price_idr_per_kg": 28850
+    },
+    {
+      "date": "2025-08-22",
+      "price_idr_per_kg": 27900
+    },
+    {
+      "date": "2025-08-25",
+      "price_idr_per_kg": 27250
+    },
+    {
+      "date": "2025-08-26",
+      "price_idr_per_kg": 27150
+    },
+    {
+      "date": "2025-08-27",
+      "price_idr_per_kg": 28000
+    },
+    {
+      "date": "2025-08-28",
+      "price_idr_per_kg": 28000
+    },
+    {
+      "date": "2025-08-29",
+      "price_idr_per_kg": 28000
+    },
+    {
+      "date": "2025-09-01",
+      "price_idr_per_kg": 27300
+    },
+    {
+      "date": "2025-09-02",
+      "price_idr_per_kg": 27000
+    },
+    {
+      "date": "2025-09-03",
+      "price_idr_per_kg": 27550
+    },
+    {
+      "date": "2025-09-04",
+      "price_idr_per_kg": 28850
+    },
+    {
+      "date": "2025-09-05",
+      "price_idr_per_kg": 28950
+    },
+    {
+      "date": "2025-09-08",
+      "price_idr_per_kg": 33350
+    },
+    {
+      "date": "2025-09-09",
+      "price_idr_per_kg": 35150
+    },
+    {
+      "date": "2025-09-10",
+      "price_idr_per_kg": 35300
+    },
+    {
+      "date": "2025-09-11",
+      "price_idr_per_kg": 34000
+    },
+    {
+      "date": "2025-09-12",
+      "price_idr_per_kg": 33600
+    },
+    {
+      "date": "2025-09-15",
+      "price_idr_per_kg": 36450
+    },
+    {
+      "date": "2025-09-16",
+      "price_idr_per_kg": 38600
+    },
+    {
+      "date": "2025-09-17",
+      "price_idr_per_kg": 39050
+    },
+    {
+      "date": "2025-09-18",
+      "price_idr_per_kg": 37950
+    },
+    {
+      "date": "2025-09-19",
+      "price_idr_per_kg": 37100
+    },
+    {
+      "date": "2025-09-22",
+      "price_idr_per_kg": 37250
+    },
+    {
+      "date": "2025-09-23",
+      "price_idr_per_kg": 36850
+    },
+    {
+      "date": "2025-09-24",
+      "price_idr_per_kg": 36850
+    },
+    {
+      "date": "2025-09-25",
+      "price_idr_per_kg": 36250
+    },
+    {
+      "date": "2025-09-26",
+      "price_idr_per_kg": 36000
+    },
+    {
+      "date": "2025-09-29",
+      "price_idr_per_kg": 34500
+    },
+    {
+      "date": "2025-09-30",
+      "price_idr_per_kg": 33800
+    },
+    {
+      "date": "2025-10-01",
+      "price_idr_per_kg": 33600
+    },
+    {
+      "date": "2025-10-02",
+      "price_idr_per_kg": 33250
+    },
+    {
+      "date": "2025-10-03",
+      "price_idr_per_kg": 33600
+    },
+    {
+      "date": "2025-10-06",
+      "price_idr_per_kg": 35300
+    },
+    {
+      "date": "2025-10-07",
+      "price_idr_per_kg": 35700
+    },
+    {
+      "date": "2025-10-08",
+      "price_idr_per_kg": 35650
+    },
+    {
+      "date": "2025-10-09",
+      "price_idr_per_kg": 35400
+    },
+    {
+      "date": "2025-10-10",
+      "price_idr_per_kg": 35700
+    },
+    {
+      "date": "2025-10-13",
+      "price_idr_per_kg": 34400
+    },
+    {
+      "date": "2025-10-14",
+      "price_idr_per_kg": 34300
+    },
+    {
+      "date": "2025-10-15",
+      "price_idr_per_kg": 33100
+    },
+    {
+      "date": "2025-10-16",
+      "price_idr_per_kg": 32450
+    },
+    {
+      "date": "2025-10-17",
+      "price_idr_per_kg": 32150
+    },
+    {
+      "date": "2025-10-20",
+      "price_idr_per_kg": 29700
+    },
+    {
+      "date": "2025-10-21",
+      "price_idr_per_kg": 28250
+    },
+    {
+      "date": "2025-10-22",
+      "price_idr_per_kg": 27900
+    },
+    {
+      "date": "2025-10-23",
+      "price_idr_per_kg": 27750
+    },
+    {
+      "date": "2025-10-24",
+      "price_idr_per_kg": 26900
+    },
+    {
+      "date": "2025-10-27",
+      "price_idr_per_kg": 25850
+    },
+    {
+      "date": "2025-10-28",
+      "price_idr_per_kg": 25400
+    },
+    {
+      "date": "2025-10-29",
+      "price_idr_per_kg": 25550
+    },
+    {
+      "date": "2025-10-30",
+      "price_idr_per_kg": 26750
+    },
+    {
+      "date": "2025-10-31",
+      "price_idr_per_kg": 26750
+    },
+    {
+      "date": "2025-11-03",
+      "price_idr_per_kg": 26450
+    },
+    {
+      "date": "2025-11-04",
+      "price_idr_per_kg": 26250
+    },
+    {
+      "date": "2025-11-05",
+      "price_idr_per_kg": 26750
+    },
+    {
+      "date": "2025-11-06",
+      "price_idr_per_kg": 27000
+    },
+    {
+      "date": "2025-11-07",
+      "price_idr_per_kg": 26850
+    },
+    {
+      "date": "2025-11-10",
+      "price_idr_per_kg": 26800
+    },
+    {
+      "date": "2025-11-11",
+      "price_idr_per_kg": 27100
+    },
+    {
+      "date": "2025-11-12",
+      "price_idr_per_kg": 28150
+    },
+    {
+      "date": "2025-11-13",
+      "price_idr_per_kg": 29550
+    },
+    {
+      "date": "2025-11-14",
+      "price_idr_per_kg": 29650
+    },
+    {
+      "date": "2025-11-17",
+      "price_idr_per_kg": 34950
+    },
+    {
+      "date": "2025-11-18",
+      "price_idr_per_kg": 40650
+    },
+    {
+      "date": "2025-11-19",
+      "price_idr_per_kg": 43900
+    },
+    {
+      "date": "2025-11-20",
+      "price_idr_per_kg": 43200
+    },
+    {
+      "date": "2025-11-21",
+      "price_idr_per_kg": 42550
+    },
+    {
+      "date": "2025-11-24",
+      "price_idr_per_kg": 46150
+    },
+    {
+      "date": "2025-11-25",
+      "price_idr_per_kg": 46650
+    },
+    {
+      "date": "2025-11-26",
+      "price_idr_per_kg": 47250
+    },
+    {
+      "date": "2025-11-27",
+      "price_idr_per_kg": 47750
+    },
+    {
+      "date": "2025-11-28",
+      "price_idr_per_kg": 49800
+    },
+    {
+      "date": "2025-12-01",
+      "price_idr_per_kg": 62100
+    },
+    {
+      "date": "2025-12-02",
+      "price_idr_per_kg": 67600
+    },
+    {
+      "date": "2025-12-03",
+      "price_idr_per_kg": 72250
+    },
+    {
+      "date": "2025-12-04",
+      "price_idr_per_kg": 76750
+    },
+    {
+      "date": "2025-12-05",
+      "price_idr_per_kg": 76650
+    },
+    {
+      "date": "2025-12-08",
+      "price_idr_per_kg": 84650
+    },
+    {
+      "date": "2025-12-09",
+      "price_idr_per_kg": 86900
+    },
+    {
+      "date": "2025-12-10",
+      "price_idr_per_kg": 85700
+    },
+    {
+      "date": "2025-12-11",
+      "price_idr_per_kg": 82450
+    },
+    {
+      "date": "2025-12-12",
+      "price_idr_per_kg": 78650
+    },
+    {
+      "date": "2025-12-15",
+      "price_idr_per_kg": 75450
+    },
+    {
+      "date": "2025-12-16",
+      "price_idr_per_kg": 71650
+    },
+    {
+      "date": "2025-12-17",
+      "price_idr_per_kg": 67650
+    },
+    {
+      "date": "2025-12-18",
+      "price_idr_per_kg": 57150
+    },
+    {
+      "date": "2025-12-19",
+      "price_idr_per_kg": 52750
+    },
+    {
+      "date": "2025-12-22",
+      "price_idr_per_kg": 58850
+    },
+    {
+      "date": "2025-12-23",
+      "price_idr_per_kg": 59300
+    },
+    {
+      "date": "2025-12-24",
+      "price_idr_per_kg": 59450
+    },
+    {
+      "date": "2025-12-25",
+      "price_idr_per_kg": 59150
+    },
+    {
+      "date": "2025-12-26",
+      "price_idr_per_kg": 59450
+    },
+    {
+      "date": "2025-12-29",
+      "price_idr_per_kg": 55300
+    },
+    {
+      "date": "2025-12-30",
+      "price_idr_per_kg": 51200
+    },
+    {
+      "date": "2025-12-31",
+      "price_idr_per_kg": 48650
+    },
+    {
+      "date": "2026-01-01",
+      "price_idr_per_kg": 47850
+    },
+    {
+      "date": "2026-01-02",
+      "price_idr_per_kg": 48750
+    },
+    {
+      "date": "2026-01-05",
+      "price_idr_per_kg": 44900
+    },
+    {
+      "date": "2026-01-06",
+      "price_idr_per_kg": 44200
+    },
+    {
+      "date": "2026-01-07",
+      "price_idr_per_kg": 43450
+    },
+    {
+      "date": "2026-01-08",
+      "price_idr_per_kg": 42150
+    },
+    {
+      "date": "2026-01-09",
+      "price_idr_per_kg": 40900
+    },
+    {
+      "date": "2026-01-12",
+      "price_idr_per_kg": 36100
+    },
+    {
+      "date": "2026-01-13",
+      "price_idr_per_kg": 36000
+    },
+    {
+      "date": "2026-01-14",
+      "price_idr_per_kg": 35050
+    },
+    {
+      "date": "2026-01-15",
+      "price_idr_per_kg": 35350
+    },
+    {
+      "date": "2026-01-16",
+      "price_idr_per_kg": 35550
+    },
+    {
+      "date": "2026-01-19",
+      "price_idr_per_kg": 39900
+    },
+    {
+      "date": "2026-01-20",
+      "price_idr_per_kg": 41950
+    },
+    {
+      "date": "2026-01-21",
+      "price_idr_per_kg": 42500
+    },
+    {
+      "date": "2026-01-22",
+      "price_idr_per_kg": 44500
+    },
+    {
+      "date": "2026-01-23",
+      "price_idr_per_kg": 45550
+    },
+    {
+      "date": "2026-01-26",
+      "price_idr_per_kg": 50700
+    },
+    {
+      "date": "2026-01-27",
+      "price_idr_per_kg": 51500
+    },
+    {
+      "date": "2026-01-28",
+      "price_idr_per_kg": 52700
+    },
+    {
+      "date": "2026-01-29",
+      "price_idr_per_kg": 57900
+    },
+    {
+      "date": "2026-01-30",
+      "price_idr_per_kg": 60000
+    },
+    {
+      "date": "2026-02-02",
+      "price_idr_per_kg": 65900
+    },
+    {
+      "date": "2026-02-03",
+      "price_idr_per_kg": 68250
+    },
+    {
+      "date": "2026-02-04",
+      "price_idr_per_kg": 71400
+    },
+    {
+      "date": "2026-02-05",
+      "price_idr_per_kg": 78150
+    },
+    {
+      "date": "2026-02-06",
+      "price_idr_per_kg": 80500
+    },
+    {
+      "date": "2026-02-09",
+      "price_idr_per_kg": 81250
+    },
+    {
+      "date": "2026-02-10",
+      "price_idr_per_kg": 83600
+    },
+    {
+      "date": "2026-02-11",
+      "price_idr_per_kg": 84050
+    },
+    {
+      "date": "2026-02-12",
+      "price_idr_per_kg": 84300
+    },
+    {
+      "date": "2026-02-13",
+      "price_idr_per_kg": 85150
+    },
+    {
+      "date": "2026-02-16",
+      "price_idr_per_kg": 85150
+    },
+    {
+      "date": "2026-02-17",
+      "price_idr_per_kg": 85150
+    },
+    {
+      "date": "2026-02-18",
+      "price_idr_per_kg": 86750
+    },
+    {
+      "date": "2026-02-19",
+      "price_idr_per_kg": 90500
+    },
+    {
+      "date": "2026-02-20",
+      "price_idr_per_kg": 98650
+    },
+    {
+      "date": "2026-02-23",
+      "price_idr_per_kg": 88500
+    },
+    {
+      "date": "2026-02-24",
+      "price_idr_per_kg": 83500
+    },
+    {
+      "date": "2026-02-25",
+      "price_idr_per_kg": 78550
+    },
+    {
+      "date": "2026-02-26",
+      "price_idr_per_kg": 79300
+    },
+    {
+      "date": "2026-02-27",
+      "price_idr_per_kg": 85300
+    },
+    {
+      "date": "2026-03-02",
+      "price_idr_per_kg": 84800
+    },
+    {
+      "date": "2026-03-03",
+      "price_idr_per_kg": 89100
+    },
+    {
+      "date": "2026-03-04",
+      "price_idr_per_kg": 90400
+    },
+    {
+      "date": "2026-03-05",
+      "price_idr_per_kg": 92300
+    },
+    {
+      "date": "2026-03-06",
+      "price_idr_per_kg": 93650
+    },
+    {
+      "date": "2026-03-09",
+      "price_idr_per_kg": 91250
+    },
+    {
+      "date": "2026-03-10",
+      "price_idr_per_kg": 91050
+    },
+    {
+      "date": "2026-03-11",
+      "price_idr_per_kg": 90950
+    },
+    {
+      "date": "2026-03-12",
+      "price_idr_per_kg": 89750
+    },
+    {
+      "date": "2026-03-13",
+      "price_idr_per_kg": 89400
+    },
+    {
+      "date": "2026-03-16",
+      "price_idr_per_kg": 88250
+    },
+    {
+      "date": "2026-03-17",
+      "price_idr_per_kg": 100500
+    },
+    {
+      "date": "2026-03-18",
+      "price_idr_per_kg": 102050
+    },
+    {
+      "date": "2026-03-19",
+      "price_idr_per_kg": 101850
+    },
+    {
+      "date": "2026-03-20",
+      "price_idr_per_kg": 101400
+    },
+    {
+      "date": "2026-03-23",
+      "price_idr_per_kg": 101850
+    },
+    {
+      "date": "2026-03-24",
+      "price_idr_per_kg": 101850
+    },
+    {
+      "date": "2026-03-25",
+      "price_idr_per_kg": 62500
+    },
+    {
+      "date": "2026-03-26",
+      "price_idr_per_kg": 66150
+    },
+    {
+      "date": "2026-03-27",
+      "price_idr_per_kg": 70850
+    },
+    {
+      "date": "2026-03-30",
+      "price_idr_per_kg": 73900
+    },
+    {
+      "date": "2026-03-31",
+      "price_idr_per_kg": 77200
+    },
+    {
+      "date": "2026-04-01",
+      "price_idr_per_kg": 76000
+    },
+    {
+      "date": "2026-04-02",
+      "price_idr_per_kg": 72250
+    },
+    {
+      "date": "2026-04-03",
+      "price_idr_per_kg": 72250
+    },
+    {
+      "date": "2026-04-06",
+      "price_idr_per_kg": 72500
+    },
+    {
+      "date": "2026-04-07",
+      "price_idr_per_kg": 71300
+    },
+    {
+      "date": "2026-04-08",
+      "price_idr_per_kg": 71000
+    },
+    {
+      "date": "2026-04-09",
+      "price_idr_per_kg": 69550
+    },
+    {
+      "date": "2026-04-10",
+      "price_idr_per_kg": 68950
+    },
+    {
+      "date": "2026-04-13",
+      "price_idr_per_kg": 64750
+    },
+    {
+      "date": "2026-04-14",
+      "price_idr_per_kg": 64000
+    },
+    {
+      "date": "2026-04-15",
+      "price_idr_per_kg": 63650
+    },
+    {
+      "date": "2026-04-16",
+      "price_idr_per_kg": 62150
+    },
+    {
+      "date": "2026-04-17",
+      "price_idr_per_kg": 59550
+    },
+    {
+      "date": "2026-04-20",
+      "price_idr_per_kg": 57300
+    },
+    {
+      "date": "2026-04-21",
+      "price_idr_per_kg": 57500
+    },
+    {
+      "date": "2026-04-22",
+      "price_idr_per_kg": 56900
+    },
+    {
+      "date": "2026-04-23",
+      "price_idr_per_kg": 55650
+    },
+    {
+      "date": "2026-04-24",
+      "price_idr_per_kg": 54500
+    },
+    {
+      "date": "2026-04-27",
+      "price_idr_per_kg": 49600
+    },
+    {
+      "date": "2026-04-28",
+      "price_idr_per_kg": 49150
+    },
+    {
+      "date": "2026-04-29",
+      "price_idr_per_kg": 49750
+    },
+    {
+      "date": "2026-04-30",
+      "price_idr_per_kg": 50200
+    },
+    {
+      "date": "2026-05-01",
+      "price_idr_per_kg": 50200
+    },
+    {
+      "date": "2026-05-04",
+      "price_idr_per_kg": 64050
+    },
+    {
+      "date": "2026-05-05",
+      "price_idr_per_kg": 69050
+    },
+    {
+      "date": "2026-05-06",
+      "price_idr_per_kg": 69200
+    },
+    {
+      "date": "2026-05-07",
+      "price_idr_per_kg": 68550
+    },
+    {
+      "date": "2026-05-08",
+      "price_idr_per_kg": 68750
+    },
+    {
+      "date": "2026-05-11",
+      "price_idr_per_kg": 74900
+    },
+    {
+      "date": "2026-05-12",
+      "price_idr_per_kg": 75650
+    },
+    {
+      "date": "2026-05-13",
+      "price_idr_per_kg": 74250
+    },
+    {
+      "date": "2026-05-14",
+      "price_idr_per_kg": 74250
+    },
+    {
+      "date": "2026-05-15",
+      "price_idr_per_kg": 74250
+    },
+    {
+      "date": "2026-05-18",
+      "price_idr_per_kg": 75950
+    },
+    {
+      "date": "2026-05-19",
+      "price_idr_per_kg": 74000
+    },
+    {
+      "date": "2026-05-20",
+      "price_idr_per_kg": 72600
+    },
+    {
+      "date": "2026-05-21",
+      "price_idr_per_kg": 75350
+    },
+    {
+      "date": "2026-05-22",
+      "price_idr_per_kg": 77650
+    },
+    {
+      "date": "2026-05-25",
+      "price_idr_per_kg": 74000
+    },
+    {
+      "date": "2026-05-26",
+      "price_idr_per_kg": 75650
+    },
+    {
+      "date": "2026-05-27",
+      "price_idr_per_kg": 75650
+    },
+    {
+      "date": "2026-05-28",
+      "price_idr_per_kg": 75650
+    },
+    {
+      "date": "2026-05-29",
+      "price_idr_per_kg": 78500
+    },
+    {
+      "date": "2026-06-01",
+      "price_idr_per_kg": 78250
+    },
+    {
+      "date": "2026-06-02",
+      "price_idr_per_kg": 69450
+    },
+    {
+      "date": "2026-06-03",
+      "price_idr_per_kg": 69000
+    },
+    {
+      "date": "2026-06-04",
+      "price_idr_per_kg": 69000
+    },
+    {
+      "date": "2026-06-05",
+      "price_idr_per_kg": 67950
+    },
+    {
+      "date": "2026-06-08",
+      "price_idr_per_kg": 63650
+    },
+    {
+      "date": "2026-06-09",
+      "price_idr_per_kg": 64250
+    },
+    {
+      "date": "2026-06-10",
+      "price_idr_per_kg": 64150
+    },
+    {
+      "date": "2026-06-11",
+      "price_idr_per_kg": 63200
+    },
+    {
+      "date": "2026-06-12",
+      "price_idr_per_kg": 62000
+    },
+    {
+      "date": "2026-06-15",
+      "price_idr_per_kg": 61000
+    },
+    {
+      "date": "2026-06-16",
+      "price_idr_per_kg": 61000
+    },
+    {
+      "date": "2026-06-17",
+      "price_idr_per_kg": 59750
+    },
+    {
+      "date": "2026-06-18",
+      "price_idr_per_kg": 59700
+    },
+    {
+      "date": "2026-06-19",
+      "price_idr_per_kg": 58350
+    },
+    {
+      "date": "2026-06-22",
+      "price_idr_per_kg": 49900
+    },
+    {
+      "date": "2026-06-23",
+      "price_idr_per_kg": 48150
+    },
+    {
+      "date": "2026-06-24",
+      "price_idr_per_kg": 45900
+    },
+    {
+      "date": "2026-06-25",
+      "price_idr_per_kg": 45150
+    },
+    {
+      "date": "2026-06-26",
+      "price_idr_per_kg": 42000
+    },
+    {
+      "date": "2026-06-29",
+      "price_idr_per_kg": 39500
+    },
+    {
+      "date": "2026-06-30",
+      "price_idr_per_kg": 39850
+    },
+    {
+      "date": "2026-07-01",
+      "price_idr_per_kg": 40550
+    },
+    {
+      "date": "2026-07-02",
+      "price_idr_per_kg": 41050
+    },
+    {
+      "date": "2026-07-03",
+      "price_idr_per_kg": 42250
+    },
+    {
+      "date": "2026-07-06",
+      "price_idr_per_kg": 45650
+    },
+    {
+      "date": "2026-07-07",
+      "price_idr_per_kg": 45800
+    },
+    {
+      "date": "2026-07-08",
+      "price_idr_per_kg": 45050
+    },
+    {
+      "date": "2026-07-09",
+      "price_idr_per_kg": 43850
+    },
+    {
+      "date": "2026-07-10",
+      "price_idr_per_kg": 43250
+    },
+    {
+      "date": "2026-07-13",
+      "price_idr_per_kg": 43000
+    },
+    {
+      "date": "2026-07-14",
+      "price_idr_per_kg": 42700
+    },
+    {
+      "date": "2026-07-15",
+      "price_idr_per_kg": 42650
+    },
+    {
+      "date": "2026-07-16",
+      "price_idr_per_kg": 41050
+    }
+  ],
+  "cabai_rawit_merah|jawa_barat": [
+    {
+      "date": "2025-01-01",
+      "price_idr_per_kg": 81450
+    },
+    {
+      "date": "2025-01-02",
+      "price_idr_per_kg": 90300
+    },
+    {
+      "date": "2025-01-03",
+      "price_idr_per_kg": 91550
+    },
+    {
+      "date": "2025-01-06",
+      "price_idr_per_kg": 102650
+    },
+    {
+      "date": "2025-01-07",
+      "price_idr_per_kg": 105550
+    },
+    {
+      "date": "2025-01-08",
+      "price_idr_per_kg": 108750
+    },
+    {
+      "date": "2025-01-09",
+      "price_idr_per_kg": 108900
+    },
+    {
+      "date": "2025-01-10",
+      "price_idr_per_kg": 107200
+    },
+    {
+      "date": "2025-01-13",
+      "price_idr_per_kg": 107500
+    },
+    {
+      "date": "2025-01-14",
+      "price_idr_per_kg": 108350
+    },
+    {
+      "date": "2025-01-15",
+      "price_idr_per_kg": 104650
+    },
+    {
+      "date": "2025-01-16",
+      "price_idr_per_kg": 103750
+    },
+    {
+      "date": "2025-01-17",
+      "price_idr_per_kg": 101250
+    },
+    {
+      "date": "2025-01-20",
+      "price_idr_per_kg": 89600
+    },
+    {
+      "date": "2025-01-21",
+      "price_idr_per_kg": 84450
+    },
+    {
+      "date": "2025-01-22",
+      "price_idr_per_kg": 79700
+    },
+    {
+      "date": "2025-01-23",
+      "price_idr_per_kg": 79300
+    },
+    {
+      "date": "2025-01-24",
+      "price_idr_per_kg": 79050
+    },
+    {
+      "date": "2025-01-27",
+      "price_idr_per_kg": 78750
+    },
+    {
+      "date": "2025-01-28",
+      "price_idr_per_kg": 78750
+    },
+    {
+      "date": "2025-01-29",
+      "price_idr_per_kg": 78750
+    },
+    {
+      "date": "2025-01-30",
+      "price_idr_per_kg": 81100
+    },
+    {
+      "date": "2025-01-31",
+      "price_idr_per_kg": 81250
+    },
+    {
+      "date": "2025-02-03",
+      "price_idr_per_kg": 79600
+    },
+    {
+      "date": "2025-02-04",
+      "price_idr_per_kg": 79600
+    },
+    {
+      "date": "2025-02-05",
+      "price_idr_per_kg": 77300
+    },
+    {
+      "date": "2025-02-06",
+      "price_idr_per_kg": 75950
+    },
+    {
+      "date": "2025-02-07",
+      "price_idr_per_kg": 73650
+    },
+    {
+      "date": "2025-02-10",
+      "price_idr_per_kg": 71000
+    },
+    {
+      "date": "2025-02-11",
+      "price_idr_per_kg": 70200
+    },
+    {
+      "date": "2025-02-12",
+      "price_idr_per_kg": 69900
+    },
+    {
+      "date": "2025-02-13",
+      "price_idr_per_kg": 68950
+    },
+    {
+      "date": "2025-02-14",
+      "price_idr_per_kg": 67750
+    },
+    {
+      "date": "2025-02-17",
+      "price_idr_per_kg": 67550
+    },
+    {
+      "date": "2025-02-18",
+      "price_idr_per_kg": 67000
+    },
+    {
+      "date": "2025-02-19",
+      "price_idr_per_kg": 70650
+    },
+    {
+      "date": "2025-02-20",
+      "price_idr_per_kg": 71800
+    },
+    {
+      "date": "2025-02-21",
+      "price_idr_per_kg": 74150
+    },
+    {
+      "date": "2025-02-24",
+      "price_idr_per_kg": 82300
+    },
+    {
+      "date": "2025-02-25",
+      "price_idr_per_kg": 86800
+    },
+    {
+      "date": "2025-02-26",
+      "price_idr_per_kg": 95350
+    },
+    {
+      "date": "2025-02-27",
+      "price_idr_per_kg": 98900
+    },
+    {
+      "date": "2025-02-28",
+      "price_idr_per_kg": 103700
+    },
+    {
+      "date": "2025-03-03",
+      "price_idr_per_kg": 116850
+    },
+    {
+      "date": "2025-03-04",
+      "price_idr_per_kg": 121850
+    },
+    {
+      "date": "2025-03-05",
+      "price_idr_per_kg": 117400
+    },
+    {
+      "date": "2025-03-06",
+      "price_idr_per_kg": 107200
+    },
+    {
+      "date": "2025-03-07",
+      "price_idr_per_kg": 96700
+    },
+    {
+      "date": "2025-03-10",
+      "price_idr_per_kg": 93400
+    },
+    {
+      "date": "2025-03-11",
+      "price_idr_per_kg": 94350
+    },
+    {
+      "date": "2025-03-12",
+      "price_idr_per_kg": 91300
+    },
+    {
+      "date": "2025-03-13",
+      "price_idr_per_kg": 91150
+    },
+    {
+      "date": "2025-03-14",
+      "price_idr_per_kg": 92500
+    },
+    {
+      "date": "2025-03-17",
+      "price_idr_per_kg": 102900
+    },
+    {
+      "date": "2025-03-18",
+      "price_idr_per_kg": 103900
+    },
+    {
+      "date": "2025-03-19",
+      "price_idr_per_kg": 104600
+    },
+    {
+      "date": "2025-03-20",
+      "price_idr_per_kg": 103900
+    },
+    {
+      "date": "2025-03-21",
+      "price_idr_per_kg": 103600
+    },
+    {
+      "date": "2025-03-24",
+      "price_idr_per_kg": 103550
+    },
+    {
+      "date": "2025-03-25",
+      "price_idr_per_kg": 104450
+    },
+    {
+      "date": "2025-03-26",
+      "price_idr_per_kg": 108600
+    },
+    {
+      "date": "2025-03-27",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-03-28",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-03-31",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-01",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-02",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-03",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-04",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-07",
+      "price_idr_per_kg": 108450
+    },
+    {
+      "date": "2025-04-08",
+      "price_idr_per_kg": 100300
+    },
+    {
+      "date": "2025-04-09",
+      "price_idr_per_kg": 100300
+    },
+    {
+      "date": "2025-04-10",
+      "price_idr_per_kg": 99150
+    },
+    {
+      "date": "2025-04-11",
+      "price_idr_per_kg": 98450
+    },
+    {
+      "date": "2025-04-14",
+      "price_idr_per_kg": 97800
+    },
+    {
+      "date": "2025-04-15",
+      "price_idr_per_kg": 95400
+    },
+    {
+      "date": "2025-04-16",
+      "price_idr_per_kg": 95000
+    },
+    {
+      "date": "2025-04-17",
+      "price_idr_per_kg": 93450
+    },
+    {
+      "date": "2025-04-18",
+      "price_idr_per_kg": 93450
+    },
+    {
+      "date": "2025-04-21",
+      "price_idr_per_kg": 79450
+    },
+    {
+      "date": "2025-04-22",
+      "price_idr_per_kg": 74600
+    },
+    {
+      "date": "2025-04-23",
+      "price_idr_per_kg": 72100
+    },
+    {
+      "date": "2025-04-24",
+      "price_idr_per_kg": 70000
+    },
+    {
+      "date": "2025-04-25",
+      "price_idr_per_kg": 65900
+    },
+    {
+      "date": "2025-04-28",
+      "price_idr_per_kg": 56850
+    },
+    {
+      "date": "2025-04-29",
+      "price_idr_per_kg": 53600
+    },
+    {
+      "date": "2025-04-30",
+      "price_idr_per_kg": 52050
+    },
+    {
+      "date": "2025-05-01",
+      "price_idr_per_kg": 52050
+    },
+    {
+      "date": "2025-05-02",
+      "price_idr_per_kg": 49450
+    },
+    {
+      "date": "2025-05-05",
+      "price_idr_per_kg": 47650
+    },
+    {
+      "date": "2025-05-06",
+      "price_idr_per_kg": 47050
+    },
+    {
+      "date": "2025-05-07",
+      "price_idr_per_kg": 46650
+    },
+    {
+      "date": "2025-05-08",
+      "price_idr_per_kg": 44400
+    },
+    {
+      "date": "2025-05-09",
+      "price_idr_per_kg": 43050
+    },
+    {
+      "date": "2025-05-12",
+      "price_idr_per_kg": 42950
+    },
+    {
+      "date": "2025-05-13",
+      "price_idr_per_kg": 43450
+    },
+    {
+      "date": "2025-05-14",
+      "price_idr_per_kg": 42000
+    },
+    {
+      "date": "2025-05-15",
+      "price_idr_per_kg": 41150
+    },
+    {
+      "date": "2025-05-16",
+      "price_idr_per_kg": 40700
+    },
+    {
+      "date": "2025-05-19",
+      "price_idr_per_kg": 40400
+    },
+    {
+      "date": "2025-05-20",
+      "price_idr_per_kg": 39950
+    },
+    {
+      "date": "2025-05-21",
+      "price_idr_per_kg": 39650
+    },
+    {
+      "date": "2025-05-22",
+      "price_idr_per_kg": 39650
+    },
+    {
+      "date": "2025-05-23",
+      "price_idr_per_kg": 39300
+    },
+    {
+      "date": "2025-05-26",
+      "price_idr_per_kg": 38400
+    },
+    {
+      "date": "2025-05-27",
+      "price_idr_per_kg": 39450
+    },
+    {
+      "date": "2025-05-28",
+      "price_idr_per_kg": 40000
+    },
+    {
+      "date": "2025-05-29",
+      "price_idr_per_kg": 40000
+    },
+    {
+      "date": "2025-05-30",
+      "price_idr_per_kg": 40000
+    },
+    {
+      "date": "2025-06-02",
+      "price_idr_per_kg": 45300
+    },
+    {
+      "date": "2025-06-03",
+      "price_idr_per_kg": 47200
+    },
+    {
+      "date": "2025-06-04",
+      "price_idr_per_kg": 49650
+    },
+    {
+      "date": "2025-06-05",
+      "price_idr_per_kg": 53800
+    },
+    {
+      "date": "2025-06-06",
+      "price_idr_per_kg": 53800
+    },
+    {
+      "date": "2025-06-09",
+      "price_idr_per_kg": 53800
+    },
+    {
+      "date": "2025-06-10",
+      "price_idr_per_kg": 52050
+    },
+    {
+      "date": "2025-06-11",
+      "price_idr_per_kg": 50900
+    },
+    {
+      "date": "2025-06-12",
+      "price_idr_per_kg": 49600
+    },
+    {
+      "date": "2025-06-13",
+      "price_idr_per_kg": 49400
+    },
+    {
+      "date": "2025-06-16",
+      "price_idr_per_kg": 53450
+    },
+    {
+      "date": "2025-06-17",
+      "price_idr_per_kg": 54700
+    },
+    {
+      "date": "2025-06-18",
+      "price_idr_per_kg": 55700
+    },
+    {
+      "date": "2025-06-19",
+      "price_idr_per_kg": 58550
+    },
+    {
+      "date": "2025-06-20",
+      "price_idr_per_kg": 69200
+    },
+    {
+      "date": "2025-06-23",
+      "price_idr_per_kg": 70850
+    },
+    {
+      "date": "2025-06-24",
+      "price_idr_per_kg": 69450
+    },
+    {
+      "date": "2025-06-25",
+      "price_idr_per_kg": 64900
+    },
+    {
+      "date": "2025-06-26",
+      "price_idr_per_kg": 62750
+    },
+    {
+      "date": "2025-06-27",
+      "price_idr_per_kg": 62750
+    },
+    {
+      "date": "2025-06-30",
+      "price_idr_per_kg": 69400
+    },
+    {
+      "date": "2025-07-01",
+      "price_idr_per_kg": 70100
+    },
+    {
+      "date": "2025-07-02",
+      "price_idr_per_kg": 70650
+    },
+    {
+      "date": "2025-07-03",
+      "price_idr_per_kg": 70850
+    },
+    {
+      "date": "2025-07-04",
+      "price_idr_per_kg": 73400
+    },
+    {
+      "date": "2025-07-07",
+      "price_idr_per_kg": 74100
+    },
+    {
+      "date": "2025-07-08",
+      "price_idr_per_kg": 72800
+    },
+    {
+      "date": "2025-07-09",
+      "price_idr_per_kg": 71900
+    },
+    {
+      "date": "2025-07-10",
+      "price_idr_per_kg": 71600
+    },
+    {
+      "date": "2025-07-11",
+      "price_idr_per_kg": 71600
+    },
+    {
+      "date": "2025-07-14",
+      "price_idr_per_kg": 73250
+    },
+    {
+      "date": "2025-07-15",
+      "price_idr_per_kg": 73400
+    },
+    {
+      "date": "2025-07-16",
+      "price_idr_per_kg": 72400
+    },
+    {
+      "date": "2025-07-17",
+      "price_idr_per_kg": 70700
+    },
+    {
+      "date": "2025-07-18",
+      "price_idr_per_kg": 68200
+    },
+    {
+      "date": "2025-07-21",
+      "price_idr_per_kg": 61950
+    },
+    {
+      "date": "2025-07-22",
+      "price_idr_per_kg": 57900
+    },
+    {
+      "date": "2025-07-23",
+      "price_idr_per_kg": 56650
+    },
+    {
+      "date": "2025-07-24",
+      "price_idr_per_kg": 55000
+    },
+    {
+      "date": "2025-07-25",
+      "price_idr_per_kg": 54550
+    },
+    {
+      "date": "2025-07-28",
+      "price_idr_per_kg": 50950
+    },
+    {
+      "date": "2025-07-29",
+      "price_idr_per_kg": 50550
+    },
+    {
+      "date": "2025-07-30",
+      "price_idr_per_kg": 50000
+    },
+    {
+      "date": "2025-07-31",
+      "price_idr_per_kg": 50100
+    },
+    {
+      "date": "2025-08-01",
+      "price_idr_per_kg": 48700
+    },
+    {
+      "date": "2025-08-04",
+      "price_idr_per_kg": 46050
+    },
+    {
+      "date": "2025-08-05",
+      "price_idr_per_kg": 46400
+    },
+    {
+      "date": "2025-08-06",
+      "price_idr_per_kg": 46450
+    },
+    {
+      "date": "2025-08-07",
+      "price_idr_per_kg": 45500
+    },
+    {
+      "date": "2025-08-08",
+      "price_idr_per_kg": 45800
+    },
+    {
+      "date": "2025-08-11",
+      "price_idr_per_kg": 43700
+    },
+    {
+      "date": "2025-08-12",
+      "price_idr_per_kg": 42100
+    },
+    {
+      "date": "2025-08-13",
+      "price_idr_per_kg": 41700
+    },
+    {
+      "date": "2025-08-14",
+      "price_idr_per_kg": 41700
+    },
+    {
+      "date": "2025-08-15",
+      "price_idr_per_kg": 41300
+    },
+    {
+      "date": "2025-08-18",
+      "price_idr_per_kg": 41300
+    },
+    {
+      "date": "2025-08-19",
+      "price_idr_per_kg": 43200
+    },
+    {
+      "date": "2025-08-20",
+      "price_idr_per_kg": 43400
+    },
+    {
+      "date": "2025-08-21",
+      "price_idr_per_kg": 43350
+    },
+    {
+      "date": "2025-08-22",
+      "price_idr_per_kg": 42800
+    },
+    {
+      "date": "2025-08-25",
+      "price_idr_per_kg": 41200
+    },
+    {
+      "date": "2025-08-26",
+      "price_idr_per_kg": 40550
+    },
+    {
+      "date": "2025-08-27",
+      "price_idr_per_kg": 40800
+    },
+    {
+      "date": "2025-08-28",
+      "price_idr_per_kg": 41050
+    },
+    {
+      "date": "2025-08-29",
+      "price_idr_per_kg": 41200
+    },
+    {
+      "date": "2025-09-01",
+      "price_idr_per_kg": 40450
+    },
+    {
+      "date": "2025-09-02",
+      "price_idr_per_kg": 40050
+    },
+    {
+      "date": "2025-09-03",
+      "price_idr_per_kg": 40750
+    },
+    {
+      "date": "2025-09-04",
+      "price_idr_per_kg": 41050
+    },
+    {
+      "date": "2025-09-05",
+      "price_idr_per_kg": 41050
+    },
+    {
+      "date": "2025-09-08",
+      "price_idr_per_kg": 42000
+    },
+    {
+      "date": "2025-09-09",
+      "price_idr_per_kg": 42100
+    },
+    {
+      "date": "2025-09-10",
+      "price_idr_per_kg": 42500
+    },
+    {
+      "date": "2025-09-11",
+      "price_idr_per_kg": 43050
+    },
+    {
+      "date": "2025-09-12",
+      "price_idr_per_kg": 42950
+    },
+    {
+      "date": "2025-09-15",
+      "price_idr_per_kg": 44200
+    },
+    {
+      "date": "2025-09-16",
+      "price_idr_per_kg": 44900
+    },
+    {
+      "date": "2025-09-17",
+      "price_idr_per_kg": 45600
+    },
+    {
+      "date": "2025-09-18",
+      "price_idr_per_kg": 46500
+    },
+    {
+      "date": "2025-09-19",
+      "price_idr_per_kg": 46500
+    },
+    {
+      "date": "2025-09-22",
+      "price_idr_per_kg": 47050
+    },
+    {
+      "date": "2025-09-23",
+      "price_idr_per_kg": 47000
+    },
+    {
+      "date": "2025-09-24",
+      "price_idr_per_kg": 46600
+    },
+    {
+      "date": "2025-09-25",
+      "price_idr_per_kg": 46600
+    },
+    {
+      "date": "2025-09-26",
+      "price_idr_per_kg": 46750
+    },
+    {
+      "date": "2025-09-29",
+      "price_idr_per_kg": 43750
+    },
+    {
+      "date": "2025-09-30",
+      "price_idr_per_kg": 43550
+    },
+    {
+      "date": "2025-10-01",
+      "price_idr_per_kg": 43550
+    },
+    {
+      "date": "2025-10-02",
+      "price_idr_per_kg": 42800
+    },
+    {
+      "date": "2025-10-03",
+      "price_idr_per_kg": 42450
+    },
+    {
+      "date": "2025-10-06",
+      "price_idr_per_kg": 44550
+    },
+    {
+      "date": "2025-10-07",
+      "price_idr_per_kg": 45600
+    },
+    {
+      "date": "2025-10-08",
+      "price_idr_per_kg": 45500
+    },
+    {
+      "date": "2025-10-09",
+      "price_idr_per_kg": 45700
+    },
+    {
+      "date": "2025-10-10",
+      "price_idr_per_kg": 45750
+    },
+    {
+      "date": "2025-10-13",
+      "price_idr_per_kg": 45000
+    },
+    {
+      "date": "2025-10-14",
+      "price_idr_per_kg": 44300
+    },
+    {
+      "date": "2025-10-15",
+      "price_idr_per_kg": 44100
+    },
+    {
+      "date": "2025-10-16",
+      "price_idr_per_kg": 43950
+    },
+    {
+      "date": "2025-10-17",
+      "price_idr_per_kg": 43400
+    },
+    {
+      "date": "2025-10-20",
+      "price_idr_per_kg": 42000
+    },
+    {
+      "date": "2025-10-21",
+      "price_idr_per_kg": 41600
+    },
+    {
+      "date": "2025-10-22",
+      "price_idr_per_kg": 40450
+    },
+    {
+      "date": "2025-10-23",
+      "price_idr_per_kg": 40250
+    },
+    {
+      "date": "2025-10-24",
+      "price_idr_per_kg": 39750
+    },
+    {
+      "date": "2025-10-27",
+      "price_idr_per_kg": 38900
+    },
+    {
+      "date": "2025-10-28",
+      "price_idr_per_kg": 38950
+    },
+    {
+      "date": "2025-10-29",
+      "price_idr_per_kg": 38950
+    },
+    {
+      "date": "2025-10-30",
+      "price_idr_per_kg": 39000
+    },
+    {
+      "date": "2025-10-31",
+      "price_idr_per_kg": 39250
+    },
+    {
+      "date": "2025-11-03",
+      "price_idr_per_kg": 39750
+    },
+    {
+      "date": "2025-11-04",
+      "price_idr_per_kg": 39700
+    },
+    {
+      "date": "2025-11-05",
+      "price_idr_per_kg": 39400
+    },
+    {
+      "date": "2025-11-06",
+      "price_idr_per_kg": 39850
+    },
+    {
+      "date": "2025-11-07",
+      "price_idr_per_kg": 38950
+    },
+    {
+      "date": "2025-11-10",
+      "price_idr_per_kg": 39200
+    },
+    {
+      "date": "2025-11-11",
+      "price_idr_per_kg": 39100
+    },
+    {
+      "date": "2025-11-12",
+      "price_idr_per_kg": 39500
+    },
+    {
+      "date": "2025-11-13",
+      "price_idr_per_kg": 39300
+    },
+    {
+      "date": "2025-11-14",
+      "price_idr_per_kg": 39650
+    },
+    {
+      "date": "2025-11-17",
+      "price_idr_per_kg": 40950
+    },
+    {
+      "date": "2025-11-18",
+      "price_idr_per_kg": 43700
+    },
+    {
+      "date": "2025-11-19",
+      "price_idr_per_kg": 48900
+    },
+    {
+      "date": "2025-11-20",
+      "price_idr_per_kg": 50350
+    },
+    {
+      "date": "2025-11-21",
+      "price_idr_per_kg": 52000
+    },
+    {
+      "date": "2025-11-24",
+      "price_idr_per_kg": 53600
+    },
+    {
+      "date": "2025-11-25",
+      "price_idr_per_kg": 54400
+    },
+    {
+      "date": "2025-11-26",
+      "price_idr_per_kg": 54750
+    },
+    {
+      "date": "2025-11-27",
+      "price_idr_per_kg": 55000
+    },
+    {
+      "date": "2025-11-28",
+      "price_idr_per_kg": 56250
+    },
+    {
+      "date": "2025-12-01",
+      "price_idr_per_kg": 68600
+    },
+    {
+      "date": "2025-12-02",
+      "price_idr_per_kg": 72050
+    },
+    {
+      "date": "2025-12-03",
+      "price_idr_per_kg": 74450
+    },
+    {
+      "date": "2025-12-04",
+      "price_idr_per_kg": 75950
+    },
+    {
+      "date": "2025-12-05",
+      "price_idr_per_kg": 79700
+    },
+    {
+      "date": "2025-12-08",
+      "price_idr_per_kg": 87600
+    },
+    {
+      "date": "2025-12-09",
+      "price_idr_per_kg": 90500
+    },
+    {
+      "date": "2025-12-10",
+      "price_idr_per_kg": 92600
+    },
+    {
+      "date": "2025-12-11",
+      "price_idr_per_kg": 93550
+    },
+    {
+      "date": "2025-12-12",
+      "price_idr_per_kg": 92450
+    },
+    {
+      "date": "2025-12-15",
+      "price_idr_per_kg": 109200
+    },
+    {
+      "date": "2025-12-16",
+      "price_idr_per_kg": 88050
+    },
+    {
+      "date": "2025-12-17",
+      "price_idr_per_kg": 85700
+    },
+    {
+      "date": "2025-12-18",
+      "price_idr_per_kg": 80800
+    },
+    {
+      "date": "2025-12-19",
+      "price_idr_per_kg": 75300
+    },
+    {
+      "date": "2025-12-22",
+      "price_idr_per_kg": 74850
+    },
+    {
+      "date": "2025-12-23",
+      "price_idr_per_kg": 76300
+    },
+    {
+      "date": "2025-12-24",
+      "price_idr_per_kg": 77050
+    },
+    {
+      "date": "2025-12-25",
+      "price_idr_per_kg": 77050
+    },
+    {
+      "date": "2025-12-26",
+      "price_idr_per_kg": 77050
+    },
+    {
+      "date": "2025-12-29",
+      "price_idr_per_kg": 74700
+    },
+    {
+      "date": "2025-12-30",
+      "price_idr_per_kg": 74300
+    },
+    {
+      "date": "2025-12-31",
+      "price_idr_per_kg": 73050
+    },
+    {
+      "date": "2026-01-01",
+      "price_idr_per_kg": 73200
+    },
+    {
+      "date": "2026-01-02",
+      "price_idr_per_kg": 71250
+    },
+    {
+      "date": "2026-01-05",
+      "price_idr_per_kg": 64450
+    },
+    {
+      "date": "2026-01-06",
+      "price_idr_per_kg": 62650
+    },
+    {
+      "date": "2026-01-07",
+      "price_idr_per_kg": 58750
+    },
+    {
+      "date": "2026-01-08",
+      "price_idr_per_kg": 58100
+    },
+    {
+      "date": "2026-01-09",
+      "price_idr_per_kg": 55650
+    },
+    {
+      "date": "2026-01-12",
+      "price_idr_per_kg": 54500
+    },
+    {
+      "date": "2026-01-13",
+      "price_idr_per_kg": 51950
+    },
+    {
+      "date": "2026-01-14",
+      "price_idr_per_kg": 51000
+    },
+    {
+      "date": "2026-01-15",
+      "price_idr_per_kg": 47400
+    },
+    {
+      "date": "2026-01-16",
+      "price_idr_per_kg": 47400
+    },
+    {
+      "date": "2026-01-19",
+      "price_idr_per_kg": 50150
+    },
+    {
+      "date": "2026-01-20",
+      "price_idr_per_kg": 48850
+    },
+    {
+      "date": "2026-01-21",
+      "price_idr_per_kg": 48500
+    },
+    {
+      "date": "2026-01-22",
+      "price_idr_per_kg": 48500
+    },
+    {
+      "date": "2026-01-23",
+      "price_idr_per_kg": 50350
+    },
+    {
+      "date": "2026-01-26",
+      "price_idr_per_kg": 55500
+    },
+    {
+      "date": "2026-01-27",
+      "price_idr_per_kg": 56900
+    },
+    {
+      "date": "2026-01-28",
+      "price_idr_per_kg": 57550
+    },
+    {
+      "date": "2026-01-29",
+      "price_idr_per_kg": 60550
+    },
+    {
+      "date": "2026-01-30",
+      "price_idr_per_kg": 64400
+    },
+    {
+      "date": "2026-02-02",
+      "price_idr_per_kg": 71100
+    },
+    {
+      "date": "2026-02-03",
+      "price_idr_per_kg": 72700
+    },
+    {
+      "date": "2026-02-04",
+      "price_idr_per_kg": 74900
+    },
+    {
+      "date": "2026-02-05",
+      "price_idr_per_kg": 80550
+    },
+    {
+      "date": "2026-02-06",
+      "price_idr_per_kg": 84150
+    },
+    {
+      "date": "2026-02-09",
+      "price_idr_per_kg": 87200
+    },
+    {
+      "date": "2026-02-10",
+      "price_idr_per_kg": 87450
+    },
+    {
+      "date": "2026-02-11",
+      "price_idr_per_kg": 88750
+    },
+    {
+      "date": "2026-02-12",
+      "price_idr_per_kg": 91600
+    },
+    {
+      "date": "2026-02-13",
+      "price_idr_per_kg": 93600
+    },
+    {
+      "date": "2026-02-16",
+      "price_idr_per_kg": 93600
+    },
+    {
+      "date": "2026-02-17",
+      "price_idr_per_kg": 93600
+    },
+    {
+      "date": "2026-02-18",
+      "price_idr_per_kg": 100350
+    },
+    {
+      "date": "2026-02-19",
+      "price_idr_per_kg": 103550
+    },
+    {
+      "date": "2026-02-20",
+      "price_idr_per_kg": 108250
+    },
+    {
+      "date": "2026-02-23",
+      "price_idr_per_kg": 108550
+    },
+    {
+      "date": "2026-02-24",
+      "price_idr_per_kg": 101600
+    },
+    {
+      "date": "2026-02-25",
+      "price_idr_per_kg": 94400
+    },
+    {
+      "date": "2026-02-26",
+      "price_idr_per_kg": 88700
+    },
+    {
+      "date": "2026-02-27",
+      "price_idr_per_kg": 90550
+    },
+    {
+      "date": "2026-03-02",
+      "price_idr_per_kg": 93150
+    },
+    {
+      "date": "2026-03-03",
+      "price_idr_per_kg": 96350
+    },
+    {
+      "date": "2026-03-04",
+      "price_idr_per_kg": 102750
+    },
+    {
+      "date": "2026-03-05",
+      "price_idr_per_kg": 103000
+    },
+    {
+      "date": "2026-03-06",
+      "price_idr_per_kg": 105250
+    },
+    {
+      "date": "2026-03-09",
+      "price_idr_per_kg": 101350
+    },
+    {
+      "date": "2026-03-10",
+      "price_idr_per_kg": 100850
+    },
+    {
+      "date": "2026-03-11",
+      "price_idr_per_kg": 101000
+    },
+    {
+      "date": "2026-03-12",
+      "price_idr_per_kg": 103650
+    },
+    {
+      "date": "2026-03-13",
+      "price_idr_per_kg": 103850
+    },
+    {
+      "date": "2026-03-16",
+      "price_idr_per_kg": 105200
+    },
+    {
+      "date": "2026-03-17",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-18",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-19",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-20",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-23",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-24",
+      "price_idr_per_kg": 108000
+    },
+    {
+      "date": "2026-03-25",
+      "price_idr_per_kg": 93300
+    },
+    {
+      "date": "2026-03-26",
+      "price_idr_per_kg": 83700
+    },
+    {
+      "date": "2026-03-27",
+      "price_idr_per_kg": 75550
+    },
+    {
+      "date": "2026-03-30",
+      "price_idr_per_kg": 81350
+    },
+    {
+      "date": "2026-03-31",
+      "price_idr_per_kg": 85700
+    },
+    {
+      "date": "2026-04-01",
+      "price_idr_per_kg": 85250
+    },
+    {
+      "date": "2026-04-02",
+      "price_idr_per_kg": 84850
+    },
+    {
+      "date": "2026-04-03",
+      "price_idr_per_kg": 84850
+    },
+    {
+      "date": "2026-04-06",
+      "price_idr_per_kg": 85250
+    },
+    {
+      "date": "2026-04-07",
+      "price_idr_per_kg": 85000
+    },
+    {
+      "date": "2026-04-08",
+      "price_idr_per_kg": 82500
+    },
+    {
+      "date": "2026-04-09",
+      "price_idr_per_kg": 82200
+    },
+    {
+      "date": "2026-04-10",
+      "price_idr_per_kg": 81200
+    },
+    {
+      "date": "2026-04-13",
+      "price_idr_per_kg": 77100
+    },
+    {
+      "date": "2026-04-14",
+      "price_idr_per_kg": 76400
+    },
+    {
+      "date": "2026-04-15",
+      "price_idr_per_kg": 75400
+    },
+    {
+      "date": "2026-04-16",
+      "price_idr_per_kg": 74850
+    },
+    {
+      "date": "2026-04-17",
+      "price_idr_per_kg": 73500
+    },
+    {
+      "date": "2026-04-20",
+      "price_idr_per_kg": 71250
+    },
+    {
+      "date": "2026-04-21",
+      "price_idr_per_kg": 70550
+    },
+    {
+      "date": "2026-04-22",
+      "price_idr_per_kg": 70300
+    },
+    {
+      "date": "2026-04-23",
+      "price_idr_per_kg": 69200
+    },
+    {
+      "date": "2026-04-24",
+      "price_idr_per_kg": 67950
+    },
+    {
+      "date": "2026-04-27",
+      "price_idr_per_kg": 61650
+    },
+    {
+      "date": "2026-04-28",
+      "price_idr_per_kg": 62300
+    },
+    {
+      "date": "2026-04-29",
+      "price_idr_per_kg": 61900
+    },
+    {
+      "date": "2026-04-30",
+      "price_idr_per_kg": 61600
+    },
+    {
+      "date": "2026-05-01",
+      "price_idr_per_kg": 61600
+    },
+    {
+      "date": "2026-05-04",
+      "price_idr_per_kg": 67650
+    },
+    {
+      "date": "2026-05-05",
+      "price_idr_per_kg": 74200
+    },
+    {
+      "date": "2026-05-06",
+      "price_idr_per_kg": 77500
+    },
+    {
+      "date": "2026-05-07",
+      "price_idr_per_kg": 78300
+    },
+    {
+      "date": "2026-05-08",
+      "price_idr_per_kg": 81950
+    },
+    {
+      "date": "2026-05-11",
+      "price_idr_per_kg": 84550
+    },
+    {
+      "date": "2026-05-12",
+      "price_idr_per_kg": 83700
+    },
+    {
+      "date": "2026-05-13",
+      "price_idr_per_kg": 84000
+    },
+    {
+      "date": "2026-05-14",
+      "price_idr_per_kg": 83750
+    },
+    {
+      "date": "2026-05-15",
+      "price_idr_per_kg": 82300
+    },
+    {
+      "date": "2026-05-18",
+      "price_idr_per_kg": 84550
+    },
+    {
+      "date": "2026-05-19",
+      "price_idr_per_kg": 83800
+    },
+    {
+      "date": "2026-05-20",
+      "price_idr_per_kg": 83950
+    },
+    {
+      "date": "2026-05-21",
+      "price_idr_per_kg": 82850
+    },
+    {
+      "date": "2026-05-22",
+      "price_idr_per_kg": 82700
+    },
+    {
+      "date": "2026-05-25",
+      "price_idr_per_kg": 87800
+    },
+    {
+      "date": "2026-05-26",
+      "price_idr_per_kg": 89750
+    },
+    {
+      "date": "2026-05-27",
+      "price_idr_per_kg": 89750
+    },
+    {
+      "date": "2026-05-28",
+      "price_idr_per_kg": 89750
+    },
+    {
+      "date": "2026-05-29",
+      "price_idr_per_kg": 97300
+    },
+    {
+      "date": "2026-06-01",
+      "price_idr_per_kg": 97300
+    },
+    {
+      "date": "2026-06-02",
+      "price_idr_per_kg": 80800
+    },
+    {
+      "date": "2026-06-03",
+      "price_idr_per_kg": 79400
+    },
+    {
+      "date": "2026-06-04",
+      "price_idr_per_kg": 77600
+    },
+    {
+      "date": "2026-06-05",
+      "price_idr_per_kg": 77900
+    },
+    {
+      "date": "2026-06-08",
+      "price_idr_per_kg": 76250
+    },
+    {
+      "date": "2026-06-09",
+      "price_idr_per_kg": 75400
+    },
+    {
+      "date": "2026-06-10",
+      "price_idr_per_kg": 75700
+    },
+    {
+      "date": "2026-06-11",
+      "price_idr_per_kg": 75150
+    },
+    {
+      "date": "2026-06-12",
+      "price_idr_per_kg": 74750
+    },
+    {
+      "date": "2026-06-15",
+      "price_idr_per_kg": 73000
+    },
+    {
+      "date": "2026-06-16",
+      "price_idr_per_kg": 70000
+    },
+    {
+      "date": "2026-06-17",
+      "price_idr_per_kg": 71850
+    },
+    {
+      "date": "2026-06-18",
+      "price_idr_per_kg": 69200
+    },
+    {
+      "date": "2026-06-19",
+      "price_idr_per_kg": 68100
+    },
+    {
+      "date": "2026-06-22",
+      "price_idr_per_kg": 64500
+    },
+    {
+      "date": "2026-06-23",
+      "price_idr_per_kg": 62400
+    },
+    {
+      "date": "2026-06-24",
+      "price_idr_per_kg": 61000
+    },
+    {
+      "date": "2026-06-25",
+      "price_idr_per_kg": 59200
+    },
+    {
+      "date": "2026-06-26",
+      "price_idr_per_kg": 59550
+    },
+    {
+      "date": "2026-06-29",
+      "price_idr_per_kg": 54350
+    },
+    {
+      "date": "2026-06-30",
+      "price_idr_per_kg": 52800
+    },
+    {
+      "date": "2026-07-01",
+      "price_idr_per_kg": 52400
+    },
+    {
+      "date": "2026-07-02",
+      "price_idr_per_kg": 51100
+    },
+    {
+      "date": "2026-07-03",
+      "price_idr_per_kg": 51900
+    },
+    {
+      "date": "2026-07-06",
+      "price_idr_per_kg": 55500
+    },
+    {
+      "date": "2026-07-07",
+      "price_idr_per_kg": 55650
+    },
+    {
+      "date": "2026-07-08",
+      "price_idr_per_kg": 56150
+    },
+    {
+      "date": "2026-07-09",
+      "price_idr_per_kg": 53850
+    },
+    {
+      "date": "2026-07-10",
+      "price_idr_per_kg": 54250
+    },
+    {
+      "date": "2026-07-13",
+      "price_idr_per_kg": 54550
+    },
+    {
+      "date": "2026-07-14",
+      "price_idr_per_kg": 54900
+    },
+    {
+      "date": "2026-07-15",
+      "price_idr_per_kg": 55800
+    },
+    {
+      "date": "2026-07-16",
+      "price_idr_per_kg": 56150
     }
   ]
 }

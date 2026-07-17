@@ -78,7 +78,10 @@ def seed(
     conn.commit()
 
     # --- Price series → cache JSON + snapshot table ---------------------------
-    cache: dict = {}
+    # Start from the existing cache so imported real series (scripts/
+    # import_bi_csv.py) survive a reseed; the three scenario keys below are
+    # merged on top and stay authoritative for their date range.
+    cache = loader.load_cache(cache_path)
     loader.merge_rows(cache, "cabai_merah", "jawa_barat", _series(FALLING, today))
     loader.merge_rows(cache, "bawang_merah", "jawa_tengah", _series(RISING, today))
     loader.merge_rows(cache, "bawang_merah", "jawa_barat", _series(FLAT, today))
