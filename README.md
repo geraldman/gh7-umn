@@ -1,161 +1,224 @@
 # Panen Pas 🌶️🧅
 
-A Telegram bot that tells smallholder farmers **when to sell** their chili/shallot
-harvest — by combining local oversupply detection (how many neighbors harvest the
-same week) with regional price trends (PIHPS data) — and connects "sell now"
-farmers to an anchor buyer automatically.
+A Telegram bot that tells smallholder chili/shallot farmers **when to sell** their
+harvest. It combines two signals:
+
+- **Local oversupply** — how many neighbouring farmers report harvesting the same
+  crop in the same district within a ±2-day window.
+- **Price trend** — whether the regional price is rising, flat, or falling.
+
+A rule engine turns those into 🟢 *jual* (sell) / 🟡 *jadwal biasa* (hold) /
+🔵 *tunggu* (wait). When the answer is **sell**, the bot pushes an offer to a
+registered anchor buyer, who accepts or declines — and the farmer is notified
+either way.
 
 See `docs/ARCHITECTURE.md` for the full design.
 
-## Prerequisites
+---
 
-- Python 3.10+
-- Docker Desktop — runs the local Postgres (the test suite always uses it,
-  even when the bot itself points at Supabase)
-- Dependencies:
+## Setup
 
-  ```powershell
-  pip install -r requirements.txt          # runtime (python-telegram-bot)
-  pip install -r requirements-dev.txt      # + pytest (needed for run.py --check)
-  ```
+### Prerequisites
 
-## 1. Get a bot token (once)
+- **Python 3.10+** (developed on 3.14)
+- **Docker Desktop** — runs Postgres. Required for the local database and for the
+  test suite even when the bot itself points at Supabase.
 
-1. In Telegram, message **@BotFather** → `/newbot` → follow the prompts.
-2. Copy the token (looks like `123456789:AAE...`).
-3. Put it in a `.env` file at the repo root (gitignored — **never commit it**):
+### 1. Install dependencies
 
-   ```powershell
-   copy .env.example .env      # then edit .env and paste your token
-   ```
+```powershell
+pip install -r requirements.txt          # runtime: python-telegram-bot, psycopg, dotenv
+pip install -r requirements-dev.txt      # + pytest (only needed for run.py --check)
+```
 
-   Alternatively, an environment variable works too and takes precedence
-   over `.env`:
+*(Skip this entirely if you only ever run via Docker — the image installs its own.)*
 
-   ```powershell
-   $env:TELEGRAM_BOT_TOKEN = "paste-your-token-here"     # PowerShell
-   ```
+### 2. Create your `.env`
 
-> If a token ever ends up in a committed file or a chat log, revoke it:
-> @BotFather → `/revoke` → pick the bot → use the new token.
+All configuration — the bot token and the database — lives in one gitignored
+`.env` file at the repo root. Copy the template:
 
-## 2. Database
+```powershell
+copy .env.example .env
+```
 
-`DB_TARGET` in `.env` toggles where data lives — flip one word to switch:
+Then edit `.env`:
 
-- **`DB_TARGET=local`** (default) — the docker Postgres:
+```ini
+TELEGRAM_BOT_TOKEN=123456789:AAE...        # from @BotFather (see below)
 
-  ```powershell
-  docker compose up -d db     # Postgres on localhost:5433, data persists
-  ```
+DB_TARGET=local                            # "local" or "supabase" — the toggle
+DATABASE_URL_LOCAL=postgresql://postgres:postgres@localhost:5433/panen
+DATABASE_URL_SUPABASE=                     # paste Session Pooler string here
+```
 
-- **`DB_TARGET=supabase`** — the shared team DB. Fill `DATABASE_URL_SUPABASE`
-  with the **Session Pooler** connection string from Dashboard → Connect
-  (host like `aws-0-<region>.pooler.supabase.com`, port 5432). Don't use the
-  "direct connection" string — it is IPv6-only and fails on most networks.
+> ⚠️ **No inline comments in `.env`** (`KEY=value # note`). Docker reads the file
+> literally, so the `# note` becomes part of the value and breaks it. Keep each
+> line as `KEY=value` only.
 
-`run.py` prints which database it is using at startup — glance at that line
-before demoing.
+**Get a bot token** (once): message **@BotFather** → `/newbot` → follow the
+prompts → copy the token into `TELEGRAM_BOT_TOKEN`. If a token ever leaks (into a
+commit, a log, a screenshot), revoke it: @BotFather → `/mybots` → pick the bot →
+**API Token → Revoke**.
 
-The test suite **always** runs against the local container (it wipes every
-table, so it refuses to touch Supabase) — start it before `run.py --check`.
+### 3. Choose a database
 
-## 3. Run
+`DB_TARGET` flips between two databases — change one word, no code edits:
 
-Everything goes through one launcher at the repo root:
+| `DB_TARGET` | Where data lives | Setup |
+|---|---|---|
+| `local` (default) | Docker Postgres on `localhost:5433`, data persists in a volume | `docker compose up -d db` |
+| `supabase` | The shared team database | Fill `DATABASE_URL_SUPABASE` (see below) |
+
+**Supabase string:** Dashboard → **Connect** → **Session Pooler** (host like
+`aws-0-<region>.pooler.supabase.com`, port **5432**). Do **not** use the "Direct
+connection" string — it is IPv6-only and fails on most Wi-Fi/campus networks.
+
+Both `run.py` and the Docker bot print which database they are using at
+startup — glance at that line before demoing.
+
+---
+
+## Running
+
+### Option A — on your machine
+
+```powershell
+docker compose up -d db     # if DB_TARGET=local (tests need this either way)
+python run.py               # start the bot
+```
 
 | Command | What it does |
 |---|---|
-| `python run.py` | Start the bot (initializes the DB if missing; never wipes data) |
-| `python run.py --seed` | Re-seed the 3 demo scenarios + verify them, then start the bot |
-| `python run.py --check` | Pre-demo ritual: seed → verify scenarios → run all tests. No bot. |
+| `python run.py` | Start the bot (creates tables if missing; never wipes data) |
+| `python run.py --seed` | Re-seed the 3 demo scenarios + verify them, then start |
+| `python run.py --check` | Pre-demo ritual: run all tests → seed → verify. No bot. |
 
-No server or hosting needed — the bot uses **long polling**, so your laptop *is*
-the server. It works behind any Wi-Fi/NAT with no public IP.
+The bot uses **long polling**, so your laptop *is* the server — no hosting, no
+public IP, works behind any NAT.
 
-**Or run everything in Docker** (same `.env`, nothing else to install):
+### Option B — fully in Docker
+
+Same `.env`, nothing else to install:
 
 ```powershell
-docker compose up -d bot                            # build + start (uses .env)
+docker compose up -d bot                            # build + start
 docker compose logs -f bot                          # watch it
 docker compose run --rm bot python -m data.seed     # seed + verify scenarios
 docker compose stop bot                             # stop it
 ```
 
-⚠️ Only **one** process may poll the token — stop the docker bot before
-running `python run.py` on the host (and vice versa).
+After editing `.env`, recreate the container so it picks up the changes:
 
-## 4. Using the bot
+```powershell
+docker compose up -d --force-recreate bot
+```
 
-Everyone starts with `/start` and picks a role:
+> ⚠️ **One poller per token.** Telegram allows only one process to long-poll a
+> given token at a time. Don't run the Docker bot and `python run.py` at once —
+> stop one before starting the other.
 
-- **👨‍🌾 Petani (farmer)** — answers four questions, all by tapping buttons or
-  typing a number: crop → district → days to harvest → estimated kg → confirm.
-  Gets a recommendation (🟢 jual / 🟡 jadwal biasa / 🔵 tunggu) with the price
-  date and the reasoning. On "jual", the offer is pushed to the buyer.
-- **🏪 Pembeli (anchor buyer)** — register *before* farmers report; receives a
-  match card with **✅ Terima / ❌ Tolak** buttons for each "sell" offer. Either
-  choice notifies the farmer.
+---
+
+## Using the bot
+
+Everyone sends `/start` and picks a role (inline buttons):
+
+- **👨‍🌾 Petani (farmer)** — answers four questions: crop → district → days to
+  harvest → estimated kg → confirm. Crop, district, and the confirmation are
+  tap-a-button; days and kg are typed numbers. Typing also works as a fallback
+  everywhere. Returns a recommendation with the price date and reasoning; on
+  **sell**, the offer is pushed to the buyer.
+- **🏪 Pembeli (anchor buyer)** — register *before* farmers report. Receives a
+  match card with **✅ Terima / ❌ Tolak** for each sell offer; either choice
+  notifies the farmer.
 - **📋 Koordinator** — `/status` lists every match and its state.
 
 `/cancel` aborts a conversation at any point.
 
-## 5. Demo-day script
+---
+
+## Demo-day script
 
 ```powershell
 docker compose up -d db     # local Postgres (tests need it)
-python run.py --check       # everything green? then:
+python run.py --check       # all green? then:
 python run.py --seed        # fresh scenarios + bot up
 ```
 
-(Token and database come from `.env` — nothing to set in the terminal.
-If demoing on Supabase: open the dashboard in the morning to un-pause the
-project — the free tier sleeps after ~a week idle.)
-
-The three seeded scenarios (dates are always relative to today — re-seeding
-keeps them fresh):
+The three seeded scenarios (dates are relative to today — re-seeding keeps them
+fresh):
 
 | Report this as farmer | Expected result |
 |---|---|
-| Cabai Merah, **Garut**, 2 days | 🟢 **sell** + buyer match (4 seeded neighbors + falling price) |
-| Bawang Merah, **Brebes**, 2 days | 🔵 **wait** (no neighbors, rising price) |
-| Bawang Merah, **Cianjur**, 2 days | 🟡 **hold** (1 neighbor, flat price) |
+| Cabai Merah, **Garut**, 2 days | 🟢 **sell** + buyer match (4 seeded neighbours + falling price) |
+| Bawang Merah, **Brebes**, 2 days | 🔵 **wait** (no neighbours, rising price) |
+| Bawang Merah, **Cianjur**, 2 days | 🟡 **hold** (1 neighbour, flat price) |
 
-Also rehearse the failure paths: type a random crop (`durian`) → the bot
-re-prompts with buttons instead of crashing; have the buyer tap **Tolak** →
-the farmer gets a graceful notification.
+Also rehearse the failure paths: type a nonsense crop (`durian`) → the bot
+re-prompts with buttons instead of crashing; have the buyer tap **Tolak** → the
+farmer gets a graceful notification.
 
-## 6. Price data modes
+> Note: a farmer re-reporting the same crop+district within ±2 days **updates**
+> the first report and won't create a second buyer match (the double-sell guard).
+> To re-run a scenario cleanly, re-seed: `docker compose run --rm bot python -m data.seed`.
 
-| Mode | Behavior |
-|---|---|
-| `PRICE_SOURCE=cache` (default) | Prices from `data/price_cache.json` — zero network, demo-safe |
-| `PRICE_SOURCE=live` | Try PIHPS → Panel Harga → cache, in order, with timeouts |
+If demoing on **Supabase**, open the dashboard the morning of — the free tier
+pauses a project after ~a week idle, and a paused DB on stage is a demo killer.
 
-The live sources are stubs until their endpoints are captured (see
-`data/sources.py` TODOs) — with `live` set today, the chain simply falls
-through to the cache.
+---
+
+## Price data
+
+The engine reads price history through a **swappable source chain** in
+`data/sources.py` (`PRICE_SOURCE=cache` by default → `data/price_cache.json`,
+zero network, demo-safe).
+
+Two Indonesian government sources were investigated for live data — **both are
+behind anti-bot protection** and can't be scraped with a plain HTTP client:
+
+| Source | Access | Price level |
+|---|---|---|
+| **Panel Harga** (Badan Pangan) | `x-api-key` → 401 (runtime-signed / reCAPTCHA-bound) | **producer / petani** ✅ |
+| **PIHPS** (Bank Indonesia) | data endpoints 302 → error page (WAF) | consumer / retail |
+
+**Recommended path for real data:** capture it once from a real browser
+(DevTools → Network → right-click the data request → **Copy as cURL**), which
+carries the session/signed headers, then convert the JSON into
+`data/price_cache.json`. Panel Harga is the better target — producer-level prices
+are the correct signal for a farmer's sell decision. This keeps the demo off the
+live network entirely.
+
+---
 
 ## Troubleshooting
 
-- **"no bot token found"** — make sure `.env` exists at the repo root (copy
-  `.env.example`) and contains `TELEGRAM_BOT_TOKEN=...` with no quotes needed.
-- **Bot doesn't reply** — only one process may poll a given token at a time;
-  make sure a teammate isn't also running the bot with the same token.
-- **"connection refused" / database errors** — local mode: start the DB with
-  `docker compose up -d db` (and give it a few seconds on first boot).
-  Supabase mode: check the project isn't paused and that `DATABASE_URL` is
-  the Session Pooler string, not the direct one.
-- **Emoji garbled in the terminal** — cosmetic only (Windows console encoding);
+- **"no bot token found"** — `.env` must exist at the repo root and contain
+  `TELEGRAM_BOT_TOKEN=...` (no quotes needed).
+- **Bot doesn't reply** — only one process may poll a token at a time; make sure
+  a teammate (or a leftover Docker container) isn't polling the same token. Also
+  confirm you're messaging the *right* bot — the token decides which one.
+- **Database / "connection refused"** — local: `docker compose up -d db` and give
+  it a few seconds on first boot. Supabase: check the project isn't paused and
+  that you used the **Session Pooler** string, not the direct one.
+- **Docker bot ignores an `.env` change** — recreate it:
+  `docker compose up -d --force-recreate bot`.
+- **`DB_TARGET must be 'local' or 'supabase'`** — you have an inline `# comment`
+  on that line in `.env`; remove it.
+- **Emoji garbled in the terminal** — cosmetic Windows-console encoding only;
   Telegram messages are unaffected.
-- **Scenarios give wrong results** — the seeds age relative to today; run
-  `python run.py --seed` to refresh, and check `python run.py --check`.
+- **Scenarios give wrong results** — seeds age relative to today; re-run
+  `python run.py --seed`.
+
+---
 
 ## Project layout
 
 ```
 run.py             ← the launcher (start here)
-docker-compose.yml local Postgres (offline fallback + test database)
+Dockerfile         bot image (python:3.13-slim)
+docker-compose.yml Postgres (db) + bot services
+.env               your token + database config (gitignored)
 core/              rule engine, Postgres, orchestrator   (channel-agnostic)
 data/              price sources, cache, demo seeds
 bot/               Telegram adapter (conversation, formatting, roles)
