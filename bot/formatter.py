@@ -44,8 +44,12 @@ def format_recommendation_message(crop: str, region: str, days: int, rec: dict) 
 
     detail = []
     trend = rec.get("trend")
+    price = rec.get("price_latest")
     if trend in _TREND_ID:
-        detail.append(_TREND_ID[trend].capitalize())
+        t = _TREND_ID[trend].capitalize()
+        if price:
+            t += f" {rupiah(price)}/kg"  # fill the trend indicator with the real price
+        detail.append(t)
     cluster = rec.get("cluster_size")
     if cluster and cluster > 1:
         detail.append(f"{cluster} petani panen {crop_label(crop).lower()} di "
@@ -73,17 +77,12 @@ def format_recommendation_message(crop: str, region: str, days: int, rec: dict) 
     else:
         lines.append("Tidak ada tekanan pasar — jual sesuai rencana Anda.")
 
-    price = rec.get("price_latest")
     as_of = rec.get("price_as_of")
-    if price:
-        pct = rec.get("pct_change")
-        arrow = {"rising": "📈", "falling": "📉", "flat": "➖"}.get(trend, "")
-        change = f" ({pct:+.1f}% 7 hari)" if pct is not None else ""
-        lines.append(f"\n💰 *Harga {crop_label(crop)}: Rp{price:,.0f}/kg* {arrow}{change}"
-                     .replace(",", "."))
     if as_of:
+        pct = rec.get("pct_change")
+        change = f"{pct:+.1f}% 7 hari, " if pct is not None else ""
         src = "PIHPS (langsung)" if rec.get("price_source") == "pihps" else "data BI tersimpan"
-        lines.append(f"_Harga per {as_of} ({src})._")
+        lines.append(f"\n_Harga per {as_of} ({change}{src})._")
     return "\n".join(lines)
 
 
