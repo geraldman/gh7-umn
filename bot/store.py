@@ -72,6 +72,11 @@ def get_users_by_role(conn, role: str) -> list[dict]:
     ).fetchall()
 
 
+def get_all_users(conn) -> list[dict]:
+    """Every registered user, any role — the /admin broadcast audience."""
+    return conn.execute("SELECT user_id, username, role FROM bot_role").fetchall()
+
+
 def set_user_region(conn, user_id: int, region: str) -> None:
     conn.execute(
         "UPDATE bot_role SET region = %s WHERE user_id = %s", (region, user_id)

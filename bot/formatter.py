@@ -7,6 +7,16 @@ from __future__ import annotations
 
 CROP_LABELS = {"cabai_rawit_merah": "Cabai Rawit Merah"}
 REGION_LABELS = {"garut": "Garut", "cianjur": "Cianjur", "brebes": "Brebes"}
+PROVINCE_LABELS = {"jawa_barat": "Jawa Barat", "jawa_tengah": "Jawa Tengah"}
+
+
+def province_label(key: str) -> str:
+    return PROVINCE_LABELS.get(key, key.replace("_", " ").title())
+
+
+def rupiah(n) -> str:
+    """Rp with Indonesian thousands dots, e.g. 56150 -> 'Rp56.150'."""
+    return f"Rp{round(n):,}".replace(",", ".")
 
 _HEADLINES = {
     "sell": "🟢 *REKOMENDASI: JUAL SEKARANG*",
@@ -115,6 +125,33 @@ def format_region_reports(region: str, reports) -> str:
 
 
 _STATUS_ID = {"pending": "⏳ menunggu", "confirmed": "✅ diterima", "declined": "❌ ditolak"}
+
+
+def format_price_alert(crop: str, province: str, price: int, direction: str) -> str:
+    """Broadcast sent to all users when an admin sets a price beyond ±2σ."""
+    if direction == "high":
+        return (f"🚨 *Peringatan Harga*\n\n"
+                f"{crop_label(crop)} di {province_label(province)} *melonjak* ke "
+                f"*{rupiah(price)}/kg* — jauh di ATAS harga normal.\n\n"
+                f"📈 Peluang jual bagus. Pertimbangkan menjual sekarang selagi harga tinggi.")
+    return (f"🚨 *Peringatan Harga*\n\n"
+            f"{crop_label(crop)} di {province_label(province)} *anjlok* ke "
+            f"*{rupiah(price)}/kg* — jauh di BAWAH harga normal.\n\n"
+            f"📉 Tahan penjualan bila memungkinkan; hubungi Pembeli Utama untuk opsi terbaik.")
+
+
+def format_admin_summary(crop, province, price, stats, direction, n_sent) -> str:
+    lines = [f"🔧 *Harga di-set:* {crop_label(crop)} — {province_label(province)}",
+             f"Harga baru hari ini: *{rupiah(price)}/kg*"]
+    if stats:
+        low = max(0, stats["low"])
+        lines.append(f"Normal (±2σ, {stats['n']} hari): {rupiah(low)}–{rupiah(stats['high'])}")
+    if direction == "normal":
+        lines.append("➖ Masih dalam rentang normal — tidak ada alert disiarkan.")
+    else:
+        arah = "di ATAS" if direction == "high" else "di BAWAH"
+        lines.append(f"🚨 Harga {arah} batas normal — alert disiarkan ke *{n_sent}* pengguna.")
+    return "\n".join(lines)
 
 
 def format_coordinator_status(matches) -> str:

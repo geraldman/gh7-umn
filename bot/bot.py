@@ -10,6 +10,8 @@ from __future__ import annotations
 
 import logging
 import re
+from datetime import date
+from pathlib import Path
 
 from telegram import (
     InlineKeyboardButton,
@@ -31,6 +33,7 @@ from bot import config, formatter, store
 from bot.nlu_extract import normalize_crop, normalize_region
 from core.api import process_harvest_report
 from core.models import CROPS, REGION_TO_PROVINCE
+from data import loader
 
 logging.basicConfig(
     format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO
@@ -41,6 +44,12 @@ logger = logging.getLogger(__name__)
 
 # Conversation states
 CROP, REGION, DAYS, QTY, PHONE, CONFIRM = range(6)
+ADMIN_PROV, ADMIN_PRICE = range(10, 12)  # separate /admin conversation
+
+# /admin operates on the sole crop and the provinces that have price history.
+ADMIN_CROP = next(iter(CROPS))
+ADMIN_PROVINCES = sorted(set(REGION_TO_PROVINCE.values()))
+UPLOADS_DIR = Path(__file__).resolve().parent.parent / "uploads"
 
 # Inline keyboards (buttons attached to the message, same style as the role
 # selection) — typed text still works as a fallback in every state.
@@ -436,6 +445,113 @@ async def buyer_decision_callback(update: Update, context: ContextTypes.DEFAULT_
         logger.error("Failed to notify farmer %s: %s", match["farmer_telegram_id"], e)
 
 
+# --- Admin: price override + anomaly broadcast --------------------------------
+
+def _is_admin(user) -> bool:
+    """Match the Telegram User by numeric id OR @username (either configured)."""
+    if config.ADMIN_TELEGRAM_ID and user.id == config.ADMIN_TELEGRAM_ID:
+        return True
+    if config.ADMIN_USERNAME and (user.username or "").lower() == config.ADMIN_USERNAME:
+        return True
+    return False
+
+
+def _admin_markup() -> InlineKeyboardMarkup:
+    return InlineKeyboardMarkup([
+        [InlineKeyboardButton(formatter.province_label(p), callback_data=f"adminprov:{p}")
+         for p in ADMIN_PROVINCES],
+        [InlineKeyboardButton("♻️ Reset ke data asli (BI)", callback_data="adminreset")],
+    ])
+
+
+async def admin_command(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Gated: pretend the command doesn't exist for non-admins (don't advertise it).
+    if not _is_admin(update.effective_user):
+        await update.message.reply_text("❓ Perintah tidak dikenali. Ketik /start.")
+        return ConversationHandler.END
+    await update.message.reply_text(
+        f"🔧 *Admin — Override Harga {formatter.crop_label(ADMIN_CROP)}*\n\n"
+        "Pilih provinsi, atau reset harga ke data Bank Indonesia asli:",
+        parse_mode="Markdown",
+        reply_markup=_admin_markup(),
+    )
+    return ADMIN_PROV
+
+
+async def admin_reset_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    if not _is_admin(query.from_user):
+        return ConversationHandler.END
+    conn = store.get_connection()
+    n = loader.restore_real_prices(conn, UPLOADS_DIR)
+    await query.edit_message_text(
+        f"♻️ Harga dikembalikan ke data Bank Indonesia asli ({n} baris). "
+        "Override apa pun sudah dihapus."
+    )
+    context.user_data.clear()
+    return ConversationHandler.END
+
+
+async def admin_province_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    province = query.data.split(":", 1)[1]
+    context.user_data["admin_prov"] = province
+
+    cache = loader.load_cache()
+    rows = cache.get(loader.cache_key(ADMIN_CROP, province), [])
+    latest = f"{formatter.rupiah(rows[-1]['price_idr_per_kg'])}/kg (per {rows[-1]['date']})" \
+        if rows else "belum ada data"
+    stats = loader.history_stats([r["price_idr_per_kg"] for r in rows])
+    band = f"\nNormal (±2σ): {formatter.rupiah(max(0, stats['low']))}–" \
+           f"{formatter.rupiah(stats['high'])}" if stats else ""
+    await query.edit_message_text(
+        f"📍 {formatter.province_label(province)}\n"
+        f"Harga terakhir: {latest}{band}\n\n"
+        "Kirim harga baru (Rp/kg), contoh: 120000",
+    )
+    return ADMIN_PRICE
+
+
+async def admin_price(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    if not _is_admin(update.effective_user):
+        return ConversationHandler.END
+    raw = re.sub(r"[.,\s]", "", update.message.text.strip())
+    if not raw.isdigit() or int(raw) <= 0:
+        await update.message.reply_text("⚠️ Masukkan angka harga saja, contoh: 120000")
+        return ADMIN_PRICE
+    price = int(raw)
+    province = context.user_data.get("admin_prov", ADMIN_PROVINCES[0])
+
+    conn = store.get_connection()
+    stats = loader.override_price(conn, ADMIN_CROP, province, date.today().isoformat(), price)
+    if stats and price > stats["high"]:
+        direction = "high"
+    elif stats and price < stats["low"]:
+        direction = "low"
+    else:
+        direction = "normal"
+
+    sent = 0
+    if direction != "normal":
+        text = formatter.format_price_alert(ADMIN_CROP, province, price, direction)
+        for u in store.get_all_users(conn):
+            try:
+                await context.bot.send_message(chat_id=u["user_id"], text=text,
+                                               parse_mode="Markdown")
+                sent += 1
+            except Exception as e:
+                logger.error("Failed to alert user %s: %s", u["user_id"], e)
+
+    await update.message.reply_text(
+        formatter.format_admin_summary(ADMIN_CROP, province, price, stats, direction, sent),
+        parse_mode="Markdown",
+    )
+    context.user_data.clear()
+    return ConversationHandler.END
+
+
 # --- Coordinator --------------------------------------------------------------------
 
 async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -489,6 +605,20 @@ def main() -> None:
         fallbacks=[CommandHandler("cancel", cancel)],
     )
     app.add_handler(conv)
+
+    admin_conv = ConversationHandler(
+        entry_points=[CommandHandler("admin", admin_command)],
+        states={
+            ADMIN_PROV: [
+                CallbackQueryHandler(admin_province_button, pattern="^adminprov:"),
+                CallbackQueryHandler(admin_reset_callback, pattern="^adminreset$"),
+            ],
+            ADMIN_PRICE: [MessageHandler(filters.TEXT & ~filters.COMMAND, admin_price)],
+        },
+        fallbacks=[CommandHandler("cancel", cancel)],
+    )
+    app.add_handler(admin_conv)
+
     app.add_handler(CommandHandler("status", status_command))
     app.add_handler(CommandHandler("panen", panen_command))
     app.add_handler(CallbackQueryHandler(region_page_callback, pattern="^regpage:"))
