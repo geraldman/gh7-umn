@@ -5,7 +5,7 @@ price_as_of, price_source) — never by parsing the English `reason` string
 """
 from __future__ import annotations
 
-CROP_LABELS = {"cabai_merah": "Cabai Merah", "bawang_merah": "Bawang Merah"}
+CROP_LABELS = {"cabai_rawit_merah": "Cabai Rawit Merah"}
 REGION_LABELS = {"garut": "Garut", "cianjur": "Cianjur", "brebes": "Brebes"}
 
 _HEADLINES = {
@@ -45,7 +45,17 @@ def format_recommendation_message(crop: str, region: str, days: int, rec: dict) 
         lines.append("📊 " + ", dan ".join(detail) + ".")
 
     if rec["recommendation"] == "sell":
-        lines.append("Jual sekarang sebelum pasokan menumpuk menekan harga.")
+        if cluster and cluster > 1:
+            lines.append(
+                "⚠️ Menunda tidak akan membantu: saat panen serentak tiba, pasokan "
+                "membanjiri pasar dan harga diperkirakan turun lebih dalam. "
+                "Harga hari ini kemungkinan harga terbaik yang masih bisa Anda dapat."
+            )
+        else:
+            lines.append(
+                "Harga diperkirakan terus turun — menjual lebih awal memberi "
+                "harga lebih baik daripada menunda."
+            )
         if rec.get("match_request_id"):
             lines.append("✅ Penawaran Anda sudah diteruskan ke Pembeli Utama.")
     elif rec["recommendation"] == "wait":
@@ -53,20 +63,30 @@ def format_recommendation_message(crop: str, region: str, days: int, rec: dict) 
     else:
         lines.append("Tidak ada tekanan pasar — jual sesuai rencana Anda.")
 
+    price = rec.get("price_latest")
     as_of = rec.get("price_as_of")
+    if price:
+        pct = rec.get("pct_change")
+        arrow = {"rising": "📈", "falling": "📉", "flat": "➖"}.get(trend, "")
+        change = f" ({pct:+.1f}% 7 hari)" if pct is not None else ""
+        lines.append(f"\n💰 *Harga {crop_label(crop)}: Rp{price:,.0f}/kg* {arrow}{change}"
+                     .replace(",", "."))
     if as_of:
-        src = "PIHPS (langsung)" if rec.get("price_source") == "pihps" else "data tersimpan"
-        lines.append(f"\n_Harga per {as_of} ({src})._")
+        src = "PIHPS (langsung)" if rec.get("price_source") == "pihps" else "data BI tersimpan"
+        lines.append(f"_Harga per {as_of} ({src})._")
     return "\n".join(lines)
 
 
 def format_buyer_match_message(match_id: int, farmer_name: str, crop: str,
                                region: str, harvest_date: str,
-                               quantity_kg: float | None) -> str:
+                               quantity_kg: float | None,
+                               phone: str | None = None) -> str:
     qty = f"{quantity_kg:g} kg " if quantity_kg else ""
+    kontak = f"`{phone}`" if phone else "_belum tersedia_"
     return (
         f"📦 *Penawaran Panen Baru* (Match #{match_id})\n\n"
         f"Petani: *{farmer_name}*\n"
+        f"No. HP/WA: {kontak}\n"
         f"Komoditas: *{qty}{crop_label(crop)}*\n"
         f"Wilayah: {region_label(region)}\n"
         f"Perkiraan panen: {harvest_date}\n\n"

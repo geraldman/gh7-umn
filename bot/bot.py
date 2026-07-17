@@ -9,6 +9,7 @@ Run from the repo root:  python -m bot.bot
 from __future__ import annotations
 
 import logging
+import re
 
 from telegram import (
     InlineKeyboardButton,
@@ -39,7 +40,7 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 # Conversation states
-CROP, REGION, DAYS, QTY, CONFIRM = range(5)
+CROP, REGION, DAYS, QTY, PHONE, CONFIRM = range(6)
 
 # Inline keyboards (buttons attached to the message, same style as the role
 # selection) — typed text still works as a fallback in every state.
@@ -51,11 +52,33 @@ def _crop_markup() -> InlineKeyboardMarkup:
     ]])
 
 
-def _region_markup(prefix: str = "region") -> InlineKeyboardMarkup:
-    return InlineKeyboardMarkup([[
-        InlineKeyboardButton(formatter.region_label(r), callback_data=f"{prefix}:{r}")
-        for r in sorted(REGION_TO_PROVINCE)
-    ]])
+# Region "dropdown": a vertical paged list (Telegram has no native dropdown).
+# Scales to any number of REGION_TO_PROVINCE entries.
+REGIONS_PER_ROW = 2
+REGIONS_PER_PAGE = 8
+
+
+def _region_markup(prefix: str = "region", page: int = 0) -> InlineKeyboardMarkup:
+    regions = sorted(REGION_TO_PROVINCE)
+    start = page * REGIONS_PER_PAGE
+    chunk = regions[start : start + REGIONS_PER_PAGE]
+    rows = [
+        [
+            InlineKeyboardButton(formatter.region_label(r), callback_data=f"{prefix}:{r}")
+            for r in chunk[i : i + REGIONS_PER_ROW]
+        ]
+        for i in range(0, len(chunk), REGIONS_PER_ROW)
+    ]
+    nav = []
+    if page > 0:
+        nav.append(InlineKeyboardButton(
+            "⬅️ Sebelumnya", callback_data=f"regpage:{prefix}:{page - 1}"))
+    if start + REGIONS_PER_PAGE < len(regions):
+        nav.append(InlineKeyboardButton(
+            "Berikutnya ➡️", callback_data=f"regpage:{prefix}:{page + 1}"))
+    if nav:
+        rows.append(nav)
+    return InlineKeyboardMarkup(rows)
 
 
 def _confirm_markup() -> InlineKeyboardMarkup:
@@ -197,6 +220,22 @@ async def farmer_qty(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         await update.message.reply_text("⚠️ Mohon masukkan angka saja (misal: 150):")
         return QTY
     context.user_data["qty"] = qty or None
+    await update.message.reply_text(
+        "Nomor HP/WA yang bisa dihubungi pembeli? (misal: 081234567890)"
+    )
+    return PHONE
+
+
+async def farmer_phone(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    # Normalize "0812-3456 7890" / "+62 812..." to digits (optional leading +).
+    phone = re.sub(r"[\s\-.()]", "", update.message.text.strip())
+    if not re.fullmatch(r"\+?\d{9,15}", phone):
+        await update.message.reply_text(
+            "⚠️ Nomor tidak dikenali. Mohon ketik nomor HP/WA saja "
+            "(misal: 081234567890 atau +6281234567890):"
+        )
+        return PHONE
+    context.user_data["phone"] = phone
 
     d = context.user_data
     await update.message.reply_text(
@@ -204,7 +243,8 @@ async def farmer_qty(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
         f"- Komoditas: {formatter.crop_label(d['crop'])}\n"
         f"- Wilayah: {formatter.region_label(d['region'])}\n"
         f"- Panen dalam: {d['days']} hari\n"
-        f"- Perkiraan: {d['qty'] or '-'} kg\n\n"
+        f"- Perkiraan: {d['qty'] or '-'} kg\n"
+        f"- No. HP/WA: {d['phone']}\n\n"
         f"Sudah benar?",
         reply_markup=_confirm_markup(),
         parse_mode="Markdown",
@@ -217,7 +257,7 @@ async def _submit_report(context, user, reply) -> int:
     d = context.user_data
     conn = store.get_connection()
     farmer_id = store.get_or_create_farmer(
-        conn, user.id, user.username or user.first_name, d["region"]
+        conn, user.id, user.username or user.first_name, d["region"], d.get("phone")
     )
 
     # THE contract call — the adapter's only write path into core.
@@ -238,7 +278,7 @@ async def _submit_report(context, user, reply) -> int:
         if buyers:
             text = formatter.format_buyer_match_message(
                 match_id, match["farmer_name"], match["crop"], match["region"],
-                match["harvest_date"], match["quantity_kg"],
+                match["harvest_date"], match["quantity_kg"], match["farmer_phone"],
             )
             markup = InlineKeyboardMarkup([[
                 InlineKeyboardButton("✅ Terima", callback_data=f"buyer_match:accept:{match_id}"),
@@ -297,6 +337,15 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     )
     context.user_data.clear()
     return ConversationHandler.END
+
+
+async def region_page_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    """Flip a region-list page in place. Only the keyboard changes — message
+    text and conversation state stay as they are."""
+    query = update.callback_query
+    await query.answer()
+    _, prefix, page = query.data.split(":")
+    await query.edit_message_reply_markup(_region_markup(prefix, int(page)))
 
 
 # --- Buyer region + harvest browsing --------------------------------------------
@@ -433,6 +482,7 @@ def main() -> None:
                      MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_region)],
             DAYS: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_days)],
             QTY: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_qty)],
+            PHONE: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_phone)],
             CONFIRM: [CallbackQueryHandler(farmer_confirm_button, pattern="^confirm:"),
                       MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_confirm)],
         },
@@ -441,6 +491,7 @@ def main() -> None:
     app.add_handler(conv)
     app.add_handler(CommandHandler("status", status_command))
     app.add_handler(CommandHandler("panen", panen_command))
+    app.add_handler(CallbackQueryHandler(region_page_callback, pattern="^regpage:"))
     app.add_handler(CallbackQueryHandler(buyer_region_callback, pattern="^buyer_region:"))
     app.add_handler(CallbackQueryHandler(browse_region_callback, pattern="^browse:"))
     app.add_handler(CallbackQueryHandler(buyer_decision_callback, pattern="^buyer_match:"))

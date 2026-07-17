@@ -88,21 +88,24 @@ def get_user_region(conn, user_id: int) -> str | None:
 
 # --- Farmer mapping (telegram user -> core farmer row) --------------------------
 
-def get_or_create_farmer(conn, telegram_id: int, name: str | None, region: str) -> int:
+def get_or_create_farmer(
+    conn, telegram_id: int, name: str | None, region: str, phone: str | None = None
+) -> int:
     row = conn.execute(
         "SELECT id FROM farmer WHERE telegram_id = %s", (str(telegram_id),)
     ).fetchone()
     if row:
         conn.execute(
-            "UPDATE farmer SET region = %s, name = COALESCE(%s, name) WHERE id = %s",
-            (region, name, row["id"]),
+            "UPDATE farmer SET region = %s, name = COALESCE(%s, name),"
+            " phone = COALESCE(%s, phone) WHERE id = %s",
+            (region, name, phone, row["id"]),
         )
         conn.commit()
         return row["id"]
     farmer_id = conn.execute(
-        "INSERT INTO farmer (telegram_id, name, region) VALUES (%s, %s, %s)"
-        " RETURNING id",
-        (str(telegram_id), name, region),
+        "INSERT INTO farmer (telegram_id, name, region, phone)"
+        " VALUES (%s, %s, %s, %s) RETURNING id",
+        (str(telegram_id), name, region, phone),
     ).fetchone()["id"]
     conn.commit()
     return farmer_id
@@ -117,7 +120,8 @@ def get_match(conn, match_id: int | str):
     return conn.execute(
         "SELECT mr.id, mr.status, mr.harvest_report_id,"
         "       hr.crop, hr.region, hr.harvest_date, hr.quantity_kg,"
-        "       f.telegram_id AS farmer_telegram_id, f.name AS farmer_name"
+        "       f.telegram_id AS farmer_telegram_id, f.name AS farmer_name,"
+        "       f.phone AS farmer_phone"
         " FROM match_request mr"
         " JOIN harvest_report hr ON hr.id = mr.harvest_report_id"
         " JOIN farmer f ON f.id = hr.farmer_id"

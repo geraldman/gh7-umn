@@ -11,7 +11,7 @@ from dataclasses import dataclass
 
 # --- Canonical vocabulary ---------------------------------------------------
 
-CROPS = {"cabai_merah", "bawang_merah"}
+CROPS = {"cabai_rawit_merah"}
 
 # Keys are the valid *district* (kecamatan/kabupaten) region codes farmers
 # report from; values are the province whose PIHPS price series applies.

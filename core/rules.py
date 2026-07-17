@@ -117,4 +117,6 @@ def get_recommendation(
     result["cluster_size"] = cluster_size
     result["price_source"] = source_name
     result["price_as_of"] = trend_info["latest_date"]
+    result["price_latest"] = trend_info.get("latest_price")
+    result["pct_change"] = trend_info["pct_change"]
     return result

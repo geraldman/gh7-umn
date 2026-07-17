@@ -13,7 +13,7 @@ from core import db
 from core.api import process_harvest_report
 
 result = process_harvest_report(
-    farmer_id=6, crop="cabai_merah", region="garut", days_to_harvest=2, quantity_kg=150
+    farmer_id=6, crop="cabai_rawit_merah", region="garut", days_to_harvest=2, quantity_kg=150
 )
 print(json.dumps(result, indent=2, ensure_ascii=False))
 

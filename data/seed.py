@@ -1,13 +1,19 @@
-"""Seed the three demo scenarios (ARCHITECTURE.md §5). Idempotent — wipes and
-re-inserts. NO LITERAL DATES: everything is relative to date.today() at seed
-time, so re-running an hour before the demo guarantees fresh scenarios.
+"""Seed the demo scenarios (ARCHITECTURE.md §5). Idempotent — wipes and
+re-inserts. NO LITERAL DATES: harvest reports are relative to date.today() at
+seed time, so re-running an hour before the demo guarantees fresh scenarios.
 
     python -m data.seed
 
-Scenarios (each on its own crop|province price series so they can't interfere):
-  oversupply — cabai_merah @ garut (jawa_barat, falling):  4 reports in window → sell + match
-  scarcity   — bawang_merah @ brebes (jawa_tengah, rising): 0 other reports    → wait
-  neutral    — bawang_merah @ cianjur (jawa_barat, flat):   1 other report     → hold
+Prices are REAL Bank Indonesia data (Cabai Rawit Merah), imported from the
+CSVs in uploads/. The current market is flat, so the scenarios are driven by
+the harvest-cluster signal — which is exactly the point of the product:
+
+  oversupply — cabai_rawit_merah @ garut  (4 reports in window): flat market
+               but a local glut is forming → sell + buyer match
+  neutral    — cabai_rawit_merah @ cianjur (1 report):           flat, no glut → hold
+
+The "wait" case (rising price, no glut) needs a rising series; no real series
+is rising this week, so it's covered by the unit tests, not the live seed.
 """
 from __future__ import annotations
 
@@ -17,19 +23,9 @@ from pathlib import Path
 from core import db
 from core.rules import get_recommendation
 from data import loader, sources
+from scripts.import_bi_csv import import_dir
 
-FALLING = [50000, 49000, 48000, 47000, 44000, 43000, 42000]  # ≈ -11% → falling
-RISING = [42000, 43000, 44000, 47000, 48000, 49000, 50000]  # ≈ +11% → rising
-FLAT = [45000, 45200, 44800, 45000, 45100, 44900, 45000]  # ≈  0% → flat
-
-
-def _series(prices: list[int], today: date) -> list[dict]:
-    """7 data days ending yesterday."""
-    start = today - timedelta(days=len(prices))
-    return [
-        {"date": (start + timedelta(days=i)).isoformat(), "price_idr_per_kg": p}
-        for i, p in enumerate(prices)
-    ]
+UPLOADS_DIR = Path(__file__).resolve().parent.parent / "uploads"
 
 
 def seed(
@@ -61,13 +57,12 @@ def seed(
     d = lambda offset: (today + timedelta(days=offset)).isoformat()
     reports = [
         # oversupply cluster: 4 reports within ±2 days of today+2
-        (1, "cabai_merah", "garut", d(1), 120),
-        (2, "cabai_merah", "garut", d(2), 150),
-        (3, "cabai_merah", "garut", d(2), 100),
-        (4, "cabai_merah", "garut", d(3), 200),
+        (1, "cabai_rawit_merah", "garut", d(1), 120),
+        (2, "cabai_rawit_merah", "garut", d(2), 150),
+        (3, "cabai_rawit_merah", "garut", d(2), 100),
+        (4, "cabai_rawit_merah", "garut", d(3), 200),
         # neutral: exactly one existing report (new one makes 2 < 3, not crowded)
-        (5, "bawang_merah", "cianjur", d(2), 80),
-        # scarcity (brebes): deliberately no reports
+        (5, "cabai_rawit_merah", "cianjur", d(2), 80),
     ]
     for r in reports:
         conn.execute(
@@ -77,15 +72,13 @@ def seed(
         )
     conn.commit()
 
-    # --- Price series → cache JSON + snapshot table ---------------------------
-    # Start from the existing cache so imported real series (scripts/
-    # import_bi_csv.py) survive a reseed; the three scenario keys below are
-    # merged on top and stay authoritative for their date range.
+    # --- Price series: real Bank Indonesia data -------------------------------
+    # Import the scraped BI CSVs (idempotent, local files — no network) so the
+    # demo reads real cabai_rawit_merah prices, then mirror into the snapshot
+    # table. If uploads/ is absent, fall back to whatever's already cached.
+    if UPLOADS_DIR.exists():
+        import_dir(UPLOADS_DIR, cache_path)
     cache = loader.load_cache(cache_path)
-    loader.merge_rows(cache, "cabai_merah", "jawa_barat", _series(FALLING, today))
-    loader.merge_rows(cache, "bawang_merah", "jawa_tengah", _series(RISING, today))
-    loader.merge_rows(cache, "bawang_merah", "jawa_barat", _series(FLAT, today))
-    loader.save_cache(cache, cache_path)
     loader.sync_snapshots_table(conn, cache)
     return conn
 
@@ -95,9 +88,8 @@ def verify(conn, cache_path=None, today: date | None = None) -> list[tuple]:
     chain = sources.ChainedSource([sources.CachedSource(cache_path)])
     kw = dict(conn=conn, chain=chain, today=today)
     return [
-        ("oversupply", "sell", get_recommendation("cabai_merah", "garut", 2, **kw)),
-        ("scarcity", "wait", get_recommendation("bawang_merah", "brebes", 2, **kw)),
-        ("neutral", "hold", get_recommendation("bawang_merah", "cianjur", 2, **kw)),
+        ("oversupply", "sell", get_recommendation("cabai_rawit_merah", "garut", 2, **kw)),
+        ("neutral", "hold", get_recommendation("cabai_rawit_merah", "cianjur", 2, **kw)),
     ]
 
 

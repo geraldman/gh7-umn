@@ -31,8 +31,12 @@ CREATE TABLE IF NOT EXISTS farmer (
     id          INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
     telegram_id TEXT UNIQUE,
     name        TEXT,
-    region      TEXT NOT NULL
+    region      TEXT NOT NULL,
+    phone       TEXT
 );
+
+-- Idempotent migration for databases created before the phone column existed.
+ALTER TABLE farmer ADD COLUMN IF NOT EXISTS phone TEXT;
 
 CREATE TABLE IF NOT EXISTS harvest_report (
     id           INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,

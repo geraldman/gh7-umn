@@ -8,7 +8,7 @@ from core.api import process_harvest_report
 from tests.conftest import FALLING, FLAT, RISING, TODAY, FakeChain, insert_report, make_series
 
 
-def _call(conn, chain, farmer_id=1, crop="cabai_merah", region="garut", days=2, qty=100):
+def _call(conn, chain, farmer_id=1, crop="cabai_rawit_merah", region="garut", days=2, qty=100):
     return process_harvest_report(
         farmer_id, crop, region, days, qty, conn=conn, chain=chain, today=TODAY
     )
@@ -30,7 +30,7 @@ def _report_count(conn):
 def test_oversupply_scenario_sells_and_creates_match(conn):
     hd = TODAY + timedelta(days=2)
     for fid, offset in ((2, -1), (3, 0), (4, 0), (5, 1)):  # 4 neighbors in window
-        insert_report(conn, fid, "cabai_merah", "garut", hd + timedelta(days=offset))
+        insert_report(conn, fid, "cabai_rawit_merah", "garut", hd + timedelta(days=offset))
     result = _call(conn, FakeChain(make_series(FALLING)), farmer_id=1)
     assert result["recommendation"] == "sell"
     assert result["match_request_id"] is not None
@@ -46,7 +46,7 @@ def test_scarcity_scenario_waits(conn):
 
 def test_neutral_scenario_holds(conn):
     hd = TODAY + timedelta(days=2)
-    insert_report(conn, 2, "cabai_merah", "garut", hd)  # one neighbor → 2 total
+    insert_report(conn, 2, "cabai_rawit_merah", "garut", hd)  # one neighbor → 2 total
     result = _call(conn, FakeChain(make_series(FLAT)))
     assert result["recommendation"] == "hold"
     assert _match_count(conn) == 0
@@ -82,7 +82,7 @@ def test_duplicate_report_upserts_not_inserts(conn):
 def test_sell_twice_creates_only_one_pending_match(conn):
     hd = TODAY + timedelta(days=2)
     for fid, offset in ((2, -1), (3, 0), (4, 1)):
-        insert_report(conn, fid, "cabai_merah", "garut", hd + timedelta(days=offset))
+        insert_report(conn, fid, "cabai_rawit_merah", "garut", hd + timedelta(days=offset))
     chain = FakeChain(make_series(FALLING))
     first = _call(conn, chain)
     second = _call(conn, chain)  # farmer retries
@@ -97,8 +97,8 @@ def test_sell_twice_creates_only_one_pending_match(conn):
 def test_new_report_completes_the_cluster(conn):
     """Two existing + the new one = 3 = crowded → flat trend flips to sell."""
     hd = TODAY + timedelta(days=2)
-    insert_report(conn, 2, "cabai_merah", "garut", hd)
-    insert_report(conn, 3, "cabai_merah", "garut", hd)
+    insert_report(conn, 2, "cabai_rawit_merah", "garut", hd)
+    insert_report(conn, 3, "cabai_rawit_merah", "garut", hd)
     result = _call(conn, FakeChain(make_series(FLAT)))
     assert result["cluster_size"] == 3
     assert result["recommendation"] == "sell"

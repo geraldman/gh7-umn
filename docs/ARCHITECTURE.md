@@ -85,7 +85,7 @@ also lives here and nowhere else.
 The canonical vocabulary lives in **one place** — `core/models.py` (Developer A):
 
 ```python
-CROPS = {"cabai_merah", "bawang_merah"}
+CROPS = {"cabai_rawit_merah"}  # real Bank Indonesia commodity (see data/seed.py)
 REGION_TO_PROVINCE = {"garut": "jawa_barat"}   # its keys ARE the valid regions
 ```
 

@@ -12,16 +12,14 @@ from __future__ import annotations
 from core.models import CROPS, REGION_TO_PROVINCE
 
 CROP_ALIASES = {
-    "cabai": "cabai_merah",
-    "cabe": "cabai_merah",
-    "cabai merah": "cabai_merah",
-    "cabe merah": "cabai_merah",
-    "lombok": "cabai_merah",
-    "chili": "cabai_merah",
-    "bawang": "bawang_merah",
-    "bawang merah": "bawang_merah",
-    "brambang": "bawang_merah",
-    "shallot": "bawang_merah",
+    "cabai": "cabai_rawit_merah",
+    "cabe": "cabai_rawit_merah",
+    "cabai rawit": "cabai_rawit_merah",
+    "cabe rawit": "cabai_rawit_merah",
+    "rawit": "cabai_rawit_merah",
+    "cabai merah": "cabai_rawit_merah",
+    "lombok": "cabai_rawit_merah",
+    "chili": "cabai_rawit_merah",
 }
 
 

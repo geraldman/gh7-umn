@@ -38,6 +38,7 @@ def get_trend(prices: list[PriceSnapshot]) -> dict:
             "trend": "flat",
             "pct_change": None,
             "latest_date": days[-1] if days else None,
+            "latest_price": round(mean(by_date[days[-1]])) if days else None,
             "note": "insufficient price data — defaulting to flat",
         }
 
@@ -56,5 +57,6 @@ def get_trend(prices: list[PriceSnapshot]) -> dict:
         "trend": trend,
         "pct_change": round(pct, 1),
         "latest_date": days[-1],
+        "latest_price": round(daily[-1]),
         "note": None,
     }
