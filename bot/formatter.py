@@ -127,6 +127,20 @@ def format_region_reports(region: str, reports) -> str:
 _STATUS_ID = {"pending": "⏳ menunggu", "confirmed": "✅ diterima", "declined": "❌ ditolak"}
 
 
+def format_help() -> str:
+    """User-facing command list. /admin is intentionally omitted."""
+    return (
+        "🌾 *Panen Pas — Daftar Perintah*\n\n"
+        "/start — Mulai & pilih peran (Petani / Pembeli / Koordinator)\n"
+        "/panen — _(Pembeli)_ Lihat laporan panen per wilayah\n"
+        "/status — _(Koordinator)_ Lihat semua pencocokan\n"
+        "/cancel — Batalkan proses yang sedang berjalan\n"
+        "/help — Tampilkan pesan ini\n\n"
+        "👨‍🌾 *Petani:* ketik /start lalu ikuti langkahnya untuk melaporkan panen "
+        "dan menerima rekomendasi jual."
+    )
+
+
 def format_price_alert(crop: str, province: str, price: int, direction: str) -> str:
     """Broadcast sent to all users when an admin sets a price beyond ±2σ."""
     if direction == "high":

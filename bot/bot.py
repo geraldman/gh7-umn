@@ -569,6 +569,10 @@ async def status_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
+async def help_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    await update.message.reply_text(formatter.format_help(), parse_mode="Markdown")
+
+
 async def error_handler(update, context: ContextTypes.DEFAULT_TYPE):
     logger.error("Update caused error: %s", context.error, exc_info=context.error)
     if isinstance(update, Update) and update.effective_message:
@@ -621,6 +625,7 @@ def main() -> None:
 
     app.add_handler(CommandHandler("status", status_command))
     app.add_handler(CommandHandler("panen", panen_command))
+    app.add_handler(CommandHandler("help", help_command))
     app.add_handler(CallbackQueryHandler(region_page_callback, pattern="^regpage:"))
     app.add_handler(CallbackQueryHandler(buyer_region_callback, pattern="^buyer_region:"))
     app.add_handler(CallbackQueryHandler(browse_region_callback, pattern="^browse:"))
