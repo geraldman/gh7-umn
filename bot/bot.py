@@ -51,9 +51,9 @@ def _crop_markup() -> InlineKeyboardMarkup:
     ]])
 
 
-def _region_markup() -> InlineKeyboardMarkup:
+def _region_markup(prefix: str = "region") -> InlineKeyboardMarkup:
     return InlineKeyboardMarkup([[
-        InlineKeyboardButton(formatter.region_label(r), callback_data=f"region:{r}")
+        InlineKeyboardButton(formatter.region_label(r), callback_data=f"{prefix}:{r}")
         for r in sorted(REGION_TO_PROVINCE)
     ]])
 
@@ -101,8 +101,10 @@ async def set_role_callback(update: Update, context: ContextTypes.DEFAULT_TYPE) 
     if role == "Buyer":
         await query.edit_message_text(
             "🏪 *Peran: Pembeli Utama*\n\nAnda akan menerima notifikasi otomatis "
-            "saat ada penawaran panen baru, dan bisa langsung menerima atau menolaknya.",
+            "saat ada penawaran panen baru, dan bisa langsung menerima atau menolaknya.\n\n"
+            "Di wilayah mana Anda beroperasi?",
             parse_mode="Markdown",
+            reply_markup=_region_markup("buyer_region"),
         )
     else:
         await query.edit_message_text(
@@ -297,6 +299,51 @@ async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
     return ConversationHandler.END
 
 
+# --- Buyer region + harvest browsing --------------------------------------------
+
+async def buyer_region_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    region = query.data.split(":", 1)[1]
+    conn = store.get_connection()
+    store.set_user_region(conn, query.from_user.id, region)
+    await query.edit_message_text(
+        f"🏪 *Pembeli Utama — wilayah {formatter.region_label(region)}.*\n\n"
+        "Gunakan /panen untuk melihat laporan panen per wilayah. "
+        "Ubah wilayah kapan saja lewat /start.",
+        parse_mode="Markdown",
+    )
+
+
+async def panen_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    conn = store.get_connection()
+    if store.get_user_role(conn, update.effective_user.id) != "Buyer":
+        await update.message.reply_text(
+            "❌ Perintah ini hanya untuk *Pembeli Utama*. Ketik /start untuk memilih peran.",
+            parse_mode="Markdown",
+        )
+        return
+    await update.message.reply_text(
+        "📦 Pilih wilayah untuk melihat laporan panen:",
+        reply_markup=_region_markup("browse"),
+    )
+
+
+async def browse_region_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
+    query = update.callback_query
+    await query.answer()
+    region = query.data.split(":", 1)[1]
+    conn = store.get_connection()
+    reports = store.get_reports_by_region(conn, region)
+    # Edit in place and keep the region buttons — tapping another region
+    # swaps the list, dropdown-style.
+    await query.edit_message_text(
+        formatter.format_region_reports(region, reports),
+        parse_mode="Markdown",
+        reply_markup=_region_markup("browse"),
+    )
+
+
 # --- Buyer decision ----------------------------------------------------------------
 
 async def buyer_decision_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
@@ -393,6 +440,9 @@ def main() -> None:
     )
     app.add_handler(conv)
     app.add_handler(CommandHandler("status", status_command))
+    app.add_handler(CommandHandler("panen", panen_command))
+    app.add_handler(CallbackQueryHandler(buyer_region_callback, pattern="^buyer_region:"))
+    app.add_handler(CallbackQueryHandler(browse_region_callback, pattern="^browse:"))
     app.add_handler(CallbackQueryHandler(buyer_decision_callback, pattern="^buyer_match:"))
     app.add_handler(CommandHandler("start", start))
     app.add_error_handler(error_handler)

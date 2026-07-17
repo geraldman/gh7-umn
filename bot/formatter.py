@@ -74,6 +74,26 @@ def format_buyer_match_message(match_id: int, farmer_name: str, crop: str,
     )
 
 
+def format_region_reports(region: str, reports) -> str:
+    """Buyer view: harvest reports in one region, grouped per crop."""
+    if not reports:
+        return (f"📭 Belum ada laporan panen di *{region_label(region)}*.\n\n"
+                f"_Pilih wilayah lain di bawah._")
+    by_crop: dict[str, list] = {}
+    for r in reports:
+        by_crop.setdefault(r["crop"], []).append(r)
+    lines = [f"📦 *Laporan Panen — {region_label(region)}:*"]
+    for crop, rows in by_crop.items():
+        total = sum(r["quantity_kg"] or 0 for r in rows)
+        total_txt = f", total ±{total:g} kg" if total else ""
+        lines.append(f"\n🌱 *{crop_label(crop)}* ({len(rows)} laporan{total_txt})")
+        for r in rows:
+            qty = f"{r['quantity_kg']:g} kg, " if r["quantity_kg"] else ""
+            lines.append(f"  • {qty}panen {r['harvest_date']} — {r['farmer_name']}")
+    lines.append("\n_Pilih wilayah lain di bawah untuk melihat daftarnya._")
+    return "\n".join(lines)
+
+
 _STATUS_ID = {"pending": "⏳ menunggu", "confirmed": "✅ diterima", "declined": "❌ ditolak"}
 
 

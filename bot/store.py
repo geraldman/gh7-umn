@@ -41,6 +41,8 @@ def get_connection() -> psycopg.Connection:
             _conn = None
     _conn = db.get_connection()
     _conn.execute(_ROLE_SCHEMA)
+    # Buyer's operating region (nullable; older deployments predate the column).
+    _conn.execute("ALTER TABLE bot_role ADD COLUMN IF NOT EXISTS region TEXT")
     _conn.commit()
     return _conn
 
@@ -68,6 +70,20 @@ def get_users_by_role(conn, role: str) -> list[dict]:
     return conn.execute(
         "SELECT user_id, username FROM bot_role WHERE role = %s", (role,)
     ).fetchall()
+
+
+def set_user_region(conn, user_id: int, region: str) -> None:
+    conn.execute(
+        "UPDATE bot_role SET region = %s WHERE user_id = %s", (region, user_id)
+    )
+    conn.commit()
+
+
+def get_user_region(conn, user_id: int) -> str | None:
+    row = conn.execute(
+        "SELECT region FROM bot_role WHERE user_id = %s", (user_id,)
+    ).fetchone()
+    return row["region"] if row else None
 
 
 # --- Farmer mapping (telegram user -> core farmer row) --------------------------
@@ -117,6 +133,17 @@ def update_match_status(conn, match_id: int | str, status: str) -> None:
         (status, int(match_id)),
     )
     conn.commit()
+
+
+def get_reports_by_region(conn, region: str) -> list[dict]:
+    return conn.execute(
+        "SELECT hr.crop, hr.harvest_date, hr.quantity_kg, f.name AS farmer_name"
+        " FROM harvest_report hr"
+        " JOIN farmer f ON f.id = hr.farmer_id"
+        " WHERE hr.region = %s"
+        " ORDER BY hr.crop, hr.harvest_date",
+        (region,),
+    ).fetchall()
 
 
 def get_all_matches(conn) -> list[dict]:
