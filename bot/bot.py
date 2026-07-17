@@ -31,7 +31,8 @@ from telegram.ext import (
 
 from bot import config, formatter, store
 from bot.nlu_extract import normalize_crop, normalize_region
-from core.api import process_harvest_report
+from core import matching
+from core.api import find_existing_report, process_harvest_report
 from core.models import CROPS, REGION_TO_PROVINCE
 from data import loader
 
@@ -43,8 +44,9 @@ logging.getLogger("httpx").setLevel(logging.WARNING)
 logger = logging.getLogger(__name__)
 
 # Conversation states
-CROP, REGION, DAYS, QTY, PHONE, CONFIRM = range(6)
+CROP, REGION, DAYS, QTY, PHONE, CONFIRM, MERGE = range(7)
 ADMIN_PROV, ADMIN_PRICE = range(10, 12)  # separate /admin conversation
+BUY_QTY, BUY_CONFIRM = range(20, 22)      # separate buyer purchase conversation
 
 # /admin operates on the sole crop and the provinces that have price history.
 ADMIN_CROP = next(iter(CROPS))
@@ -261,17 +263,53 @@ async def farmer_phone(update: Update, context: ContextTypes.DEFAULT_TYPE) -> in
     return CONFIRM
 
 
-async def _submit_report(context, user, reply) -> int:
-    """Shared by the ✅ Ya button and typed 'ya' — the actual submission."""
+async def _submit_or_ask_merge(context, user, reply) -> int:
+    """Resolve the farmer; if they already reported this same harvest today,
+    ask add-vs-override before writing. Otherwise submit straight away."""
     d = context.user_data
     conn = store.get_connection()
-    farmer_id = store.get_or_create_farmer(
+    d["farmer_id"] = store.get_or_create_farmer(
         conn, user.id, user.username or user.first_name, d["region"], d.get("phone")
     )
+    existing = find_existing_report(conn, d["farmer_id"], d["crop"], d["region"], d["days"])
+    if existing and existing["quantity_kg"] and d.get("qty"):
+        d["existing_qty"] = existing["quantity_kg"]
+        total = existing["quantity_kg"] + d["qty"]
+        await reply(
+            f"⚠️ Anda sudah melaporkan *{existing['quantity_kg']:g} kg* untuk panen ini hari ini.\n\n"
+            f"Jumlah baru *{d['qty']:g} kg* — ditambahkan atau menggantikan?",
+            reply_markup=InlineKeyboardMarkup([[
+                InlineKeyboardButton(f"➕ Tambah (jadi {total:g} kg)", callback_data="merge:add"),
+                InlineKeyboardButton("🔄 Ganti", callback_data="merge:replace"),
+            ]]),
+            parse_mode="Markdown",
+        )
+        return MERGE
+    return await _finalize_submit(context, user, reply, d.get("qty"))
+
+
+async def merge_choice_button(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    d = context.user_data
+    if query.data.split(":", 1)[1] == "add":
+        final = (d.get("existing_qty") or 0) + (d.get("qty") or 0)
+        label = f"➕ Ditambahkan — total {final:g} kg."
+    else:
+        final = d.get("qty")
+        label = f"🔄 Diganti — {final:g} kg."
+    await query.edit_message_text(query.message.text + f"\n\n{label}")
+    return await _finalize_submit(context, query.from_user, query.message.reply_text, final)
+
+
+async def _finalize_submit(context, user, reply, quantity) -> int:
+    """Write the report (the single core write path) + notify buyers on sell."""
+    d = context.user_data
+    conn = store.get_connection()
 
     # THE contract call — the adapter's only write path into core.
     result = process_harvest_report(
-        farmer_id, d["crop"], d["region"], d["days"], d["qty"], conn=conn
+        d["farmer_id"], d["crop"], d["region"], d["days"], quantity, conn=conn
     )
 
     await reply(
@@ -322,7 +360,7 @@ async def farmer_confirm_button(update: Update, context: ContextTypes.DEFAULT_TY
         )
         return CROP
     await query.edit_message_text(query.message.text + "\n\n✅ Dikonfirmasi.")
-    return await _submit_report(context, query.from_user, query.message.reply_text)
+    return await _submit_or_ask_merge(context, query.from_user, query.message.reply_text)
 
 
 async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -336,7 +374,7 @@ async def farmer_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> 
         await update.message.reply_text("Mohon jawab dengan tombol *Ya* atau *Tidak*.",
                                         parse_mode="Markdown")
         return CONFIRM
-    return await _submit_report(context, update.effective_user, update.message.reply_text)
+    return await _submit_or_ask_merge(context, update.effective_user, update.message.reply_text)
 
 
 async def cancel(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
@@ -365,11 +403,14 @@ async def buyer_region_callback(update: Update, context: ContextTypes.DEFAULT_TY
     region = query.data.split(":", 1)[1]
     conn = store.get_connection()
     store.set_user_region(conn, query.from_user.id, region)
+    # Drop the buyer straight into the browse interface for their region —
+    # no need to type /panen. (/panen still re-opens it later.)
+    reports = store.get_reports_by_region(conn, region)
     await query.edit_message_text(
-        f"🏪 *Pembeli Utama — wilayah {formatter.region_label(region)}.*\n\n"
-        "Gunakan /panen untuk melihat laporan panen per wilayah. "
-        "Ubah wilayah kapan saja lewat /start.",
+        "🏪 *Pembeli Utama.* Ubah wilayah lewat /start; /panen untuk membuka lagi.\n\n"
+        + formatter.format_region_reports(region, reports),
         parse_mode="Markdown",
+        reply_markup=_browse_markup(region),
     )
 
 
@@ -387,6 +428,14 @@ async def panen_command(update: Update, context: ContextTypes.DEFAULT_TYPE):
     )
 
 
+def _browse_markup(region: str) -> InlineKeyboardMarkup:
+    """Region dropdown + a Beli button for the region currently shown."""
+    rows = list(_region_markup("browse").inline_keyboard)
+    rows.append([InlineKeyboardButton(
+        f"🛒 Beli di {formatter.region_label(region)}", callback_data=f"buy:{region}")])
+    return InlineKeyboardMarkup(rows)
+
+
 async def browse_region_callback(update: Update, context: ContextTypes.DEFAULT_TYPE):
     query = update.callback_query
     await query.answer()
@@ -394,12 +443,109 @@ async def browse_region_callback(update: Update, context: ContextTypes.DEFAULT_T
     conn = store.get_connection()
     reports = store.get_reports_by_region(conn, region)
     # Edit in place and keep the region buttons — tapping another region
-    # swaps the list, dropdown-style.
+    # swaps the list, dropdown-style; the Beli button targets this region.
     await query.edit_message_text(
         formatter.format_region_reports(region, reports),
         parse_mode="Markdown",
-        reply_markup=_region_markup("browse"),
+        reply_markup=_browse_markup(region),
     )
+
+
+# --- Buyer purchase (EDF fill across farmers) ---------------------------------
+
+async def buy_start(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    region = query.data.split(":", 1)[1]
+    conn = store.get_connection()
+    if store.get_user_role(conn, query.from_user.id) != "Buyer":
+        await query.message.reply_text("❌ Hanya Pembeli Utama yang dapat membeli.")
+        return ConversationHandler.END
+    available = store.get_available_reports(conn, region)
+    total = sum(r["remaining_kg"] for r in available)
+    if total <= 0:
+        await query.message.reply_text(
+            f"📭 Tidak ada stok tersedia di {formatter.region_label(region)}.")
+        return ConversationHandler.END
+    context.user_data["buy_region"] = region
+    await query.message.reply_text(
+        f"🛒 Total tersedia di {formatter.region_label(region)}: *{total:g} kg*.\n"
+        "Berapa kg yang ingin Anda beli? (angka saja, contoh: 200)",
+        parse_mode="Markdown",
+    )
+    return BUY_QTY
+
+
+async def buy_qty(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    try:
+        target = float(update.message.text.strip().replace(",", "."))
+        if target <= 0:
+            raise ValueError
+    except ValueError:
+        await update.message.reply_text("⚠️ Masukkan jumlah kg (angka), contoh: 200")
+        return BUY_QTY
+    region = context.user_data["buy_region"]
+    conn = store.get_connection()
+    available = [dict(r) for r in store.get_available_reports(conn, region)]
+    allocations, shortfall = matching.plan_fill(available, target)
+    if not allocations:
+        await update.message.reply_text("📭 Tidak ada stok tersedia lagi.")
+        return ConversationHandler.END
+    # Keep only what confirm needs (ids + display fields), not the live rows.
+    context.user_data["buy_alloc"] = [
+        {"id": a["report"]["id"], "take_kg": a["take_kg"],
+         "crop": a["report"]["crop"],
+         "farmer_name": a["report"]["farmer_name"],
+         "farmer_phone": a["report"]["farmer_phone"],
+         "farmer_telegram_id": a["report"]["farmer_telegram_id"]}
+        for a in allocations
+    ]
+    await update.message.reply_text(
+        formatter.format_fill_plan(region, target, allocations, shortfall),
+        reply_markup=InlineKeyboardMarkup([[
+            InlineKeyboardButton("✅ Konfirmasi beli", callback_data="buyconfirm:ya"),
+            InlineKeyboardButton("❌ Batal", callback_data="buyconfirm:tidak"),
+        ]]),
+        parse_mode="Markdown",
+    )
+    return BUY_CONFIRM
+
+
+async def buy_confirm(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int:
+    query = update.callback_query
+    await query.answer()
+    if query.data.split(":", 1)[1] == "tidak":
+        await query.edit_message_text("Pembelian dibatalkan.")
+        context.user_data.clear()
+        return ConversationHandler.END
+    conn = store.get_connection()
+    rows = store.record_purchase(conn, context.user_data.get("buy_alloc", []))
+
+    # Close the loop: tell each seller how much sold, what's left, at what price.
+    province = REGION_TO_PROVINCE.get(context.user_data.get("buy_region"))
+    cache = loader.load_cache()
+    for r in rows:
+        tid = r.get("farmer_telegram_id")
+        if not tid:
+            continue
+        price_rows = cache.get(loader.cache_key(r["crop"], province), []) if province else []
+        price = price_rows[-1]["price_idr_per_kg"] if price_rows else None
+        try:
+            await context.bot.send_message(
+                chat_id=int(tid),
+                text=formatter.format_seller_sold_notification(
+                    r["crop"], r["take_kg"], r["remaining_kg"], price),
+                parse_mode="Markdown",
+            )
+        except Exception as e:
+            logger.error("Failed to notify seller %s: %s", tid, e)
+
+    await query.edit_message_text(
+        query.message.text + "\n\n" + formatter.format_purchase_result(rows),
+        parse_mode="Markdown",
+    )
+    context.user_data.clear()
+    return ConversationHandler.END
 
 
 # --- Buyer decision ----------------------------------------------------------------
@@ -533,16 +679,16 @@ async def admin_price(update: Update, context: ContextTypes.DEFAULT_TYPE) -> int
     else:
         direction = "normal"
 
+    # Broadcast on every outcome now — spike, crash, or a stable note.
+    text = formatter.format_price_alert(ADMIN_CROP, province, price, direction)
     sent = 0
-    if direction != "normal":
-        text = formatter.format_price_alert(ADMIN_CROP, province, price, direction)
-        for u in store.get_all_users(conn):
-            try:
-                await context.bot.send_message(chat_id=u["user_id"], text=text,
-                                               parse_mode="Markdown")
-                sent += 1
-            except Exception as e:
-                logger.error("Failed to alert user %s: %s", u["user_id"], e)
+    for u in store.get_all_users(conn):
+        try:
+            await context.bot.send_message(chat_id=u["user_id"], text=text,
+                                           parse_mode="Markdown")
+            sent += 1
+        except Exception as e:
+            logger.error("Failed to alert user %s: %s", u["user_id"], e)
 
     await update.message.reply_text(
         formatter.format_admin_summary(ADMIN_CROP, province, price, stats, direction, sent),
@@ -605,6 +751,7 @@ def main() -> None:
             PHONE: [MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_phone)],
             CONFIRM: [CallbackQueryHandler(farmer_confirm_button, pattern="^confirm:"),
                       MessageHandler(filters.TEXT & ~filters.COMMAND, farmer_confirm)],
+            MERGE: [CallbackQueryHandler(merge_choice_button, pattern="^merge:")],
         },
         fallbacks=[CommandHandler("cancel", cancel)],
     )
@@ -622,6 +769,16 @@ def main() -> None:
         fallbacks=[CommandHandler("cancel", cancel)],
     )
     app.add_handler(admin_conv)
+
+    buy_conv = ConversationHandler(
+        entry_points=[CallbackQueryHandler(buy_start, pattern="^buy:")],
+        states={
+            BUY_QTY: [MessageHandler(filters.TEXT & ~filters.COMMAND, buy_qty)],
+            BUY_CONFIRM: [CallbackQueryHandler(buy_confirm, pattern="^buyconfirm:")],
+        },
+        fallbacks=[CommandHandler("cancel", cancel)],
+    )
+    app.add_handler(buy_conv)
 
     app.add_handler(CommandHandler("status", status_command))
     app.add_handler(CommandHandler("panen", panen_command))

@@ -146,13 +146,48 @@ def update_match_status(conn, match_id: int | str, status: str) -> None:
 
 def get_reports_by_region(conn, region: str) -> list[dict]:
     return conn.execute(
-        "SELECT hr.crop, hr.harvest_date, hr.quantity_kg, f.name AS farmer_name"
+        "SELECT hr.crop, hr.harvest_date, hr.quantity_kg, hr.sold_kg,"
+        "       f.name AS farmer_name"
         " FROM harvest_report hr"
         " JOIN farmer f ON f.id = hr.farmer_id"
         " WHERE hr.region = %s"
         " ORDER BY hr.crop, hr.harvest_date",
         (region,),
     ).fetchall()
+
+
+def get_available_reports(conn, region: str) -> list[dict]:
+    """Reports in a region with stock left to sell, earliest-harvest first
+    (the order plan_fill wants). Skips unknown-quantity reports."""
+    return conn.execute(
+        "SELECT hr.id, hr.crop, hr.harvest_date, hr.quantity_kg, hr.sold_kg,"
+        "       (hr.quantity_kg - hr.sold_kg) AS remaining_kg,"
+        "       f.name AS farmer_name, f.phone AS farmer_phone,"
+        "       f.telegram_id AS farmer_telegram_id"
+        " FROM harvest_report hr"
+        " JOIN farmer f ON f.id = hr.farmer_id"
+        " WHERE hr.region = %s AND hr.quantity_kg IS NOT NULL"
+        "   AND (hr.quantity_kg - hr.sold_kg) > 0"
+        " ORDER BY hr.harvest_date, hr.id",
+        (region,),
+    ).fetchall()
+
+
+def record_purchase(conn, allocations: list[dict]) -> list[dict]:
+    """Apply an EDF fill: add each take_kg to the report's sold_kg. Returns
+    the same rows enriched with the post-sale remaining_kg. `allocations`:
+    list of {"id", "take_kg", ...passthrough}."""
+    out = []
+    for a in allocations:
+        row = conn.execute(
+            "UPDATE harvest_report SET sold_kg = sold_kg + %s WHERE id = %s"
+            " RETURNING quantity_kg, sold_kg",
+            (a["take_kg"], a["id"]),
+        ).fetchone()
+        remaining = (row["quantity_kg"] or 0) - (row["sold_kg"] or 0)
+        out.append({**a, "remaining_kg": remaining})
+    conn.commit()
+    return out
 
 
 def get_all_matches(conn) -> list[dict]:

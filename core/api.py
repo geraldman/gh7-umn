@@ -18,6 +18,28 @@ from core.models import CROPS, REGION_TO_PROVINCE
 from core.rules import get_recommendation
 
 
+def find_existing_report(
+    conn: psycopg.Connection,
+    farmer_id: int,
+    crop: str,
+    region: str,
+    days_to_harvest: int,
+    today: date | None = None,
+):
+    """The report the duplicate-guard would update: same farmer+crop+region
+    within the cluster window. Returns {id, quantity_kg} or None. Lets the
+    adapter ask 'add or replace?' before overwriting an existing quantity."""
+    today = today or date.today()
+    lo = (today + timedelta(days=days_to_harvest - WINDOW_DAYS)).isoformat()
+    hi = (today + timedelta(days=days_to_harvest + WINDOW_DAYS)).isoformat()
+    return conn.execute(
+        "SELECT id, quantity_kg FROM harvest_report"
+        " WHERE farmer_id = %s AND crop = %s AND region = %s"
+        " AND harvest_date BETWEEN %s AND %s",
+        (farmer_id, crop, region, lo, hi),
+    ).fetchone()
+
+
 def process_harvest_report(
     farmer_id: int,
     crop: str,

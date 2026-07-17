@@ -45,8 +45,12 @@ CREATE TABLE IF NOT EXISTS harvest_report (
     region       TEXT NOT NULL,
     harvest_date TEXT NOT NULL,
     quantity_kg  DOUBLE PRECISION,
+    sold_kg      DOUBLE PRECISION NOT NULL DEFAULT 0,
     created_at   TIMESTAMPTZ NOT NULL DEFAULT now()
 );
+
+-- Idempotent migration for databases created before sold_kg existed.
+ALTER TABLE harvest_report ADD COLUMN IF NOT EXISTS sold_kg DOUBLE PRECISION NOT NULL DEFAULT 0;
 
 CREATE TABLE IF NOT EXISTS price_snapshot (
     id               INTEGER GENERATED ALWAYS AS IDENTITY PRIMARY KEY,
